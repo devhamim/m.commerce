@@ -8,6 +8,7 @@ use App\Models\Inventory;
 use App\Models\size;
 use Illuminate\Http\Request;
 use Str;
+use Image;
 
 class InventoryController extends Controller
 {
@@ -60,7 +61,7 @@ class InventoryController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
-        $validatedData['slug'] = Str::random(5) . rand(100000, 999999);
+        $validatedData['slug'] = Str::lower(str_replace(' ','-',$request->name )) ;
 
         $mainInventory = Inventory::create([
             'title' => $validatedData['title'],
@@ -82,9 +83,8 @@ class InventoryController extends Controller
             $image = $validatedData['image'][$key];
             $extension = $image->getClientOriginalExtension();
             $fileName = Str::random(5) . rand(100000, 999999) . '.' . $extension;
-            $image->move(public_path('uploads/product'), $fileName);
+            Image::make($image)->resize(600, 600)->save(public_path('uploads/product/'.$fileName));
             $inventory->image = $fileName;
-
             $inventory->save();
         }
 

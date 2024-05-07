@@ -24,35 +24,6 @@
             </div>
 
             <div class="header-right">
-                {{-- <div class="dropdown cart-dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                        <div class="icon">
-                            <i class="icon-user"></i>
-                        </div>
-                        <p>Account</p>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-cart-products text-center">
-                            <div class="product" style="justify-content: center">
-                                <div class="product-cart-details">
-                                    <h4 class="product-title">
-                                        <a href="product.html">Login</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="product" style="justify-content: center">
-                                <div class="product-cart-details">
-                                    <h4 class="product-title">
-                                        <a href="product.html">Register</a>
-                                    </h4>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div> --}}
                 <div class="dropdown cart-dropdown">
                     <a href="{{ route('checkout') }}" class="dropdown-toggle">
                         <div class="icon">

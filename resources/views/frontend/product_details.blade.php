@@ -20,7 +20,7 @@
                                                     @endphp
 
                                                     @foreach ($inventorie->rel_to_attribute->take(1) as $sl => $attribute)
-                                                    <figure class="product-main-image productDetailsImageemptey">
+                                                        <figure class="product-main-image productDetailsImageemptey">
                                                             <img id="product-zoom" src="{{ asset('uploads/product') }}/{{ $attribute->image }}" data-zoom-image="{{ asset('uploads/product') }}/{{ $attribute->image }}" alt="product image">
 
                                                             <a href="#" id="btn-product-gallery" class="btn-product-gallery">
@@ -186,39 +186,32 @@
                                             @endif
                                         </div><!-- End .product-nav -->
                                     </div>
-                                    <div class="details-filter-row details-row-size">
-                                        <label>Color:</label>
-                                        <div class="product-nav product-nav-thumbs">
-
-                                                @if ($products->first()->inventorie_id != null)
-                                                    @if ($products->first()->rel_to_inventorie)
-                                                        @php
-                                                            $inventorie = $products->first()->rel_to_inventorie
-                                                        @endphp
-                                                        @foreach ($inventorie->rel_to_attribute as $attribute)
-                                                            @if ($attribute->rel_to_color != null)
-                                                            <a href="#" class="" style="background: #000">
-                                                                <input type="radio" name="color" value="{{ $attribute->rel_to_color->name }}" required>
-                                                            </a>
-                                                            @endif
-                                                        @endforeach
+                                    @if ($products->first()->weight != null)
+                                        <div class="details-filter-row details-row-size">
+                                            <label>Weight:</label>
+                                            <div class="product-nav product-nav-thumbs product_details_weight">
+                                                @foreach ($products as $product)
+                                                    <input type="radio" id="weight_details_{{ $product->id }}" class="px-2 weight-option inpute_weight" name="attribute_id" value="{{ $product->id }}"  required>
+                                                    <label for="weight_details_{{ $product->id }}">{{ $product->weight }}</label>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @elseif ($products->first()->color_id != null)
+                                        <div class="details-filter-row details-row-size">
+                                            <label>Color:</label>
+                                            <div class="product-nav product-nav-thumbs">
+                                                @foreach ($products as $product)
+                                                    @if ($product->rel_to_color != null)
+                                                    <a href="#" class="color-option" data-color="{{ $product->rel_to_color->name }}" style="background: {{ $product->rel_to_color->code }}">
+                                                        <input  type="radio" name="color" value="{{ $product->rel_to_color->id }}" required>
+                                                    </a>
                                                     @endif
-                                                @else
-                                                    @if ($products->first()->color_id != null)
-                                                        @if ($products->first()->rel_to_color != null)
-                                                            <input type="radio" name="color" value="{{ $products->first()->rel_to_color->name }}" required>
-                                                        @else
-                                                            C/N/A
-                                                        @endif
-                                                    @else
-                                                        N/A
-                                                    @endif
-                                                @endif
-
-                                        </div><!-- End .product-nav -->
-                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="details-filter-row details-row-size">
-                                        <input type="hidden" name="product_id" class="product_id" value="{{ $products->first()->id }}">
+                                        <input type="hidden" name="inventory_id" class="inventory_id" value="{{ $products->first()->inventory_id }}">
                                     </div><!-- End .details-filter-row -->
 
                                     <div class="details-filter-row details-row-size pro_details_ico">

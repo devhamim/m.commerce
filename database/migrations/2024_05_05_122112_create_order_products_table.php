@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('order_id');
             $table->string('product_id');
             $table->string('quantity');
-            $table->string('attribute_id');
-            $table->string('inventory_id');
+            $table->string('attribute_id')->nullable();
+            $table->string('inventory_id')->nullable();
             $table->timestamps();
         });
     }

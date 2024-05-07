@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Admin Dashboard">
 
-	<title>Ekka - Admin Dashboard eCommerce HTML Template.</title>
+	@if($setting->first()->title != null)
+        <title>{{$setting->first()->title}}</title>
+    @endif
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- GOOGLE FONTS -->
@@ -34,7 +36,9 @@
 	<link id="ekka-css" href="{{ asset('backend') }}/css/ekka.css" rel="stylesheet" />
 
 	<!-- FAVICON -->
-	<link href="{{ asset('backend') }}/img/favicon.png" rel="shortcut icon" />
+    @if($setting->first()->favicon != null)
+        <link rel="shortcut icon" href="{{ asset('uploads/setting') }}/{{ $setting->first()->favicon }}">
+    @endif
 
 </head>
 

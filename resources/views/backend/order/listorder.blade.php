@@ -42,7 +42,11 @@
                                         <td>
                                             @foreach ($order->rel_to_orderpro->take(1) as $OrderProduct)
                                                 @if ($OrderProduct != null)
-                                                    <img width="100" src="{{ asset('uploads/product') }}/{{ $OrderProduct->rel_to_attribute->image }}" alt="Image" />
+                                                    @if ($OrderProduct->rel_to_attribute != null)
+                                                        <img width="100" src="{{ asset('uploads/product') }}/{{ $OrderProduct->rel_to_attribute->image }}" alt="Image" />
+                                                    @elseif ($OrderProduct->rel_to_pro)
+                                                        <img width="100" src="{{ asset('uploads/product') }}/{{ $OrderProduct->rel_to_pro->image }}" alt="Image" />
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         </td>
@@ -59,14 +63,25 @@
                                         <td>
                                             @foreach ($order->rel_to_orderpro as $OrderProduct)
                                                 @if ($OrderProduct != null)
-                                                    <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
-                                                        @if ($OrderProduct->rel_to_attribute->weight != null)
-                                                            Weight: {{ $OrderProduct->rel_to_attribute->weight }}
-                                                        @else
-                                                            Color: {{ $OrderProduct->rel_to_attribute->color_id }}
-                                                            Size: {{ $OrderProduct->rel_to_attribute->size_id }}
-                                                        @endif
-                                                    </span><hr>
+                                                    @if ($OrderProduct->rel_to_attribute != null)
+                                                        <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
+                                                            @if ($OrderProduct->rel_to_attribute->weight != null)
+                                                                Weight: {{ $OrderProduct->rel_to_attribute->weight }}
+                                                            @else
+                                                                Color: {{ $OrderProduct->rel_to_attribute->color_id }}
+                                                                Size: {{ $OrderProduct->rel_to_attribute->size_id }}
+                                                            @endif
+                                                        </span><hr>
+                                                    @elseif ($OrderProduct->rel_to_pro != null)
+                                                        <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_pro ? $OrderProduct->rel_to_pro->sell_price : $OrderProduct->rel_to_pro->price }},
+                                                            @if ($OrderProduct->rel_to_pro->weight != null)
+                                                                Weight: {{ $OrderProduct->rel_to_pro->weight }}
+                                                            @else
+                                                                Color: {{ $OrderProduct->rel_to_pro->color_id }}
+                                                                Size: {{ $OrderProduct->rel_to_pro->size_id }}
+                                                            @endif
+                                                        </span><hr>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         </td>
@@ -74,10 +89,10 @@
                                         <td>{{ $order->delivery_charge }}Tk</td>
                                         <td>{{ $order->total }}Tk</td>
                                         <td>
-                                            @if ($order->status == 1)
-                                                <div class="badge badge-success">Active</div>
+                                            @if ($order->status == 0)
+                                                <div class="badge badge-success">Processing</div>
                                             @else
-                                                <div class="badge badge-danger">Deactive</div>
+                                                <div class="badge badge-danger">Cancel</div>
                                             @endif
                                         </td>
                                         <td>{{ $order->created_at->format('d-m-Y') }}</td>

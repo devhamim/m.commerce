@@ -6,6 +6,7 @@ use App\Models\Attribute;
 use App\Models\Billingdetails;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -68,25 +69,44 @@ class CheckoutController extends Controller
             $items_in_cart = $cart_data;
 
             foreach ($items_in_cart as $key => $itemdata) {
-                $productId = $itemdata['item_id'];
-                $attribute_id = $itemdata['item_attribute'];
-                $inventory_id = $itemdata['item_inventory'];
+                if(isset($data['item_weight']) && $data['item_weight'] !== null){
+                    $productId = $itemdata['item_id'];
+                    $attribute_id = $itemdata['item_attribute'];
+                    $inventory_id = $itemdata['item_inventory'];
 
-                if (isset($quantities[$productId])) {
-                    $quantity = $quantities[$productId];
+                    if (isset($quantities[$productId])) {
+                        $quantity = $quantities[$productId];
 
-                    OrderProduct::create([
-                        'order_id' => $order_id,
-                        'product_id' => $productId,
-                        'quantity' => $quantity,
-                        'attribute_id' => $attribute_id,
-                        'inventory_id' => $inventory_id,
-                        'created_at' => Carbon::now(),
-                    ]);
+                        OrderProduct::create([
+                            'order_id' => $order_id,
+                            'product_id' => $productId,
+                            'quantity' => $quantity,
+                            'attribute_id' => $attribute_id,
+                            'inventory_id' => $inventory_id,
+                            'created_at' => Carbon::now(),
+                        ]);
 
-                    Attribute::where('id', $attribute_id)
-                        ->decrement('quantity', $quantity);
+                        Attribute::where('id', $attribute_id)
+                            ->decrement('quantity', $quantity);
+                    }
                 }
+                else{
+                    $productId = $itemdata['item_id'];
+                    if (isset($quantities[$productId])) {
+                        $quantity = $quantities[$productId];
+
+                        OrderProduct::create([
+                            'order_id' => $order_id,
+                            'product_id' => $productId,
+                            'quantity' => $quantity,
+                            'created_at' => Carbon::now(),
+                        ]);
+
+                        Product::where('id', $productId)
+                            ->decrement('quantity', $quantity);
+                    }
+                }
+
             }
 
             Cookie::queue(Cookie::forget('shopping_cart'));

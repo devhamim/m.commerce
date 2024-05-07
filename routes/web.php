@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
-Route::get('/product/details/{slug}', [FrontendController::class, 'product_details'])->name('product.details');
+Route::get('/product/{slug}/', [FrontendController::class, 'product_details'])->name('product.details');
 Route::get('/getProductDetails', [FrontendController::class, 'getProductDetails'])->name('getProductDetails');
 Route::get('/getSizes', [FrontendController::class, 'getSizes'])->name('getSizes');
 Route::get('/category/{category}', [FrontendController::class, 'category_show'])->name('category.show');

@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
 
         // footer category
     View::composer('frontend.layouts.header', function ($view){
+        $view->with('categorys', Category::all());
+
         if (Cookie::has('shopping_cart')) {
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
@@ -45,16 +47,31 @@ class AppServiceProvider extends ServiceProvider
         View::composer('frontend.layouts.header', function ($view){
             $view->with('setting', Setting::all());
         });
-        // frontend header cetagory
-        View::composer('frontend.layouts.header', function ($view){
-            $view->with('categorys', Category::where('status', 1)->get());
-        });
+
         // frontend header category
         View::composer('frontend.category', function ($view){
             $view->with('categorys', Category::all());
         });
         // frontend app
         View::composer('frontend.layouts.footer', function ($view){
+            $view->with('setting', Setting::all());
+        });
+
+        // frontend app
+        View::composer('frontend.layouts.app', function ($view){
+            $view->with('setting', Setting::all());
+        });
+
+        // backend footer
+        View::composer('backend.layouts.footer', function ($view){
+            $view->with('setting', Setting::all());
+        });
+        // backend sidebar
+        View::composer('backend.layouts.sidebar', function ($view){
+            $view->with('setting', Setting::all());
+        });
+        // backend app
+        View::composer('backend.layouts.app', function ($view){
             $view->with('setting', Setting::all());
         });
     }

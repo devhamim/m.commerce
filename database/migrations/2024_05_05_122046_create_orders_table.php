@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('delivery_charge');
             $table->string('sub_total');
             $table->string('total');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

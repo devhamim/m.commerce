@@ -72,7 +72,13 @@
                                 <div class="col-lg-10">
                                     <div class="ec-vendor-upload-detail">
                                         <div class="row">
-
+                                            <div class="col-lg-12">
+                                                <div class="text-end">
+                                                    <a href="javascript:void(0);" class="remove-row text-danger">remove</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-4 my-3">
                                                 <label class="form-label">Quantity</label>
                                                 <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity1" name="quantity[]" value="{{ old('quantity') }}" required>
@@ -149,6 +155,9 @@
         $('.add-new-row').click(function() {
             var newRow = $('.template').clone().removeClass('template').show();
             $('.ec-vendor-uploads:last').after(newRow);
+        });
+        $(document).on('click', '.remove-row', function() {
+            $(this).closest('.ec-vendor-uploads').remove();
         });
     });
 </script>

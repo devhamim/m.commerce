@@ -63,7 +63,7 @@ class ProductController extends Controller
 
             $validatedData = $request->validate($rules);
 
-            $validatedData['slug'] = Str::random(50);
+            $validatedData['slug'] = Str::lower(str_replace(' ','-',$request->name )) ;
 
             $product = Product::create($validatedData);
 

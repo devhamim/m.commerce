@@ -95,7 +95,9 @@
                                                     <td>
                                                         <div class="product_info">
                                                             <p><a style="font-weight: 500;" href="{{ route('product.details', $data['item_slug']) }}">{{ urldecode($data['item_name']) }}</a></p>
-                                                            <span>Weight: {{ $data['item_weight'] }}</span>
+                                                            @if (isset($data['item_weight']) && $data['item_weight'] !== null)
+                                                                <span>Weight: {{ $data['item_weight'] }}</span>
+                                                            @endif
                                                         </div>
 
                                                     </td>

@@ -79,7 +79,7 @@
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" class="btn-product btn-cart btn-buy mr-5 w-100" name="btn" value="2"><span>অর্ডার করুন</span></button>
+                                    <a href="{{route('product.details', $product->slug)}}" class="btn-product btn-cart btn-buy mr-5 w-100" name="btn" value="2"><span>অর্ডার করুন</span></a>
                                 </form>
                             </div>
                         </figure>
@@ -118,8 +118,8 @@
         </div><!-- End .row -->
 
         <div class="load-more-container text-center">
-            <a href="#" class="btn btn-outline-darker btn-load-more">More Products <i class="icon-refresh"></i></a>
-        </div><!-- End .load-more-container -->
+            {{-- <a href="#" class="btn btn-outline-darker btn-load-more">More Products <i class="icon-refresh"></i></a> --}}
+        </div>
     </div>
 
 </div>

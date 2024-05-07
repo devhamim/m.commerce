@@ -58,10 +58,20 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($product->sku != null)
-                                                {{ $product->sku }}
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @if ($product->rel_to_inventorie->sku != null)
+                                                        {{ $product->rel_to_inventorie->sku }}
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                @endif
                                             @else
-                                                N/A
+                                                @if ($product->sku != null)
+                                                    {{ $product->sku }}
+                                                @else
+                                                    N/A
+                                                @endif
                                             @endif
                                         </td>
                                         <td>
