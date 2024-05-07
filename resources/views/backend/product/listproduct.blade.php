@@ -1,12 +1,10 @@
 @extends('backend.layouts.app')
-
 @section('content')
 <div class="content">
     <div class="breadcrumb-wrapper breadcrumb-contacts">
         <div>
             <h1>Product List</h1>
-            <p class="breadcrumbs">
-                <span><a href="{{ route('dashboard') }}">Dashboard</a></span>
+            <p class="breadcrumbs"><span><a href="{{ route('dashboard') }}">Dashboard</a></span>
                 <span><i class="mdi mdi-chevron-right"></i></span>Product
             </p>
         </div>
@@ -28,9 +26,9 @@
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Subcategory</th>
-                                    <th>Color</th>
+                                    {{-- <th>Color</th>
                                     <th>Size</th>
-                                    <th>Weight</th>
+                                    <th>Weight</th> --}}
                                     <th>Brand</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -44,100 +42,244 @@
 
                             <tbody>
                                 @foreach ($products as $product)
-                                <tr>
-                                    <td>
-                                        @php
-                                        $image = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->image :
-                                        $product->image;
-                                        @endphp
-                                        <img width="100" src="{{ asset('uploads/product/' . $image) }}" alt="Image" />
-                                    </td>
-                                    <td>{{ $product->inventorie_id ? $product->rel_to_inventorie->sku ?? 'N/A' : $product->sku ?? 'N/A' }}</td>
-                                    <td>{{ $product->name ?? 'N/A' }}</td>
-                                    <td>{{ $product->category_id ? $product->rel_to_cat->name ?? 'C/N/A' : 'N/A' }}</td>
-                                    <td>{{ $product->subcategory_id ? $product->rel_to_subcat->name ?? 'C/N/A' : 'N/A' }}</td>
-                                    <td>
-                                        @php
-                                        $color = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->rel_to_color :
-                                        $product->rel_to_color;
-                                        @endphp
-                                        {{ $color ? $color->name : 'N/A' }}
-                                    </td>
-                                    <td>
-                                        @php
-                                        $size = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->rel_to_size :
-                                        $product->rel_to_size;
-                                        @endphp
-                                        {{ $size ? $size->name : 'N/A' }}
-                                    </td>
-                                    <td>
-                                        @php
-                                        $weight = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->weight :
-                                        $product->weight;
-                                        @endphp
-                                        {{ $weight ?? 'N/A' }}
-                                    </td>
-                                    <td>{{ $product->brand ?? 'N/A' }}</td>
-                                    <td>
-                                        @php
-                                        $quantity = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->quantity :
-                                        $product->quantity;
-                                        @endphp
-                                        {{ $quantity ?? 'N/A' }}
-                                    </td>
-                                    <td>
-                                        @php
-                                        $price = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->price :
-                                        $product->price;
-                                        @endphp
-                                        {{ $price ?? 'N/A' }}
-                                    </td>
-                                    <td>
-                                        @php
-                                        $sell_price = $product->inventorie_id != null && $product->rel_to_inventorie ?
-                                        $product->rel_to_inventorie->rel_to_attribute->first()->sell_price :
-                                        $product->sell_price;
-                                        @endphp
-                                        {{ $sell_price ?? 'N/A' }}
-                                    </td>
-                                    <td>{{ $product->tag ?? 'N/A' }}</td>
-                                    <td>
-                                        <div class="badge {{ $product->status == 1 ? 'badge-success' : 'badge-danger' }}">
-                                            {{ $product->status == 1 ? 'Active' : 'Deactive' }}
-                                        </div>
-                                    </td>
-                                    <td>{{ $product->created_at->format('d-m-Y') }}</td>
-                                    <td>
-                                        <div class="btn-group mb-1">
-                                            <button type="button" class="btn btn-outline-success">Info</button>
-                                            <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                                <span class="sr-only">Info</span>
-                                            </button>
+                                    <tr>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute->take(1) as $attribute)
+                                                        <img width="100" src="{{ asset('uploads/product') }}/{{ $attribute->image }}" alt="Image" />
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @if ($product->rel_to_inventorie->sku != null)
+                                                        {{ $product->rel_to_inventorie->sku }}
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                @endif
+                                            @else
+                                                @if ($product->sku != null)
+                                                    {{ $product->sku }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->name != null)
+                                                {{ $product->name }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->category_id != null)
+                                                @if ($product->rel_to_cat != null)
+                                                    {{ $product->rel_to_cat->name }}
+                                                @else
+                                                    C/N/A
+                                                @endif
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->subcategory_id != null)
+                                                @if ($product->rel_to_subcat != null)
+                                                    {{ $product->rel_to_subcat->name }}
+                                                @else
+                                                    C/N/A
+                                                @endif
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        {{-- <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        @if ($attribute->rel_to_color != null)
+                                                            {{ $attribute->rel_to_color->name }},
+                                                        @else
+                                                            N/A
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->color_id != null)
+                                                    @if ($product->rel_to_color != null)
+                                                        {{ $product->rel_to_color->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        @if ($attribute->rel_to_size != null)
+                                                            {{ $attribute->rel_to_size->name }},
+                                                        @else
+                                                            N/A
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->size_id != null)
+                                                    @if ($product->rel_to_size != null)
+                                                        {{ $product->rel_to_size->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
 
-                                            <div class="dropdown-menu">
-                                                <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                                                    data-bs-target="#editBanner{{ $product->id }}">
-                                                    Edit
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        {{ $attribute->weight }},
+                                                    @else
+                                                        N/A
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->weight != null)
+                                                    {{ $product->weight }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+                                        </td> --}}
+                                        <td>
+                                            @if ($product->brand != null)
+                                                {{ $product->brand }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        {{ $attribute->quantity }},
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->quantity != null)
+                                                    {{ $product->quantity }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        {{ $attribute->price }},
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->price != null)
+                                                    {{ $product->price }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->inventorie_id != null)
+                                                @if ($product->rel_to_inventorie)
+                                                    @php
+                                                        $inventorie = $product->rel_to_inventorie
+                                                    @endphp
+                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                        {{ $attribute->sell_price }},
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                @if ($product->sell_price != null)
+                                                    {{ $product->sell_price }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->tag != null)
+                                                {{ $product->tag }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($product->status == 1)
+                                                <div class="badge badge-success">Active</div>
+                                            @else
+                                                <div class="badge badge-danger">Deactive</div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $product->created_at->format('d-m-Y') }}</td>
+                                        <td>
+                                            <div class="btn-group mb-1">
+                                                <button type="button"
+                                                    class="btn btn-outline-success">Info</button>
+                                                <button type="button"
+                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" data-display="static">
+                                                    <span class="sr-only">Info</span>
                                                 </button>
-                                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')">
-                                                        Delete
+
+                                                <div class="dropdown-menu">
+                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $product->id }}">
+                                                        Edit
                                                     </button>
-                                                </form>
+                                                    <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?')">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
