@@ -41,7 +41,7 @@
                             </thead>
 
                             <tbody>
-                                {{-- @foreach ($products as $product)
+                                @foreach ($products as $product)
                                     <tr>
                                         <td>
                                             @if ($product->inventorie_id != null)
@@ -103,7 +103,7 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @if ($product->inventorie_id != null)
                                                 @if ($product->rel_to_inventorie)
                                                     @php
@@ -169,7 +169,7 @@
                                                     N/A
                                                 @endif
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             @if ($product->brand != null)
                                                 {{ $product->brand }}
@@ -274,7 +274,7 @@
                                         </td>
                                     </tr>
 
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
