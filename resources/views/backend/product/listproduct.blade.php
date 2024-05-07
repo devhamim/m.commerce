@@ -103,7 +103,7 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        {{-- <td>
+                                        <td>
                                             @if ($product->inventorie_id != null)
                                                 @if ($product->rel_to_inventorie)
                                                     @php
@@ -112,6 +112,8 @@
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_color != null)
                                                             {{ $attribute->rel_to_color->name }},
+                                                        @else
+                                                            N/A
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -136,6 +138,8 @@
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_size != null)
                                                             {{ $attribute->rel_to_size->name }},
+                                                        @else
+                                                            N/A
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -160,6 +164,8 @@
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         {{ $attribute->weight }},
+                                                    @else
+                                                        N/A
                                                     @endforeach
                                                 @endif
                                             @else
@@ -169,7 +175,7 @@
                                                     N/A
                                                 @endif
                                             @endif
-                                        </td> --}}
+                                        </td>
                                         <td>
                                             @if ($product->brand != null)
                                                 {{ $product->brand }}
