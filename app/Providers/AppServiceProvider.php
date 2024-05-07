@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('frontend.category', function ($view){
             $view->with('categorys', Category::all());
         });
-        // frontend app
+        // frontend footer
         View::composer('frontend.layouts.footer', function ($view){
             $view->with('setting', Setting::all());
         });
@@ -72,6 +72,10 @@ class AppServiceProvider extends ServiceProvider
         });
         // backend app
         View::composer('backend.layouts.app', function ($view){
+            $view->with('setting', Setting::all());
+        });
+        // auth app
+        View::composer('auth.app', function ($view){
             $view->with('setting', Setting::all());
         });
     }
