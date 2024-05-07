@@ -5,6 +5,8 @@
             <a href="{{ route('dashboard') }}" title="">
                 @if($setting->first()->black_logo != null)
                     <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" class="ec-brand-icon" width="180px" alt="Logo">
+                @else
+                    <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" class="ec-brand-icon" width="180px" alt="Logo">
                 @endif
             </a>
         </div>

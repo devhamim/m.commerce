@@ -6,6 +6,8 @@
                 <a href="{{ url('/') }}" class="my-3">
                     @if($setting->first()->black_logo != null)
                         <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" width="200px" alt="Logo">
+                    @else
+                        <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" width="200px" alt="Logo">
                     @endif
                 </a>
             </div>

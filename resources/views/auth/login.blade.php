@@ -5,8 +5,12 @@
         <div class="card">
             <div class="card-header bg-primary">
                 <div class="ec-brand">
-                    <a href="{{ url('/') }}" title="Ekka">
-                        <img class="ec-brand-icon" src="{{ asset('backend') }}/img/logo/logo-login.png" alt="" />
+                    <a href="{{ url('/') }}">
+                        @if($setting->first()->black_logo != null)
+                            <img class="ec-brand-icon" src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" alt="" />
+                        @else
+                            <img class="ec-brand-icon" src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" alt="" />
+                        @endif
                     </a>
                 </div>
             </div>
