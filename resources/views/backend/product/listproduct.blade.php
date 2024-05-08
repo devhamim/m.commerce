@@ -27,7 +27,7 @@
                                     <th>Category</th>
                                     <th>Subcategory</th>
                                     <th>Color</th>
-                                    {{-- <th>Size</th> --}}
+                                    <th>Size</th>
                                     <th>Weight</th>
                                     <th>Brand</th>
                                     <th>Quantity</th>
@@ -104,7 +104,7 @@
                                                     @endforeach
                                                 @endif
                                             </td>
-                                            {{-- <td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -112,12 +112,10 @@
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_size != null)
                                                             {{ $attribute->rel_to_size->name }},
-                                                        @else
-                                                            N/A
                                                         @endif
                                                     @endforeach
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
@@ -210,7 +208,7 @@
                                             </td>
                                         </tr>
                                     @else
-                                        {{-- <tr>
+                                        <tr>
                                             <td>
                                                 <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
                                             </td>
@@ -243,41 +241,27 @@
                                                 @if ($product->subcategory_id != null)
                                                     @if ($product->rel_to_subcat != null)
                                                         {{ $product->rel_to_subcat->name }}
-                                                    @else
-                                                        C/N/A
                                                     @endif
-                                                @else
-                                                    N/A
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($product->color_id != null)
                                                     @if ($product->rel_to_color != null)
                                                         {{ $product->rel_to_color->name }}
-                                                    @else
-                                                        C/N/A
                                                     @endif
-                                                @else
-                                                    N/A
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($product->size_id != null)
                                                     @if ($product->rel_to_size != null)
                                                         {{ $product->rel_to_size->name }}
-                                                    @else
-                                                        C/N/A
                                                     @endif
-                                                @else
-                                                    N/A
                                                 @endif
 
                                             </td>
                                             <td>
                                                 @if ($product->weight != null)
                                                     {{ $product->weight }}
-                                                @else
-                                                    N/A
                                                 @endif
                                             </td>
                                             <td>
@@ -349,7 +333,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr> --}}
+                                        </tr>
                                     @endif
 
                                 @endforeach
