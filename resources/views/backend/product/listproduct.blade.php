@@ -42,9 +42,9 @@
 
                             <tbody>
                                 @foreach ($products as $product)
-                                    <tr>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                    @if ($product->inventorie_id != null)
+                                        <tr>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -53,12 +53,8 @@
                                                         <img width="100" src="{{ asset('uploads/product') }}/{{ $attribute->image }}" alt="Image" />
                                                     @endforeach
                                                 @endif
-                                            @else
-                                                <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @if ($product->rel_to_inventorie->sku != null)
                                                         {{ $product->rel_to_inventorie->sku }}
@@ -66,45 +62,37 @@
                                                         N/A
                                                     @endif
                                                 @endif
-                                            @else
-                                                @if ($product->sku != null)
-                                                    {{ $product->sku }}
+                                            </td>
+                                            <td>
+                                                @if ($product->name != null)
+                                                    {{ $product->name }}
                                                 @else
                                                     N/A
                                                 @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->name != null)
-                                                {{ $product->name }}
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->category_id != null)
-                                                @if ($product->rel_to_cat != null)
-                                                    {{ $product->rel_to_cat->name }}
+                                            </td>
+                                            <td>
+                                                @if ($product->category_id != null)
+                                                    @if ($product->rel_to_cat != null)
+                                                        {{ $product->rel_to_cat->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
                                                 @else
-                                                    C/N/A
+                                                    N/A
                                                 @endif
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->subcategory_id != null)
-                                                @if ($product->rel_to_subcat != null)
-                                                    {{ $product->rel_to_subcat->name }}
+                                            </td>
+                                            <td>
+                                                @if ($product->subcategory_id != null)
+                                                    @if ($product->rel_to_subcat != null)
+                                                        {{ $product->rel_to_subcat->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
                                                 @else
-                                                    C/N/A
+                                                    N/A
                                                 @endif
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -117,20 +105,8 @@
                                                         @endif
                                                     @endforeach
                                                 @endif
-                                            @else
-                                                @if ($product->color_id != null)
-                                                    @if ($product->rel_to_color != null)
-                                                        {{ $product->rel_to_color->name }}
-                                                    @else
-                                                        C/N/A
-                                                    @endif
-                                                @else
-                                                    N/A
-                                                @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -143,21 +119,8 @@
                                                         @endif
                                                     @endforeach
                                                 @endif
-                                            @else
-                                                @if ($product->size_id != null)
-                                                    @if ($product->rel_to_size != null)
-                                                        {{ $product->rel_to_size->name }}
-                                                    @else
-                                                        C/N/A
-                                                    @endif
-                                                @else
-                                                    N/A
-                                                @endif
-                                            @endif
-
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -168,42 +131,26 @@
                                                 @else
                                                     N/A
                                                 @endif
-                                            @else
-                                                @if ($product->weight != null)
-                                                    {{ $product->weight }}
+                                            </td>
+                                            <td>
+                                                @if ($product->brand != null)
+                                                    {{ $product->brand }}
                                                 @else
                                                     N/A
                                                 @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->brand != null)
-                                                {{ $product->brand }}
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
-                                                    @php
-                                                        $inventorie = $product->rel_to_inventorie
-                                                    @endphp
-                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
-                                                        {{ $attribute->quantity }},
-                                                    @endforeach
-                                                @endif
-                                            @else
-                                                @if ($product->quantity != null)
-                                                    {{ $product->quantity }}
-                                                @else
-                                                    N/A
-                                                @endif
-                                            @endif
+                                                        @php
+                                                            $inventorie = $product->rel_to_inventorie
+                                                        @endphp
+                                                        @foreach ($inventorie->rel_to_attribute as $attribute)
+                                                            {{ $attribute->quantity }},
+                                                        @endforeach
+                                                    @endif
 
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -212,16 +159,8 @@
                                                         {{ $attribute->price }},
                                                     @endforeach
                                                 @endif
-                                            @else
-                                                @if ($product->price != null)
-                                                    {{ $product->price }}
-                                                @else
-                                                    N/A
-                                                @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->inventorie_id != null)
+                                            </td>
+                                            <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -230,55 +169,190 @@
                                                         {{ $attribute->sell_price }},
                                                     @endforeach
                                                 @endif
-                                            @else
+                                            </td>
+                                            <td>
+                                                @if ($product->tag != null)
+                                                    {{ $product->tag }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->status == 1)
+                                                    <div class="badge badge-success">Active</div>
+                                                @else
+                                                    <div class="badge badge-danger">Deactive</div>
+                                                @endif
+                                            </td>
+                                            <td>{{ $product->created_at->format('d-m-Y') }}</td>
+                                            <td>
+                                                <div class="btn-group mb-1">
+                                                    <button type="button"
+                                                        class="btn btn-outline-success">Info</button>
+                                                    <button type="button"
+                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                        data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false" data-display="static">
+                                                        <span class="sr-only">Info</span>
+                                                    </button>
+
+                                                    <div class="dropdown-menu">
+                                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $product->id }}">
+                                                            Edit
+                                                        </button>
+                                                        <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?')">
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>
+                                                <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
+                                            </td>
+                                            <td>
+                                                @if ($product->sku != null)
+                                                    {{ $product->sku }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->name != null)
+                                                    {{ $product->name }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->category_id != null)
+                                                    @if ($product->rel_to_cat != null)
+                                                        {{ $product->rel_to_cat->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->subcategory_id != null)
+                                                    @if ($product->rel_to_subcat != null)
+                                                        {{ $product->rel_to_subcat->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->color_id != null)
+                                                    @if ($product->rel_to_color != null)
+                                                        {{ $product->rel_to_color->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->size_id != null)
+                                                    @if ($product->rel_to_size != null)
+                                                        {{ $product->rel_to_size->name }}
+                                                    @else
+                                                        C/N/A
+                                                    @endif
+                                                @else
+                                                    N/A
+                                                @endif
+
+                                            </td>
+                                            <td>
+                                                @if ($product->weight != null)
+                                                    {{ $product->weight }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->brand != null)
+                                                    {{ $product->brand }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->quantity != null)
+                                                    {{ $product->quantity }}
+                                                @else
+                                                    N/A
+                                                @endif
+
+                                            </td>
+                                            <td>
+                                                @if ($product->price != null)
+                                                    {{ $product->price }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
                                                 @if ($product->sell_price != null)
                                                     {{ $product->sell_price }}
                                                 @else
                                                     N/A
                                                 @endif
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->tag != null)
-                                                {{ $product->tag }}
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->status == 1)
-                                                <div class="badge badge-success">Active</div>
-                                            @else
-                                                <div class="badge badge-danger">Deactive</div>
-                                            @endif
-                                        </td>
-                                        <td>{{ $product->created_at->format('d-m-Y') }}</td>
-                                        <td>
-                                            <div class="btn-group mb-1">
-                                                <button type="button"
-                                                    class="btn btn-outline-success">Info</button>
-                                                <button type="button"
-                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false" data-display="static">
-                                                    <span class="sr-only">Info</span>
-                                                </button>
-
-                                                <div class="dropdown-menu">
-                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $product->id }}">
-                                                        Edit
+                                            </td>
+                                            <td>
+                                                @if ($product->tag != null)
+                                                    {{ $product->tag }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($product->status == 1)
+                                                    <div class="badge badge-success">Active</div>
+                                                @else
+                                                    <div class="badge badge-danger">Deactive</div>
+                                                @endif
+                                            </td>
+                                            <td>{{ $product->created_at->format('d-m-Y') }}</td>
+                                            <td>
+                                                <div class="btn-group mb-1">
+                                                    <button type="button"
+                                                        class="btn btn-outline-success">Info</button>
+                                                    <button type="button"
+                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                        data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false" data-display="static">
+                                                        <span class="sr-only">Info</span>
                                                     </button>
-                                                    <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?')">
-                                                            Delete
+
+                                                    <div class="dropdown-menu">
+                                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $product->id }}">
+                                                            Edit
                                                         </button>
-                                                    </form>
+                                                        <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?')">
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endif
 
                                 @endforeach
                             </tbody>
