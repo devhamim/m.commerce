@@ -99,7 +99,7 @@
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_color != null)
-                                                            {{ $attribute->rel_to_color->name }},
+                                                            {{ $attribute->color_id }},
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -111,7 +111,7 @@
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_size != null)
-                                                            {{ $attribute->rel_to_size->name }},
+                                                            {{ $attribute->size_id }},
                                                         @endif
                                                     @endforeach
                                                 @endif
