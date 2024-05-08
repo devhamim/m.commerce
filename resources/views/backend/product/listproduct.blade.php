@@ -26,8 +26,8 @@
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Subcategory</th>
-                                    {{-- <th>Color</th>
-                                    <th>Size</th> --}}
+                                    <th>Color</th>
+                                    {{-- <th>Size</th> --}}
                                     <th>Weight</th>
                                     <th>Brand</th>
                                     <th>Quantity</th>
