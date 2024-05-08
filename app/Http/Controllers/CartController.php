@@ -12,12 +12,10 @@ class CartController extends Controller
 {
     // cart_store
     function cart_store(Request $request){
-
         if($request->inventory_id != null){
             if($request->btn == 2){
                 $product_id = $request->product_id;
                 $inventory_id = $request->inventory_id;
-                // $weight = $request->weight;
                 $quantity = $request->quantity;
                 $attribute_id = $request->attribute_id;
 
@@ -69,7 +67,6 @@ class CartController extends Controller
             else{
                 $product_id = $request->product_id;
                 $inventory_id = $request->inventory_id;
-                // $weight = $request->weight;
                 $quantity = $request->quantity;
                 $attribute_id = $request->attribute_id;
 
