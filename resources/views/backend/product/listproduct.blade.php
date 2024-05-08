@@ -101,8 +101,6 @@
                                                         @if ($attribute->color_id != null)
                                                         {{ $attribute->color_id }}
                                                             {{-- {{ $attribute->rel_to_color->name }}, --}}
-                                                        @else
-                                                            N/A
                                                         @endif
                                                     @endforeach
                                                 @endif
