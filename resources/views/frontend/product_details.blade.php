@@ -28,13 +28,13 @@
                                                             </a>
                                                         </figure>
                                                     @endforeach
-                                                    @foreach ($inventorie->rel_to_attribute as $sl => $attribute)
-                                                        <div id="product-zoom-gallery" class="product-image-gallery">
+                                                    <div id="product-zoom-gallery" class="product-image-gallery">
+                                                        @foreach ($inventorie->rel_to_attribute as $sl => $attribute)
                                                             <a class="product-gallery-item active" href="#" data-image="{{ asset('uploads/product') }}/{{ $attribute->image }}" data-zoom-image="assets/images/products/single/1-big.jpg">
                                                                 <img src="{{ asset('uploads/product') }}/{{ $attribute->image }}" alt="product side">
                                                             </a>
-                                                        </div>
-                                                    @endforeach
+                                                        @endforeach
+                                                    </div>
                                                 @endif
                                             @else
                                                 <figure class="product-main-image">

@@ -11360,13 +11360,13 @@ button:focus {
   }
   .product-gallery-vertical .product-image-gallery {
     width: auto;
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
   .product-gallery-vertical .product-gallery-item {
-    flex: 0 0 100%;
+    flex: 0 0 25%;
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;

@@ -76,7 +76,7 @@
                             <aside class="col-lg-7">
                                 <div class="summary">
                                     <h3 class="summary-title checkout_weight">অর্ডার ইনফরমেশন</h3>
-                                    <table class="table table-summary">
+                                    <table class="table table-summary table-responsive">
                                         <thead>
                                             <tr class="product_info_header">
                                                 <th>Image</th>
@@ -89,8 +89,8 @@
                                         <tbody class="mt-5">
                                             @foreach ($cart_data as $data)
                                                 <tr class="table-shadow">
-                                                    <td>
-                                                        <img width="80px" src="{{ asset('uploads/product') }}/{{ $data['item_image'] }}" alt="">
+                                                    <td style="padding-right: 10px">
+                                                        <img width="60px" src="{{ asset('uploads/product') }}/{{ $data['item_image'] }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="product_info">
