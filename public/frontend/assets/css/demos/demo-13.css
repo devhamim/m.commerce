@@ -149,7 +149,7 @@
 }
 .intro-slider-container,
 .intro-slide {
-  height: 200px;
+  height: 170px;
   background-color: #fafafa;
 }
 .intro-slider-container .owl-simple .owl-nav [class*="owl-"],
@@ -790,7 +790,7 @@
 @media screen and (min-width: 576px) {
   .intro-slider-container,
   .intro-slide {
-    height: 400px;
+    height: 250px;
   }
   .intro-subtitle {
     font-size: 1.3rem;
