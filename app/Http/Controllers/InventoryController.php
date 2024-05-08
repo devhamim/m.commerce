@@ -47,7 +47,6 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
         $rules = [
             'title' => 'required|string|max:255',
             'sku' => 'required|string|max:255|unique:inventories',
