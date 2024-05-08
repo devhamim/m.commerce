@@ -92,7 +92,7 @@
                                                     N/A
                                                 @endif
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -115,7 +115,7 @@
                                                         @endif
                                                     @endforeach
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
