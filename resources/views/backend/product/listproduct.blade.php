@@ -98,9 +98,7 @@
                                                         $inventorie = $product->rel_to_inventorie
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
-                                                        @if ($attribute->rel_to_color != null)
-                                                            {{ $attribute->color_id }},
-                                                        @endif
+                                                        {{ $attribute->color_id }},
                                                     @endforeach
                                                 @endif
                                             </td>
@@ -110,9 +108,7 @@
                                                         $inventorie = $product->rel_to_inventorie
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
-                                                        @if ($attribute->rel_to_size != null)
-                                                            {{ $attribute->size_id }},
-                                                        @endif
+                                                        {{ $attribute->size_id }},
                                                     @endforeach
                                                 @endif
                                             </td>
