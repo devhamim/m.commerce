@@ -90,6 +90,27 @@ class CheckoutController extends Controller
                             ->decrement('quantity', $quantity);
                     }
                 }
+                elseif(isset($itemdata['item_color']) && $itemdata['item_color'] !== null){
+                    $productId = $itemdata['item_id'];
+                    $attribute_id = $itemdata['item_attribute'];
+                    $inventory_id = $itemdata['item_inventory'];
+
+                    if (isset($quantities[$productId])) {
+                        $quantity = $quantities[$productId];
+
+                        OrderProduct::create([
+                            'order_id' => $order_id,
+                            'product_id' => $productId,
+                            'quantity' => $quantity,
+                            'attribute_id' => $attribute_id,
+                            'inventory_id' => $inventory_id,
+                            'created_at' => Carbon::now(),
+                        ]);
+
+                        Attribute::where('id', $attribute_id)
+                            ->decrement('quantity', $quantity);
+                    }
+                }
                 else{
                     $productId = $itemdata['item_id'];
                     if (isset($quantities[$productId])) {

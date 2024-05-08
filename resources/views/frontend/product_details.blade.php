@@ -132,7 +132,7 @@
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         @if ($attribute->rel_to_color != null)
                                                         <a href="#" class="color-option" data-color="{{ $attribute->rel_to_color->name }}" style="background: {{ $attribute->rel_to_color->code }}">
-                                                            <input  type="radio" name="color" value="{{ $attribute->rel_to_color->id }}" required>
+                                                            <input  type="radio" name="attribute_id" value="{{ $attribute->id }}" required>
                                                         </a>
                                                         @endif
                                                     @endforeach
@@ -203,7 +203,7 @@
                                                 @foreach ($products as $product)
                                                     @if ($product->rel_to_color != null)
                                                     <a href="#" class="color-option" data-color="{{ $product->rel_to_color->name }}" style="background: {{ $product->rel_to_color->code }}">
-                                                        <input  type="radio" name="color" value="{{ $product->rel_to_color->id }}" required>
+                                                        <input  type="radio" name="attribute_id" value="{{ $product->id }}" required>
                                                     </a>
                                                     @endif
                                                 @endforeach
@@ -249,12 +249,12 @@
 @section('footer_script')
     <script>
         $('input[name="color"]').on('click', function() {
-            var color = $(this).val();
+            var attribute_id = $(this).val();
             var inventorie_id = '{{  $products->first()->inventorie_id }}';
             $.ajax({
                 url: '{{ route("getProductDetails") }}',
                 method: 'GET',
-                data: { color: color, inventorie_id: inventorie_id},
+                data: { attribute_id: attribute_id, inventorie_id: inventorie_id},
                 success: function(response) {
                     updateProductDetails(response);
                 },

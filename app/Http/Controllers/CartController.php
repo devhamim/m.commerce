@@ -48,6 +48,7 @@ class CartController extends Controller
                             'item_inventory' => $inventory_id,
                             'item_name' => urlencode($product->name),
                             'item_weight' => $attribute->weight,
+                            'item_color' => $attribute->color_id ?? null,
                             'item_quantity' => $quantity,
                             'item_slug' => $product->slug,
                             'item_image' => $attribute->image,
