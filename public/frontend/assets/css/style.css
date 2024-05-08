@@ -1321,18 +1321,7 @@ blockquote.text-white cite span {
   padding: 0 !important;
   overflow: hidden;
 }
-.header-intro-clearance .header-middle .header-left,
-.header-intro-clearance .header-bottom .header-left {
-  flex: 0 0 calc((100% + 20px) / 4);
-  max-width: calc((100% + 20px) / 4);
-  margin: 0;
-}
-/* .header-intro-clearance .header-middle .header-center,
-.header-intro-clearance .header-bottom .header-center {
-  flex: 0 0 calc((100% + 20px) / 2 - 20px);
-  max-width: calc((100% + 20px) / 2 - 20px);
-  margin: 0;
-} */
+
 .header-intro-clearance .header-middle .header-right,
 .header-intro-clearance .header-bottom .header-right {
   margin-left: auto;
@@ -1643,8 +1632,14 @@ blockquote.text-white cite span {
     flex: 0 0 180px;
     max-width: 180px;
   }
+  .header-left a{
+    padding-left: 170px;
+}
 }
 @media screen and (max-width: 575px) {
+.header-left a{
+    padding-left: 60px;
+}
   .header-search .search-wrapper-wide {
     width: 300px;
   }

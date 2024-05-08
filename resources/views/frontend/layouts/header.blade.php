@@ -1,8 +1,14 @@
+
 <header class="header header-10 header-intro-clearance">
 
     <div class="header-middle">
         <div class="container">
             <div class="header-left">
+                <button class="mobile-menu-toggler">
+                    <span class="sr-only">Toggle mobile menu</span>
+                    <i class="icon-bars"></i>
+                </button>
+
                 <a href="{{ url('/') }}" class="my-3">
                     @if($setting->first()->black_logo != null)
                         <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" width="200px" alt="Logo">
@@ -15,30 +21,32 @@
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                    {{-- <form action="#" method="get"> --}}
-                        <div class="header-search-wrapper search-wrapper-wide">
-                            <label for="search_input" class="sr-only">সার্চ করুন</label>
-                            <input type="search" class="form-control" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
-                            <button id="search_btn" class="btn btn-primary" type="button"><i class="icon-search"></i></button>
-                        </div>
-                    {{-- </form> --}}
+                    <div class="header-search-wrapper search-wrapper-wide">
+                        <label for="search_input" class="sr-only">সার্চ করুন</label>
+                        <input type="search" class="form-control" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
+                        <button id="search_btn" class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+                    </div>
                 </div>
             </div>
 
             <div class="header-right">
-                <div class="dropdown cart-dropdown">
-                    <a href="{{ route('checkout') }}" class="dropdown-toggle">
-                        <div class="icon">
-                            <i class="icon-shopping-cart"></i>
-                            <span class="cart-count">{{ $totalItemsInCart }}</span>
-                        </div>
-                        <p>Cart</p>
-                    </a>
-                </div>
+                <div class="header-dropdown-link">
+                    <div class="dropdown cart-dropdown"></div>
 
+                    <div class="dropdown cart-dropdown">
+                        <a href="{{ route('checkout') }}" class="dropdown-toggle">
+                            <div class="icon">
+                                <i class="icon-shopping-cart"></i>
+                                <span class="cart-count">{{ $totalItemsInCart }}</span>
+                            </div>
+                            <p>Cart</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
     <div class="header-bottom sticky-header">
         <div class="container">

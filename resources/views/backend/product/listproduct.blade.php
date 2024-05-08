@@ -26,9 +26,9 @@
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Subcategory</th>
-                                    {{-- <th>Color</th>
+                                    <th>Color</th>
                                     <th>Size</th>
-                                    <th>Weight</th> --}}
+                                    <th>Weight</th>
                                     <th>Brand</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -103,7 +103,7 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        {{-- <td>
+                                        <td>
                                             @if ($product->inventorie_id != null)
                                                 @if ($product->rel_to_inventorie)
                                                     @php
@@ -164,9 +164,9 @@
                                                     @endphp
                                                     @foreach ($inventorie->rel_to_attribute as $attribute)
                                                         {{ $attribute->weight }},
-                                                    @else
-                                                        N/A
                                                     @endforeach
+                                                @else
+                                                    N/A
                                                 @endif
                                             @else
                                                 @if ($product->weight != null)
@@ -175,7 +175,7 @@
                                                     N/A
                                                 @endif
                                             @endif
-                                        </td> --}}
+                                        </td>
                                         <td>
                                             @if ($product->brand != null)
                                                 {{ $product->brand }}

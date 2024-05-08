@@ -55,6 +55,32 @@
     ::-ms-input-placeholder { /* Edge 12-18 */
       color: #bbb !important;
     }
+
+
+
+/* Adjustments for small screens */
+@media screen and (max-width: 992px) {
+    .header-middle {
+        flex-direction: column;
+    }
+
+    .header-middle .container {
+        padding-top: 10px;
+    }
+
+    .header-right {
+        margin-top: 10px;
+    }
+
+    .header-search {
+        display: none;
+    }
+
+    .mobile-menu-toggler {
+        order: -1;
+    }
+}
+
 </style>
 </head>
 
@@ -81,17 +107,17 @@
             <span class="mobile-menu-close"><i class="icon-close"></i></span>
 
             {{-- <form action="#" method="get" class="mobile-search"> --}}
-                {{-- <label for="mobile-search" class="sr-only">Search</label> --}}
-                {{-- <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required> --}}
-                {{-- <input type="search" class="form-control" name="q"  id="search_input" placeholder="Search product ..." required value="{{@$_GET['q']}}"> --}}
-                {{-- <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button> --}}
+                <label for="mobile-search" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                <input type="search" class="form-control" name="q"  id="search_input" placeholder="Search product ..." required value="{{@$_GET['q']}}">
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
 
-                {{-- <form action="{{ route('shop') }}" method="get">
+                {{-- <form action="{{ route('shop') }}" method="get"> --}}
                     <label for="search_input" class="sr-only">Search</label>
                     <input type="search" class="form-control" name="q" id="search_input" placeholder="Search product ..." required value="{{ @$_GET['q'] }}">
                     <!-- Add other form input elements (category, color, size, brand, sort) here -->
                     <button id="search_btn" class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                </form> --}}
+                {{-- </form> --}}
             {{-- </form> --}}
 
             <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
