@@ -26,8 +26,8 @@
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Subcategory</th>
-                                    <th>Color</th>
-                                    <th>Size</th>
+                                    {{-- <th>Color</th>
+                                    <th>Size</th> --}}
                                     <th>Weight</th>
                                     <th>Brand</th>
                                     <th>Quantity</th>
@@ -92,7 +92,7 @@
                                                     N/A
                                                 @endif
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
                                                         $inventorie = $product->rel_to_inventorie
@@ -119,7 +119,7 @@
                                                         @endif
                                                     @endforeach
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 @if ($product->rel_to_inventorie)
                                                     @php
@@ -212,7 +212,7 @@
                                             </td>
                                         </tr>
                                     @else
-                                        <tr>
+                                        {{-- <tr>
                                             <td>
                                                 <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
                                             </td>
@@ -351,7 +351,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                     @endif
 
                                 @endforeach
