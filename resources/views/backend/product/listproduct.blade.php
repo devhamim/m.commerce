@@ -204,7 +204,7 @@
                                             </td>
                                         </tr>
                                     @else
-                                        {{-- <tr>
+                                        <tr>
                                             <td>
                                                 <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
                                             </td>
@@ -242,16 +242,12 @@
                                             </td>
                                             <td>
                                                 @if ($product->color_id != null)
-                                                    @if ($product->rel_to_color != null)
-                                                        {{ $product->rel_to_color->name }}
-                                                    @endif
+                                                    {{ $product->color_id }}
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($product->size_id != null)
-                                                    @if ($product->rel_to_size != null)
-                                                        {{ $product->rel_to_size->name }}
-                                                    @endif
+                                                    {{ $product->size_id }}
                                                 @endif
 
                                             </td>
@@ -329,7 +325,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr> --}}
+                                        </tr>
                                     @endif
 
                                 @endforeach
