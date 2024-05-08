@@ -208,7 +208,7 @@
                                             </td>
                                         </tr>
                                     @else
-                                        <tr>
+                                        {{-- <tr>
                                             <td>
                                                 <img width="100" src="{{ asset('uploads/product') }}/{{ $product->image }}" alt="Image" />
                                             </td>
@@ -333,7 +333,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                     @endif
 
                                 @endforeach
