@@ -69,15 +69,15 @@ class FrontendController extends Controller
     //getsize
     public function getsize(Request $request)
     {
-        $sizes = Attribute::where('inventorie_id', $request->inventorie_id)->where('color_id', $request->color_id)->get();
+        $attribute = Attribute::where('inventorie_id', $request->inventorie_id)->where('color_id', $request->color_id)->get();
         $str = '';
 
         $str .= '<label>Size:</label>
                 <div class="product-nav product-nav-thumbs product_details_size">';
-        foreach($sizes as $size){
+        foreach($attribute as $size){
             $str .= '<div class="form-check size-option form-option form-check-inline mb-2">
                         <label class="color-option" for="'.$size->rel_to_size->id.'">'.$size->rel_to_size->name.'</label>
-                        <input class="size_id" type="radio" name="size_id" id="'.$size->rel_to_size->id.'" value="'.$size->rel_to_size->id.'" required>
+                        <input class="size_id" type="radio" name="attribute_id" id="'.$size->rel_to_size->id.'" value="'.$size->id.'" required>
                     </div>';
         }
         $str .= '</div>';
