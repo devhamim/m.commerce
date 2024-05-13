@@ -65,9 +65,9 @@ class CheckoutController extends Controller
             $quantities = $request->quantity;
 
             $items_in_cart = $cart_data;
-            return $items_in_cart;
+
             foreach ($items_in_cart as $key => $itemdata) {
-                if(isset($itemdata['item_inventory']) && $itemdata['item_inventory'] !== null){
+                if(isset($itemdata['item_weight']) && $itemdata['item_weight'] !== null){
                     $productId = $itemdata['item_id'];
                     $attribute_id = $itemdata['item_attribute'];
                     $inventory_id = $itemdata['item_inventory'];
