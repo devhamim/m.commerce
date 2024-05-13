@@ -28,7 +28,6 @@ class CheckoutController extends Controller
 
     // order_store
     function order_store(Request $request){
-        return $request->all();
         $request->validate([
             'name' => 'required|max:225',
             'mobile' => 'required|min:11|max:11',
@@ -66,7 +65,7 @@ class CheckoutController extends Controller
             $quantities = $request->quantity;
 
             $items_in_cart = $cart_data;
-
+            return $items_in_cart;
             foreach ($items_in_cart as $key => $itemdata) {
                 if(isset($itemdata['item_inventory']) && $itemdata['item_inventory'] !== null){
                     $productId = $itemdata['item_id'];
