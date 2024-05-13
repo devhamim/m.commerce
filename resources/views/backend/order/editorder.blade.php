@@ -38,7 +38,7 @@
                                     }
                                 @endphp
                                 </button>
-                                
+
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                   <li>
                                     <button name="status" value="{{ $orders->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
@@ -117,7 +117,15 @@
                                                 <td>{{ $key+1 }}</td>
                                                 <td><img class="product-img"
                                                         src="{{ asset('uploads/product') }}/{{ $product->rel_to_attribute->image }}" alt="" /></td>
-                                                <td><strong>{{ $product->rel_to_pro->name }}</strong><br>{{ $product->rel_to_pro->rel_to_cat->name }}</td>
+                                                <td>
+                                                    <strong>{{ $product->rel_to_pro->name }}</strong><br>
+                                                    @if ($product->rel_to_attribute->color_id)
+                                                       Color: {{ $product->rel_to_attribute->rel_to_color->name }},
+                                                       Size:  {{ $product->rel_to_attribute->rel_to_size->name }}
+                                                    @elseif ($product->rel_to_attribute->weight)
+                                                       Weight: {{ $product->rel_to_attribute->weight }}
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">{{ $product->quantity }}</td>
                                                 <td class="text-center">{{ number_format($product->rel_to_attribute->sell_price ?? $product->rel_to_attribute->price, 2) }} Tk</td>
                                                 <td class="text-right">{{ number_format(($product->rel_to_attribute->sell_price ?? $product->rel_to_attribute->price) * $product->quantity, 2) }} Tk</td>
