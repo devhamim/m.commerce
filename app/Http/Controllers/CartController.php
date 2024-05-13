@@ -17,7 +17,7 @@ class CartController extends Controller
                 $product_id = $request->product_id;
                 $inventory_id = $request->inventory_id;
                 $quantity = $request->quantity;
-                if($request->color_id){
+                if ($request->has('color_id')) {
                     $attribute = Attribute::where('inventorie_id', $request->inventory_id)->where('color_id', $request->color_id)->where('size_id', $request->size_id)->first();
                     $attribute_id = $attribute->id;
                 }
