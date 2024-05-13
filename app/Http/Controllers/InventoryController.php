@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Attribute;
 use App\Models\Color;
 use App\Models\Inventory;
+use App\Models\Product;
 use App\Models\size;
 use Illuminate\Http\Request;
 use Str;
@@ -69,7 +70,6 @@ class InventoryController extends Controller
             'brand' => $validatedData['brand'] ?? null,
             'slug' => $validatedData['slug'],
         ]);
-
         foreach ($validatedData['price'] as $key => $price) {
             $inventory = new Attribute();
             $inventory->inventorie_id = $mainInventory->id;
@@ -120,20 +120,25 @@ class InventoryController extends Controller
      */
     public function destroy(string $id)
     {
+
         $inventory = Inventory::find($id);
         $attributes = Attribute::where('inventorie_id', $inventory->id)->get();
 
-        foreach($attributes as $attribute){
-            $filePath = public_path('uploads/product/'. $attribute->image);
-                if(file_exists($filePath) && is_file($filePath)){
-                    unlink($filePath);
-                }
-
-            $attribute->delete();
+        if(Product::where('inventorie_id', $id)->exists()){
+            return back()->with('warning', 'Inventory have product Please product delete fast');
         }
+        else{
+            foreach($attributes as $attribute){
+                $filePath = public_path('uploads/product/'. $attribute->image);
+                    if(file_exists($filePath) && is_file($filePath)){
+                        unlink($filePath);
+                    }
 
+                $attribute->delete();
+            }
 
-        $inventory->delete();
-        return back()->with('warning', 'Delete Successfully');
+            $inventory->delete();
+            return back()->with('warning', 'Delete Successfully');
+        }
     }
 }

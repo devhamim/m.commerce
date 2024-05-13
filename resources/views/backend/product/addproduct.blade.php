@@ -172,7 +172,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 mt-3">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                         {{-- <div class="attribute-fields">

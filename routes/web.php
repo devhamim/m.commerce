@@ -13,6 +13,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SMSController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/product/{slug}/', [FrontendController::class, 'product_details'])->name('product.details');
 Route::get('/getProductDetails', [FrontendController::class, 'getProductDetails'])->name('getProductDetails');
-Route::get('/getSizes', [FrontendController::class, 'getSizes'])->name('getSizes');
+Route::post('/getsize', [FrontendController::class, 'getsize'])->name('getsize');
 Route::get('/category/{category}', [FrontendController::class, 'category_show'])->name('category.show');
 
 Route::post('/cart/store', [CartController::class, 'cart_store'])->name('cart.store');
@@ -40,6 +41,8 @@ Route::get('/clear-cart', [CartController::class, 'clear_cart']);
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 Route::post('/order/store', [CheckoutController::class, 'order_store'])->name('order.store');
 Route::get('/order/success', [CheckoutController::class, 'order_success'])->name('order.success');
+
+Route::get('/getProductSizes', [FrontendController::class, 'getProductSizes'] )->name('getProductSizes');
 
 // login
 Route::group(['prefix' => 'admin'], function(){
@@ -64,11 +67,15 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('inventory', InventoryController::class);
     Route::resource('attribute', AttributeController::class);
     Route::resource('orders', OrderController::class);
+    Route::resource('sms', SMSController::class);
 
     Route::get('size/list', [AttributeController::class, 'size_list'])->name('size.list');
     Route::post('/getsubcategory', [ProductController::class, 'getsubcategory']);
     Route::post('/getinventorydata', [ProductController::class, 'getinventorydata']);
+    Route::post('/order/status/update', [OrderController::class, 'order_status_update'])->name('order.status.update');
+    Route::get('/invoice/download/{id}', [OrderController::class, 'invoice_download'])->name('invoice.download');
+
 });
 
-
+Route::post('/getProduct', [OrderController::class, 'getProduct'])->name('getProduct');
 

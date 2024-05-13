@@ -26,7 +26,7 @@
                                     <th>SKU</th>
                                     <th>Brand</th>
                                     <th>Inventory</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -65,13 +65,13 @@
                                                 Price: {{  $attribute->price }}, Sell Price: {{  $attribute->sell_price }}, Quantity: {{  $attribute->quantity }},<br>
                                             @endforeach
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @if ($inventory->status == 1)
                                                 <div class="badge badge-success">Active</div>
                                             @else
                                                 <div class="badge badge-danger">Deactive</div>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>{{ $inventory->created_at->format('d-m-Y') }}</td>
                                         <td>
                                             <div class="btn-group mb-1">

@@ -98,6 +98,12 @@
                                                             @if (isset($data['item_weight']) && $data['item_weight'] !== null)
                                                                 <span>Weight: {{ $data['item_weight'] }}</span>
                                                             @endif
+                                                            @if (isset($data['item_color']) && $data['item_color'] !== null)
+                                                                <span>Color: {{ $data['item_color'] }}</span>
+                                                            @endif
+                                                            @if (isset($data['item_size']) && $data['item_size'] !== null)
+                                                                <span>Size: {{ $data['item_size'] }}</span>
+                                                            @endif
                                                         </div>
 
                                                     </td>
@@ -199,6 +205,7 @@
                 totalPrice += subtotal;
             });
             $(".grand_total_price").text("৳ " + totalPrice);
+            $("input[name='sub_total']").val(totalPrice);
         }
 
         function updateGrandTotalPrice() {
@@ -212,6 +219,7 @@
             var deliveryCharge = district === 'dhaka' ? 65 : 120;
             grandTotal += deliveryCharge;
             $(".grand_total").text("৳ " + grandTotal);
+            $("input[name='total']").val(grandTotal);
         }
     });
 
@@ -222,23 +230,6 @@
         updateGrandTotalPrice();
     }
 </script>
-
-
-{{-- <script>
-    $(document).ready(function () {
-        $('#district').change(function() {
-            var district = $(this).val();
-            var subtotal = parseFloat($('.grand_total_price').text().replace('৳ ', ''));
-            var deliveryCharge = district === 'dhaka' ? 65 : 120;
-            var grandTotal = subtotal + deliveryCharge;
-
-            $('#delivery-charge').text('৳ ' + deliveryCharge);
-            $('#delivery-charge-input').val(deliveryCharge);
-            $('.summary-total.delivery-charge-row').show();
-            $('.grand_total').text('৳ ' + grandTotal).show();
-        });
-    });
-</script> --}}
 
 
 <script>

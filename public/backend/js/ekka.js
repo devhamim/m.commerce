@@ -341,8 +341,8 @@ $(document).ready(function () {
 		generate_slug(slug);
 	});
 
-	var d = new Date();
-	var year = d.getFullYear();
-	document.getElementById("ec-year").innerHTML = year;
+	// var d = new Date();
+	// var year = d.getFullYear();
+	// document.getElementById("ec-year").innerHTML = year;
 
 });

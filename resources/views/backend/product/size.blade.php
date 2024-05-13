@@ -25,7 +25,7 @@
                                 <tr>
                                     <th>Sl</th>
                                     <th>Name</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
 
@@ -34,7 +34,7 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $size->name }}</td>
-                                        <td>
+                                        {{-- <td>
                                             <div class="btn-group mb-1">
                                                 <button type="button"
                                                     class="btn btn-outline-success">Info</button>
@@ -55,7 +55,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

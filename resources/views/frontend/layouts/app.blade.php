@@ -106,26 +106,15 @@
         <div class="mobile-menu-wrapper">
             <span class="mobile-menu-close"><i class="icon-close"></i></span>
 
-            {{-- <form action="#" method="get" class="mobile-search"> --}}
+            <form action="#" method="get" class="mobile-search">
                 <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
-                <input type="search" class="form-control" name="q"  id="search_input" placeholder="Search product ..." required value="{{@$_GET['q']}}">
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search product ..." required="">
                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-
-                {{-- <form action="{{ route('shop') }}" method="get"> --}}
-                    <label for="search_input" class="sr-only">Search</label>
-                    <input type="search" class="form-control" name="q" id="search_input" placeholder="Search product ..." required value="{{ @$_GET['q'] }}">
-                    <!-- Add other form input elements (category, color, size, brand, sort) here -->
-                    <button id="search_btn" class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                {{-- </form> --}}
-            {{-- </form> --}}
+            </form>
 
             <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab" aria-controls="mobile-cats-tab" aria-selected="false">Categories</a>
                 </li>
             </ul>
 
@@ -133,36 +122,20 @@
                 <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
                     <nav class="mobile-nav">
                         <ul class="mobile-menu">
-                            <li class="{{ Request::is('/') ? 'active' : '' }}">
+                            <li class="active">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
-                            {{-- <li class="{{ Request::is('shop') ? 'active' : '' }}">
-                                <a href="{{route('shop')}}">Shop</a>
-                            </li>
-                            <li class="{{ Request::is('category*') ? 'active' : '' }}">
-                                <a href="{{route('category')}}">Category</a>
-                            </li>
-                            <li class="{{ Request::is('offer*') ? 'active' : '' }}">
-                                <a href="{{route('offer')}}">Offer</a>
-                            </li>
-                            <li class="{{ Request::is('campaign*') ? 'active' : '' }}">
-                                <a href="{{route('campaign')}}">Campaign</a>
-                            </li>
-                            <li class="{{ Request::is('contact*') ? 'active' : '' }}">
-                                <a href="{{route('contact')}}">Contact</a>
-                            </li> --}}
+                            @foreach ($categorys->take(8) as $category)
+                                <li class="">
+                                    <a class="px-4 py-2" href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </nav><!-- End .mobile-nav -->
-                </div>
-                <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
-                    <nav class="mobile-cats-nav">
-                        @yield('mobile')
-                    </nav>
-                </div>
+                </div><!-- .End .tab-pane -->
             </div><!-- End .tab-content -->
-
         </div><!-- End .mobile-menu-wrapper -->
-    </div><!-- End .mobile-menu-container -->
+    </div>
 
     <!-- Plugins JS File -->
     <script src="{{asset('frontend/assets/js/jquery.min.js')}}"></script>

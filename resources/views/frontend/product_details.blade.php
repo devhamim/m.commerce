@@ -126,18 +126,34 @@
                                                 </div>
                                             </div>
                                         @elseif ($inventorie->rel_to_attribute->where('rel_to_color', '!=', null)->isNotEmpty())
-                                            <div class="details-filter-row details-row-size">
-                                                <label>Color:</label>
-                                                <div class="product-nav product-nav-thumbs">
-                                                    @foreach ($inventorie->rel_to_attribute as $attribute)
-                                                        @if ($attribute->rel_to_color != null)
-                                                        <a href="#" class="color-option" data-color="{{ $attribute->rel_to_color->name }}" style="background: {{ $attribute->rel_to_color->code }}">
-                                                            <input  type="radio" name="attribute_id" value="{{ $attribute->id }}" required>
-                                                        </a>
-                                                        @endif
-                                                    @endforeach
+                                            @if ($available_colors->isNotEmpty())
+                                                <div class="details-filter-row details-row-size">
+                                                    @php
+                                                        $color = null;
+                                                    @endphp
+                                                    <label>Color:</label>
+                                                    <div class="product-nav product-nav-thumbs product_details_color">
+                                                        @foreach ($available_colors as $colorId => $colorAttributes)
+                                                            @php
+                                                                $color = $colorAttributes->first()->rel_to_color;
+                                                            @endphp
+                                                            <label for="color_details_{{ $colorId }}" class="color-option" data-color="{{ $color->name }}" style="background: {{ $color->code }}">{{ $color->name }}</label>
+                                                            <input id="color_details_{{ $colorId }}" class="color_id" type="radio" name="color_id" value="{{ $color->id }}" required>
+                                                        @endforeach
+                                                        @error('color_id')
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        @enderror
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="details-filter-row details-row-size" id="size_id">
+
+                                                </div>
+
+                                                <div class="details-filter-row details-row-size" id="size-options">
+                                                    <!-- Size options will be dynamically populated here -->
+                                                </div>
+
+                                            @endif
                                         @endif
                                         <div id="productDetails">
                                             <!-- Display dynamic content here (image, price, quantity) -->
@@ -202,9 +218,8 @@
                                             <div class="product-nav product-nav-thumbs">
                                                 @foreach ($products as $product)
                                                     @if ($product->rel_to_color != null)
-                                                    <a href="#" class="color-option" data-color="{{ $product->rel_to_color->name }}" style="background: {{ $product->rel_to_color->code }}">
-                                                        <input  type="radio" name="attribute_id" value="{{ $product->id }}" required>
-                                                    </a>
+                                                    <label for="color_details_{{ $product->id }}" class="color-option" data-color="{{ $product->rel_to_color->name }}" style="background: {{ $product->rel_to_color->code }}">{{ $product->rel_to_color->name }}</label>
+                                                    <input id="color_details_{{ $product->id }}" type="radio" name="attribute_id" class="inpute_color" value="{{ $product->id }}" required>
                                                     @endif
                                                 @endforeach
                                             </div>
@@ -247,6 +262,27 @@
 @endsection
 
 @section('footer_script')
+
+<script>
+    $('.color_id').click(function(){
+        var color_id = $(this).val();
+        var inventorie_id = '{{  $products->first()->inventorie_id }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'POST',
+            url:'/getsize',
+            data:{'color_id':color_id, 'inventorie_id':inventorie_id},
+            success:function(data){
+                $('#size_id').html(data);
+            }
+        });
+    });
+</script>
+
     <script>
         $('input[name="color"]').on('click', function() {
             var attribute_id = $(this).val();

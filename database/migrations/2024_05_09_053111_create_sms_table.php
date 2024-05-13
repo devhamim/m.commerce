@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('billingdetails', function (Blueprint $table) {
+        Schema::create('sms', function (Blueprint $table) {
             $table->id();
-            $table->string('order_id');
-            $table->string('name');
-            $table->string('mobile');
-            $table->string('address');
-            $table->string('district');
-            $table->longText('note')->nullable();
+            $table->string('smscount');
+            $table->string('smscost');
+            $table->string('smstotal');
+            $table->string('smsnumber');
+            $table->string('smsname');
+            $table->string('smsmassage');
+            $table->string('smsorder');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('billingdetails');
+        Schema::dropIfExists('sms');
     }
 };

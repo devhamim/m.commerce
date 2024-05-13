@@ -129,7 +129,22 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $products = Product::find($id);
+        $categoreys = Category::where('status', 1)->get();
+        $subcategoreys = Subcategory::where('status', 1)->get();
+        $allinventorys = Inventory::where('status', 1)->get();
+        $inventorys = Inventory::where('status', 1)->where('id', $products->inventorie_id)->with('rel_to_attribute')->get();
+        $colors = Color::all();
+        $sizes = size::all();
+        return view('backend.product.editproduct',[
+            'products'=>$products,
+            'categoreys'=>$categoreys,
+            'subcategoreys'=>$subcategoreys,
+            'inventorys'=>$inventorys,
+            'colors'=>$colors,
+            'sizes'=>$sizes,
+            'allinventorys'=>$allinventorys,
+        ]);
     }
 
     /**
@@ -137,7 +152,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**

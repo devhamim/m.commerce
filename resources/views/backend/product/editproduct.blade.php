@@ -3,12 +3,12 @@
 <div class="content">
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Add Product</h1>
+            <h1>Edit Product</h1>
             <p class="breadcrumbs"><span><a href="{{ route('dashboard') }}">Dashboard</a></span>
                 <span><i class="mdi mdi-chevron-right"></i></span>Product</p>
         </div>
         <div>
-            <a href="{{ route('product.index') }}" class="btn btn-primary"> View All
+            <a href="{{ route('product.index') }}" class="btn btn-primary"> Product List
             </a>
         </div>
     </div>
@@ -16,12 +16,13 @@
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                    <h2>Add Product</h2>
+                    <h2>Edit Product</h2>
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3" method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
+                    <form class="row g-3" method="POST" action="{{ route('product.update',$products->id) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="row ec-vendor-uploads">
                             <div class="col-lg-4">
                                 <div class="ec-vendor-img-upload">
@@ -50,7 +51,7 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">Product name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control slug-title @error('name') is-invalid @enderror" name="name"  value="{{ old('name') }}" required>
+                                            <input type="text" class="form-control slug-title @error('name') is-invalid @enderror" name="name"  value="{{ $products->name }}" required>
                                             @error('name')
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -59,8 +60,8 @@
                                             <label class="form-label">Attribute <span class="text-secondary">(Optional)</span></label>
                                             <select name="inventorie_id" id="inventorie_id" class="form-select" value="{{ old('inventorie_id') }}">
                                                 <option value="">-- Selected Attribute --</option>
-                                                @foreach ($inventorys as $inventory)
-                                                    <option value="{{ $inventory->id }}">{{ $inventory->title }}</option>
+                                                @foreach ($allinventorys as $inventory)
+                                                    <option value="{{ $inventory->id }}" {{ $inventory->id == $products->inventorie_id?'selected':'' }}>{{ $inventory->title }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -69,7 +70,7 @@
                                             <select name="category_id" id="category_id" class="form-select @error('category_id') is-invalid @enderror" value="{{ old('category_id') }}" required>
                                                 <option value="">-- Selected Category --</option>
                                                 @foreach ($categoreys as $categorey)
-                                                    <option value="{{ $categorey->id }}">{{ $categorey->name }}</option>
+                                                    <option value="{{ $categorey->id }}" {{ $categorey->id == $products->category_id?'selected':'' }}>{{ $categorey->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
@@ -79,7 +80,7 @@
                                         <div class="col-md-6">
                                             <label class="form-label">Subcategories <span class="text-secondary">(Optional)</span></label>
                                             <select name="subcategory_id" id="subcategory_id" class="form-select @error('subcategory_id') is-invalid @enderror" value="{{ old('subcategory_id') }}" required>
-                                                <option value="">-- Selected Subcategory --</option>
+                                                <option value="{{ $products->subcategory_id }}">{{ $products->rel_to_subcat->name }}</option>
                                             </select>
                                             @error('subcategory_id')
                                                 <span class="text-danger">{{$message}}</span>
@@ -88,7 +89,7 @@
                                         <div class="col-md-6">
                                             <label for="sku" class="col-12 col-form-label">SKU</label>
                                             <div class="col-12">
-                                                <input id="sku" name="sku" class="form-control here  @error('sku') is-invalid @enderror" type="text" value="{{ old('sku') }}" required>
+                                                <input id="sku" name="sku" class="form-control here  @error('sku') is-invalid @enderror" type="text" value="{{ $inventorys->first()->sku }}" required>
                                                 @error('sku')
                                                     <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -97,20 +98,19 @@
                                         <div class="col-md-6">
                                             <label for="brand" class="col-12 col-form-label">Brand</label>
                                             <div class="col-12">
-                                                {{-- class add if need type slug-title class field auto felap set-slug field  --}}
-                                                <input id="brand" name="brand" class="form-control" type="text" value="{{ old('brand') }}">
+                                                <input id="brand" name="brand" class="form-control" type="text" value="{{ $inventorys->first()->brand }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Description</label>
-                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required rows="4"></textarea>
+                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" required rows="4">{{ $products->description }}</textarea>
                                             @error('description')
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Product Tags <span>( Type and make comma to separate tags )</span></label>
-                                            <input type="text" class="form-control @error('tag') is-invalid @enderror" id="tag" name="tag" value="{{ old('tag') }}" required data-role="tagsinput" />
+                                            <input type="text" class="form-control @error('tag') is-invalid @enderror" id="tag" name="tag" value="{{ $products->tag }}" required data-role="tagsinput" />
                                             @error('tag')
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -118,29 +118,25 @@
                                         <div class="attribute-fields">
                                             <p class="my-3">Variation</p>
                                             <hr>
-                                            <div class="row">
+                                            {{-- <div class="row">
 
-                                                <div class="col-md-12 mb-25">
+                                                <div class="col-md-6 mb-25">
                                                     <label class="form-label">Colors</label>
-                                                    <div class="form-checkbox-box">
+                                                    <select name="color_id" id="color_id" class="form-select" value="{{ old('color_id') }}">
+                                                        <option value="">-- Selected Attribute --</option>
                                                         @foreach ($colors as $color)
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="color_id" value="{{ $color->id }}">
-                                                                <label class="inventory_color" style="background: {{ $color->code }}">{{ $color->name }}</label>
-                                                            </div>
+                                                            <option value="{{ $color->id }}"  style="background: {{ $color->code }}">{{ $color->name }}</option>
                                                         @endforeach
-                                                    </div>
+                                                    </select>
                                                 </div>
-                                                <div class="col-md-12 mb-25">
+                                                <div class="col-md-6 mb-25">
                                                     <label class="form-label">Size</label>
-                                                    <div class="form-checkbox-box">
+                                                    <select name="size_id" id="size_id" class="form-select" value="{{ old('size_id') }}">
+                                                        <option value="">-- Selected Attribute --</option>
                                                         @foreach ($sizes as $size)
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size_id" value="{{ $size->id }}">
-                                                                <label>{{ $size->name }}</label>
-                                                            </div>
+                                                            <option value="{{ $size->id }}" {{ $size->id == $inventorys->first()->rel_to_attribute->first()->size_id?'selected':'' }}>{{ $size->name }}</option>
                                                         @endforeach
-                                                    </div>
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="form-label">Weight </label>
@@ -170,9 +166,9 @@
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 mt-3">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                         {{-- <div class="attribute-fields">

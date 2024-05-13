@@ -8,8 +8,23 @@
                 <span><i class="mdi mdi-chevron-right"></i></span>Orders
             </p>
         </div>
-        <div>
+        {{-- <div>
             <a href="{{ route('orders.create') }}" class="btn btn-primary">Add Orders</a>
+        </div> --}}
+        <div class="filter row">
+            <div class="col-lg-9 pt-3">
+                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
+                    <i class="fa fa-calendar"></i>&nbsp;
+                    <span></span> <i class="fa fa-caret-down"></i>
+                 </div>
+            </div>
+            <div class="col-lg-3">
+                <form action="{{ route('orders.index') }}" method="GET">
+                    <input type="hidden" name="start_date" id="start_date" value="{{ $defaultStartDate }}">
+                    <input type="hidden" name="end_date" id="end_date" value="{{ $defaultEndDate }}">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -64,12 +79,12 @@
                                             @foreach ($order->rel_to_orderpro as $OrderProduct)
                                                 @if ($OrderProduct != null)
                                                     @if ($OrderProduct->rel_to_attribute != null)
-                                                        <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
+                                                        <span>{{ $OrderProduct->rel_to_pro->name??'' }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
                                                             @if ($OrderProduct->rel_to_attribute->weight != null)
                                                                 Weight: {{ $OrderProduct->rel_to_attribute->weight }}
                                                             @else
-                                                                Color: {{ $OrderProduct->rel_to_attribute->color_id }}
-                                                                Size: {{ $OrderProduct->rel_to_attribute->size_id }}
+                                                                Color: {{ $OrderProduct->rel_to_attribute->rel_to_color->name }}
+                                                                Size: {{ $OrderProduct->rel_to_attribute->rel_to_size->name }}
                                                             @endif
                                                         </span><hr>
                                                     @elseif ($OrderProduct->rel_to_pro != null)
@@ -90,7 +105,15 @@
                                         <td>{{ $order->total }}Tk</td>
                                         <td>
                                             @if ($order->status == 0)
-                                                <div class="badge badge-success">Processing</div>
+                                                <div class="badge badge-secondary">Pending</div>
+                                            @elseif ($order->status == 1)
+                                                <div class="badge badge-info">Confirmed Order</div>
+                                            @elseif ($order->status == 2)
+                                                <div class="badge badge-primary">Processing Order</div>
+                                            @elseif ($order->status == 3)
+                                                <div class="badge badge-warning">On Delivery</div>
+                                            @elseif ($order->status == 4)
+                                                <div class="badge badge-success">Product Delivered</div>
                                             @else
                                                 <div class="badge badge-danger">Cancel</div>
                                             @endif
@@ -108,9 +131,7 @@
                                                 </button>
 
                                                 <div class="dropdown-menu">
-                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $order->id }}">
-                                                        Edit
-                                                    </button>
+                                                    <a href="{{ route('orders.edit',  $order->id) }}" class="dropdown-item">Edit</a>
                                                     <form action="{{ route('orders.destroy',  $order->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -131,4 +152,41 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer_scripts')
+<script type="text/javascript">
+    $(document).ready(function () {
+        var start_date = '{{ $defaultStartDate }}';
+        var end_date = '{{ $defaultEndDate }}';
+
+        if (start_date && end_date) {
+            start_date = moment(start_date, 'YYYY-MM-DD');
+            end_date = moment(end_date, 'YYYY-MM-DD');
+        } else {
+            start_date = moment().subtract(6, 'days');
+            end_date = moment();
+        }
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('#start_date').val(start.format('YYYY-MM-DD'));
+            $('#end_date').val(end.format('YYYY-MM-DD'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start_date,
+            endDate: end_date,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+        cb(start_date, end_date);
+    });
+</script>
 @endsection

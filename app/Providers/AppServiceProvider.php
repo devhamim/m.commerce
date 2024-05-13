@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
         // footer category
     View::composer('frontend.layouts.header', function ($view){
-        $view->with('categorys', Category::all());
+        $view->with('categorys', Category::where('status', 1)->get());
 
         if (Cookie::has('shopping_cart')) {
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
@@ -50,7 +50,11 @@ class AppServiceProvider extends ServiceProvider
 
         // frontend header category
         View::composer('frontend.category', function ($view){
-            $view->with('categorys', Category::all());
+            $view->with('categorys', Category::where('status', 1)->get());
+        });
+        // frontend app category
+        View::composer('frontend.layouts.app', function ($view){
+            $view->with('categorys', Category::where('status', 1)->get());
         });
         // frontend footer
         View::composer('frontend.layouts.footer', function ($view){

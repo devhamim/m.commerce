@@ -37,14 +37,14 @@
                 </div>
 
             <div class="heading-right">
-                    <a href="#" class="see_more"><h3 class="me-1">See More</h3><span>></span></a>
+                    <a href="{{ route('category.show', $category->id) }}" class="see_more"><h3 class="me-1">See More</h3><span>></span></a>
             </div>
             </div>
 
             <div class="tab-content tab-content-carousel">
                     <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
                         <div class="row" >
-                            @foreach ($products->take(6) as $product)
+                            @foreach ($products as $product)
                                 @if ($product->category_id == $category->id)
                                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                                         <div class="product cartpage">

@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Admin Dashboard">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	@if($setting->first()->title != null)
         <title>{{$setting->first()->title}}</title>
     @endif
@@ -19,14 +20,16 @@
 
 	<link href="{{ asset('backend') }}/css/materialdesignicons.min.css" rel="stylesheet" />
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
 	<!-- PLUGINS CSS STYLE -->
 	<link href="{{ asset('backend') }}/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
 	<link href="{{ asset('backend') }}/plugins/simplebar/simplebar.css" rel="stylesheet" />
 
     <!-- Bootstrap -->
 	<link id="ekka-css" href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet" />
+    {{-- <link rel="stylesheet" href="{{asset('backend/css/select2.css')}}"> --}}
+
+    {{-- calander --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Data Tables -->
 	<link href='{{ asset('backend') }}/plugins/data-tables/datatables.bootstrap5.min.css' rel='stylesheet'>
@@ -50,7 +53,7 @@
         <script>
             Swal.fire({
                 icon: "success",
-                title: "Add Successfully",
+                title: "Successfully",
                 text: "{{ session('success') }}",
             });
         </script>
@@ -59,7 +62,7 @@
         <script>
             Swal.fire({
                 icon: "warning",
-                title: "Delete Successfully",
+                title: "warning",
                 text: "{{ session('warning') }}",
             });
         </script>
@@ -97,11 +100,17 @@
 	</div> <!-- End Wrapper -->
 
 	<!-- Common Javascript -->
-	<script src="{{ asset('backend') }}/plugins/jquery/jquery-3.5.1.min.js"></script>
+	{{-- <script src="{{ asset('backend') }}/plugins/jquery/jquery-3.5.1.min.js"></script> --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<script src="{{ asset('backend') }}/js/bootstrap.bundle.min.js"></script>
 	<script src="{{ asset('backend') }}/plugins/simplebar/simplebar.min.js"></script>
 	<script src="{{ asset('backend') }}/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+    {{-- <script src="{{ asset('backend/js/select2.js') }}')}}"></script> --}}
 	<script src="{{ asset('backend') }}/plugins/slick/slick.min.js"></script>
+
+    {{-- calander --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 	<!-- Chart -->
 	<script src="{{ asset('backend') }}/plugins/charts/Chart.min.js"></script>

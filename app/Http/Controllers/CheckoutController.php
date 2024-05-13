@@ -7,10 +7,13 @@ use App\Models\Billingdetails;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\sms;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Str;
+use Log;
+use Illuminate\Support\Facades\Http;
 
 class CheckoutController extends Controller
 {
@@ -129,6 +132,48 @@ class CheckoutController extends Controller
                 }
 
             }
+
+    $lastOrder = sms::orderBy('created_at', 'desc')->first();
+
+    if ($lastOrder) {
+        $sentMessageCount = $lastOrder->smscount;
+    } else {
+        $sentMessageCount = 0;
+    }
+
+    $smsqApiKey = "RUJ5s4yijCz2HAQKzpMk";
+    $smsqSenderId = "8809617618342";
+    $smsqMessage = 'Thank you for your order! Your order #'.$order_id.' has been successfully placed.
+www.marhabashopbd.com';
+
+    $smsqMessage = urlencode($smsqMessage);
+    $smsqMobileNumbers = '+88' .$request->mobile;
+
+    $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumbers&senderid=$smsqSenderId&message=$smsqMessage";
+
+    $response = Http::get($smsqUrl);
+    if ($response->successful()) {
+        $sentMessageCount++;
+
+        // $smsCost = $sentMessageCount;
+
+        $smscounts = new sms();
+        $smscounts->smscount = $sentMessageCount;
+        $smscounts->smscost = 0.65;
+        $smscounts->smstotal = $sentMessageCount*0.65;
+        $smscounts->smsnumber = $request->mobile;
+        $smscounts->smsname = $request->name;
+        $smscounts->smsmassage = $smsqMessage;
+        $smscounts->smsorder = $order_id;
+        $smscounts->save();
+
+        Cookie::queue(Cookie::forget('shopping_cart'));
+
+        return redirect()->route('order.success')->withSuccess("Order has been placed successfully")->withOrder($order_id);
+    } else {
+        Log::error("SMSQ API Request failed. Response: " . $response->status());
+        return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
+    }
 
             Cookie::queue(Cookie::forget('shopping_cart'));
 

@@ -99,6 +99,13 @@
                         </ul>
                     </div>
                 </li>
+                <!-- sms list -->
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('sms.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">SMS</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

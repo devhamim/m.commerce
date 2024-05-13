@@ -27,10 +27,14 @@ class FrontendController extends Controller
     // product_details
     function product_details($slug){
         $products = Product::where('slug', $slug)->get();
-        $attributes = 0;
+        $attributes = Attribute::where('inventorie_id', $products->first()->inventorie_id)->get();
+
+        $available_colors = $attributes->groupBy('rel_to_color.id');
+
         return view('frontend.product_details',[
             'products'=>$products,
-            'attributes'=>$attributes,
+            'attributes' => $attributes,
+            'available_colors' => $available_colors,
         ]);
     }
     // getProductDetails
@@ -62,6 +66,25 @@ class FrontendController extends Controller
         }
     }
 
+    //getsize
+    public function getsize(Request $request)
+    {
+        $sizes = Attribute::where('inventorie_id', $request->inventorie_id)->where('color_id', $request->color_id)->get();
+        $str = '';
+
+        $str .= '<label>Size:</label>
+                <div class="product-nav product-nav-thumbs product_details_size">';
+        foreach($sizes as $size){
+            $str .= '<div class="form-check size-option form-option form-check-inline mb-2">
+                        <label class="color-option" for="'.$size->rel_to_size->id.'">'.$size->rel_to_size->name.'</label>
+                        <input class="size_id" type="radio" name="size_id" id="'.$size->rel_to_size->id.'" value="'.$size->rel_to_size->id.'" required>
+                    </div>';
+        }
+        $str .= '</div>';
+
+        echo $str;
+
+    }
 
     // category_details
     function category_show($category){
