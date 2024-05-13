@@ -248,8 +248,8 @@
                                         <a href="" style="width: 100%; background: #22C55E; ">কল করুন : 01604702965</a>
                                     </div>
                                     <div class="my-3 call-btn">
-                                        <a href="" style="width: 100%; background: #22C55E; ">হোয়াটসঅ্যাপ অর্ডার</a>
-
+                                        <a href="" ></a>
+                                        <a href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." style="width: 100%; background: #22C55E;" target="_blank">হোয়াটসঅ্যাপ অর্ডার</a>
                                     </div>
                                 </div><!-- End .product-details -->
                             </form>

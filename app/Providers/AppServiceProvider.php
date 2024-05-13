@@ -47,6 +47,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('frontend.layouts.header', function ($view){
             $view->with('setting', Setting::all());
         });
+        // frontend header
+        View::composer('frontend.product_details', function ($view){
+            $view->with('setting', Setting::all());
+        });
 
         // frontend header category
         View::composer('frontend.category', function ($view){
