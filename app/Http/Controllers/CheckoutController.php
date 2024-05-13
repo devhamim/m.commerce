@@ -28,6 +28,7 @@ class CheckoutController extends Controller
 
     // order_store
     function order_store(Request $request){
+        return $request->all();
         $request->validate([
             'name' => 'required|max:225',
             'mobile' => 'required|min:11|max:11',
@@ -39,17 +40,12 @@ class CheckoutController extends Controller
             $cart_data = json_decode($cookie_data, true);
             $items_in_cart = $cart_data;
 
-            // if(Coupon::where('coupon_name', $request->coupon)->exists()) {
-            //     $coupon = Coupon::where('coupon_name', $request->coupon)->first()->get();
-            //     $coupon_price = $coupon->first()->coupon_amount;
-            // } else {
-            //     $coupon_price = 0;
-            // }
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
             $order_id = Str::random(5).'-'.rand(10000000,99999999);
+
             Billingdetails::insert([
                 'order_id' => $order_id,
                 'name' => $request->name,
@@ -72,7 +68,7 @@ class CheckoutController extends Controller
             $items_in_cart = $cart_data;
 
             foreach ($items_in_cart as $key => $itemdata) {
-                if(isset($itemdata['item_attribute']) && $itemdata['item_attribute'] !== null){
+                if(isset($itemdata['item_inventory']) && $itemdata['item_inventory'] !== null){
                     $productId = $itemdata['item_id'];
                     $attribute_id = $itemdata['item_attribute'];
                     $inventory_id = $itemdata['item_inventory'];
@@ -169,7 +165,7 @@ www.marhabashopbd.com';
 
         Cookie::queue(Cookie::forget('shopping_cart'));
 
-        return redirect()->route('order.success')->withSuccess("Order has been placed successfully")->withOrder($order_id);
+        return redirect()->route('order.success')->withSuccess("Order has been placed successfully");
     } else {
         Log::error("SMSQ API Request failed. Response: " . $response->status());
         return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
@@ -177,7 +173,7 @@ www.marhabashopbd.com';
 
             Cookie::queue(Cookie::forget('shopping_cart'));
 
-            return redirect()->route('order.success')->withSuccess("Order has been placed successfully")->withOrder($order_id);
+            return redirect()->route('order.success')->withSuccess("Order has been placed successfully");
 
         // return redirect('/')->with('success', 'order has been placed successfully');
     }
