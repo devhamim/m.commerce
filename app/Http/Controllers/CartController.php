@@ -14,17 +14,11 @@ class CartController extends Controller
     function cart_store(Request $request){
         if($request->inventory_id != null){
             if($request->btn == 2){
+                return $request->all();
                 $product_id = $request->product_id;
                 $inventory_id = $request->inventory_id;
                 $quantity = $request->quantity;
                 $attribute_id = $request->attribute_id;
-                // if ($request->has('color_id')) {
-                //     $attribute = Attribute::where('inventorie_id', $request->inventory_id)->where('color_id', $request->color_id)->where('size_id', $request->size_id)->first();
-                //     $attribute_id = $attribute->id;
-                // }
-                // else{
-                //     $attribute_id = $request->attribute_id;
-                // }
                 if (Cookie::get('shopping_cart')) {
                     $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                     $cart_data = json_decode($cookie_data, true);
