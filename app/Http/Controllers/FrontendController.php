@@ -93,4 +93,36 @@ class FrontendController extends Controller
             'products'=>$products,
         ]);
     }
+
+    // shop
+      //shop
+      function shop(Request $request){
+        // search
+        $data = $request->all();
+
+        $products = Product::where(function($q) use ($data){
+            if(!empty($data['q']) && $data['q'] != '' && $data['q'] != 'undefined'){
+                $q->where(function($q) use ($data){
+                    $q->where('name', 'like', '%'.$data['q'].'%');
+                    $q->orWhere('tag', 'like', '%'.$data['q'].'%');
+                    $q->orWhere('description', 'like', '%'.$data['q'].'%');
+                    $q->orWhere('slug', 'like', '%'.$data['q'].'%');
+                });
+            }
+            if(!empty($data['category_id']) && $data['category_id'] != '' && $data['category_id'] != 'undefined'){
+                $q->where('category_id', $data['category_id']);
+            }
+
+        })->where('status', 1)->paginate(6)->withQueryString();
+
+        // search product count
+        $products_count = $products->count();
+
+        $categorys = category::all();
+       return view('frontend.shop', [
+           'products'=>$products,
+           'categorys'=>$categorys,
+           'products_count'=>$products_count,
+       ]);
+   }
 }

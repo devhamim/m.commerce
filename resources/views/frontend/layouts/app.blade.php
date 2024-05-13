@@ -409,109 +409,20 @@
 </script>
 
 <script>
-    $(document).ready(function() {
-        $('.add_to_wishlist').click(function(e) {
-            e.preventDefault();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            var product_id = $(this).closest(".cartpage").find('.product_id_value').val();
-            $.ajax({
-                url: '/add-wishlist',
-                type: 'POST',
-                data: {
-                    'product_id': product_id,
-                },
-                success: function (response) {
-                    // if(response.error_status == 'error') {
-                        alertify.set('notifier', 'position', 'top-right');
-                        alertify.success(response.status);
-                    // } else {
-                    //     alertify.set('notifier','position','top-right');
-                    //     alertify.success(response.status);
-                    //     cartload();
-                    //     $('#load').load(location.href + ' .counted');
-                    // }
-                }
-            })
-        })
-    })
-</script>
+    $('#search_input').keypress(function (e) {
+          if (e.which === 13) {
+              $('#search_btn').click();
+          }
+      });
+     $('#search_btn').click(function(){
+          var search_input = $('#search_input').val();
+          var category_id = $('input[class="category_id"]:checked').val();
 
-{{-- <script>
-    $('#search_btn').click(function() {
-    var search_input = $('#search_input').val();
-    var category_id = $('input[class="category_id"]:checked').attr('value');
-    var color_id = $('input[class="color_id"]:checked').attr('value');
-    var size_id = $('input[class="size_id"]:checked').attr('value');
-    var brand_id = $('input[class="brand_id"]:checked').attr('value');
-    var sort = $('#sort').val();
-    var link = "{{ route('shop') }}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort=" + sort;
-    window.location.href = link;
-    });
-    $('#search_btn').click(function(){
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-	})
-    $('.category_id').click(function() {
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-    })
-    $('.color_id').click(function() {
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-    })
-    $('.size_id').click(function() {
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-    })
-    $('.brand_id').click(function() {
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-    })
-    $('#sort').change(function() {
-        var search_input = $('#search_input').val();
-        var category_id = $('input[class="category_id"]:checked').attr('value');
-        var color_id = $('input[class="color_id"]:checked').attr('value');
-        var size_id = $('input[class="size_id"]:checked').attr('value');
-        var brand_id = $('input[class="brand_id"]:checked').attr('value');
-        var sort = $('#sort').val();
-        var link = "{{route('shop')}}" + "?q=" + search_input + "&category_id=" + category_id + "&color_id=" + color_id + "&size_id=" + size_id + "&brand_id=" + brand_id + "&sort="+sort;
-        window.location.href = link;
-    })
-</script> --}}
+          var link = "{{ route('shop') }}"+"?q="+search_input+"&category_id="+category_id;
+          window.location.href = link;
+      });
+
+  </script>
 
 </body>
 </html>

@@ -34,6 +34,7 @@ Route::get('/product/{slug}/', [FrontendController::class, 'product_details'])->
 Route::get('/getProductDetails', [FrontendController::class, 'getProductDetails'])->name('getProductDetails');
 Route::post('/getsize', [FrontendController::class, 'getsize'])->name('getsize');
 Route::get('/category/{category}', [FrontendController::class, 'category_show'])->name('category.show');
+Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 
 Route::post('/cart/store', [CartController::class, 'cart_store'])->name('cart.store');
 Route::get('/clear-cart', [CartController::class, 'clear_cart']);
