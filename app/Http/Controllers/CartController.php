@@ -14,11 +14,11 @@ class CartController extends Controller
     function cart_store(Request $request){
         if($request->inventory_id != null){
             if($request->btn == 2){
-                return $request->all();
                 $product_id = $request->product_id;
                 $inventory_id = $request->inventory_id;
                 $quantity = $request->quantity;
                 $attribute_id = $request->attribute_id;
+
                 if (Cookie::get('shopping_cart')) {
                     $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                     $cart_data = json_decode($cookie_data, true);
@@ -48,8 +48,8 @@ class CartController extends Controller
                             'item_inventory' => $inventory_id,
                             'item_name' => urlencode($product->name),
                             'item_weight' => $attribute->weight ?? null,
-                            'item_color' => $attribute->rel_to_color->name ?? null,
-                            'item_size' => $attribute->rel_to_size->name ?? null,
+                            // 'item_color' => $attribute->rel_to_color->name ?? null,
+                            // 'item_size' => $attribute->rel_to_size->name ?? null,
                             'item_quantity' => $quantity,
                             'item_slug' => $product->slug,
                             'item_image' => $attribute->image,
