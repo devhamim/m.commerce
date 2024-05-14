@@ -9751,7 +9751,7 @@ button:focus {
   font-size: 3.4rem;
 }
 .carousel-with-shadow .owl-stage-outer {
-  padding: 0 1rem 2rem;
+  /* padding: 0 1rem 2rem; */
   margin-left: -1rem;
   margin-right: -1rem;
   margin-top: -3rem;
