@@ -27,10 +27,10 @@
         <div class="row">
             <div class="col-12 m-auto">
                 <div class="text-center">
-                    <div class="header-search-extended header-search-no-radius" style="max-width: 100%">
+                    <div class="header-search-extended header-search-no-radius" style="max-width: 100%; margin-bottom: 0">
                         <form id="search_form" action="{{ route('shop') }}" method="GET" class="header-search-wrapper search-wrapper-wide d-flex">
                             <label for="search_input" class="sr-only">সার্চ করুন</label>
-                            <input type="search" class="form-control" style="border-radius: 8px 0 0 8px" name="q" id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
+                            <input type="search" class="form-control" style="border-radius: 8px 0 0 8px; margin-bottom: 0" name="q" id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
                             <button id="search_btn" class="btn btn-primary" style="min-width: 0; border-radius: 0 8px 8px 0" type="submit"><i class="icon-search"></i></button>
                         </form>
                     </div>
@@ -40,7 +40,7 @@
     </div>
 </section>
 
-<section class="reivew mt-5">
+<section class="reivew mt-3">
     <div class="container electronics">
         <div class="container electronics">
             <div class="heading heading-flex heading-border " style="display: block; text-align: center; padding: 10px 0">
@@ -54,7 +54,7 @@
                         data-owl-options='{
                             "nav": false,
                             "dots": true,
-                            "margin": 20,
+                            "margin": 15,
                             "loop": false,
                             "responsive": {
                                 "0": {
