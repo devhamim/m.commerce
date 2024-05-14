@@ -242,13 +242,13 @@
 
                                     <div class="mt-3" style="border-top: 2px solid #E5E7EB; padding-top: 10px; display: flex; width: 100%">
                                         <button type="submit" class="btn-cart mr-3 product_details_card" name="btn" value="1" id="load"><span>Add to cart</span></button>
-                                        <button type="submit" class=" btn-cart btn-buy product_details_buy" name="btn" value="2"><span>Buy now</span></button>
+                                        <button type="submit" class=" btn-cart btn-buy product_details_buy" name="btn" value="2"><span>Order Now</span></button>
                                     </div><!-- End .product-details-action -->
                                     <div class="my-3 call-btn product_details_chat">
-                                        <a href="tel: 01604702965">কল করুন : 01604702965</a>
+                                        <a href="tel: {{$setting->first()->number_two}}">Call Now</a>
                                     </div>
                                     <div class="my-3 call-btn product_details_chat">
-                                        <a href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." target="_blank">হোয়াটসঅ্যাপ অর্ডার</a>
+                                        <a href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." target="_blank">WhatsApp</a>
                                     </div>
                                 </div><!-- End .product-details -->
                             </form>

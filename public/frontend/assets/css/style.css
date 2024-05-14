@@ -1739,7 +1739,7 @@ blockquote.text-white cite span {
     align-items: center;
   }
   .mobile_bar .mobile_bar_item{
-    width: 25%;
+    width: 33.33%;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
@@ -5358,12 +5358,14 @@ p {
   background-color: #07657E;
   color: #fff !important;
   text-align: center;
+  padding: 5px 0;
   justify-content: space-between;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .heading.heading-flex h3{
   color: #fff !important;
+  font-size: 12px;
 }
 .heading.heading-flex h2{
   color: #fff !important;
@@ -6731,7 +6733,7 @@ p {
   margin-bottom: 0.2rem;
 }
 .product-title a {
-  color: inherit;
+  color: #000;
 }
 .product-title a:hover,
 .product-title a:focus {
@@ -16578,6 +16580,11 @@ button:focus {
   content: "\f7e3";
 }
 /*# sourceMappingURL=style.css.map */
+.see_more{
+    background: #000;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
 .see_more h3{
   font-size: 14px;
   display: inline-block;

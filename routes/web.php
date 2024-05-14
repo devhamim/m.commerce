@@ -12,6 +12,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SMSController;
 use App\Http\Controllers\SubcategoryController;
@@ -69,6 +70,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('attribute', AttributeController::class);
     Route::resource('orders', OrderController::class);
     Route::resource('sms', SMSController::class);
+    Route::resource('review', ReviewController::class);
 
     Route::get('size/list', [AttributeController::class, 'size_list'])->name('size.list');
     Route::post('/getsubcategory', [ProductController::class, 'getsubcategory']);

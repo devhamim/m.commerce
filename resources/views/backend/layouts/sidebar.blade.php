@@ -62,6 +62,13 @@
                 </li>
                 <!-- Order list -->
                 <li>
+                    <a class="sidenav-item-link" href="{{ route('review.index') }}">
+                        <i class="mdi mdi-cart"></i>
+                        <span class="nav-text">Review</span>
+                    </a>
+                </li>
+                <!-- Order list -->
+                <li>
                     <a class="sidenav-item-link" href="{{ route('orders.index') }}">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Order</span>

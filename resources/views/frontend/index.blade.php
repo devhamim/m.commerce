@@ -40,8 +40,14 @@
     </div>
 </section>
 
-{{-- <section class="reivew">
+<section class="reivew mt-5">
     <div class="container electronics">
+        <div class="container electronics">
+            <div class="heading heading-flex heading-border " style="display: block; text-align: center; padding: 10px 0">
+                <div class="heading-left">
+                    <h2 class="title">Customer Review</h2>
+                </div>
+        </div>
         <div class="tab-content tab-content-carousel">
                 <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
@@ -64,63 +70,41 @@
                                     "items":4
                                 },
                                 "1280": {
-                                    "items":6,
+                                    "items":4,
                                     "nav": true
                                 }
                             }
                         }'>
-                        @foreach ($discount_products as $product)
-
-
+                        @foreach ($reviews as $review)
                         <div class="product cartpage">
                             <figure class="product-media">
-                                <a href="{{route('product.details', $product->slug)}}">
-                                    <img src="{{asset('uploads/products/preview')}}/{{$product->preview_image}}" alt="Product image" class="product-image">
-                                </a>
+                                <img src="{{asset('uploads/review')}}/{{$review->image}}" alt="Product image" class="product-image">
+
                                 <div class="product-action-vertical">
                                     <p style="background-image: url( '{{asset('frontend/assets/images/discount.png')}}' )"></p>
                                 </div>
-
-                                <div class="text-center">
-                                    <form action="{{ route('buy.store') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <input type="hidden" name="quantity" value="1">
-                                        <button type="submit" class="btn-product btn-cart btn-buy mr-5 w-100" name="btn" value="2"><span>অর্ডার করুন</span></button>
-                                    </form>
-                                </div>
                             </figure>
-
-                            <div class="product-body">
-                                @if ($product->product_price != null)
-                                    <span class="new-price d-block">৳ {{$product->product_discount}}</span>
-                                    <del style="color: #cccccc">Was ৳ {{$product->product_price}}</del>
-                                @else
-                                    <span class="product-price">৳ {{$product->product_discount}}</span>
-                                @endif
-                                <h3 class="product-title"><a href="{{route('product.details', $product->slug)}}">{{Str::limit($product->product_name, '19', '')}}</a></h3>
-                            </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
         </div><!-- End .tab-content -->
     </div>
-</section> --}}
+</section>
 
 @foreach ($categorys as $category)
     @php
         $categoryproduct = $products->where('category_id', $category->id);
     @endphp
     @if ($categoryproduct->isNotEmpty())
-        <div class="container electronics">
-            <div class="heading heading-flex heading-border ">
-                <div class="heading-left">
-                    <h2 class="title">{{ $category->name }}</h2>
+            <div class="container electronics">
+                <div class="heading heading-flex heading-border ">
+                    <div class="heading-left">
+                        <h2 class="title">{{ $category->name }}</h2>
+                    </div>
+                <div class="heading-right px-2">
+                        <a href="{{ route('category.show', $category->id) }}" class="see_more"><h3 class="me-1">See More</h3></a>
                 </div>
-            <div class="heading-right px-2">
-                    <a href="{{ route('category.show', $category->id) }}" class="see_more"><h3 class="me-1">See More</h3><span>></span></a>
-            </div>
             </div>
 
             <div class="tab-content tab-content-carousel">

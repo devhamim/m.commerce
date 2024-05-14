@@ -14,7 +14,7 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                    <div class="product">
+                    <div class="product home_product_shadwo" style="border-radius: 10px;">
                         <figure class="product-media">
                             {{-- <span class="product-label label-new">off {{$product->price}}Tk</span> --}}
                             <a href="{{route('product.details', $product->slug)}}">

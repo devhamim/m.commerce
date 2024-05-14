@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Inventory;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Log;
 
@@ -17,10 +18,12 @@ class FrontendController extends Controller
         $banners = Banner::where('status', 1)->get();
         $categorys = Category::where('status', 1)->get();
         $products = Product::where('status', 1)->get();
+        $reviews = Review::where('status', 1)->get();
         return view('frontend.index',[
             'banners'=>$banners,
             'categorys'=>$categorys,
             'products'=>$products,
+            'reviews'=>$reviews,
         ]);
     }
 

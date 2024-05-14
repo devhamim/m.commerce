@@ -68,10 +68,6 @@
         padding-top: 10px;
     }
 
-    .header-right {
-        margin-top: 10px;
-    }
-
     .header-search {
         display: none;
     }
@@ -145,17 +141,15 @@
                 </a>
             </div>
             <div class="mobile_bar_item">
-                <a href="" class="dropdown-toggle">
-                    <i class="icon-gift"></i>
-                </a>
+                <a class="dropdown-toggle" href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." target="_blank"><i class="icon-whatsapp"></i></a>
             </div>
-            <div class="mobile_bar_item" >
+            {{-- <div class="mobile_bar_item" >
                 <a href="" class="dropdown-toggle">
                     <i class="icon-shopping-cart"></i>
                 </a>
-            </div>
+            </div> --}}
             <div class="mobile_bar_item" >
-                <a href="" class="dropdown-toggle"><i class="icon-user"></i></a>
+                <a href="tel: {{$setting->first()->number_two}}" class="dropdown-toggle"><i class="icon-phone"></i></a>
             </div>
 
         </div>
