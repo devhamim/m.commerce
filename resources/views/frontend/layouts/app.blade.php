@@ -57,7 +57,11 @@
     }
 
 
-
+.checkout_header_text{
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    border-bottom: 4px dashed #07657E !important;
+}
 /* Adjustments for small screens */
 @media screen and (max-width: 992px) {
     .header-middle {
@@ -75,6 +79,9 @@
     .mobile-menu-toggler {
         order: -1;
     }
+    .checkout_header_text{
+    font-size: 14px !important;
+}
 }
 
 </style>

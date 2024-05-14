@@ -10,12 +10,100 @@
                     @php $total = 0; @endphp
                     <div class="row mb-3">
                         <div class="col-lg-6 m-auto text-center">
-                            <p style="font-size: 18px; font-weight: 600; border-bottom: 4px dashed #CD6727">অর্ডার করতে সঠিক তথ্য দিয়ে নিচের ফরম পূরন করুন</p>
+                            <p class="checkout_header_text">অর্ডার করতে সঠিক তথ্য দিয়ে নিচের ফরম পূরন করুন</p>
                         </div>
                     </div>
                     <form action="{{ route('order.store') }}" method="POST">
                         @csrf
                         <div class="row">
+
+                            <aside class="col-lg-7">
+                                <div class="summary">
+                                    <h3 class="summary-title checkout_weight">অর্ডার ইনফরমেশন</h3>
+                                    <table class="table table-summary table-responsive">
+                                        <thead>
+                                            <tr class="product_info_header">
+                                                <th>Image</th>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th class="text-center">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="mt-5">
+                                            @foreach ($cart_data as $data)
+                                                <tr class="table-shadow">
+                                                    <td style="padding-right: 10px">
+                                                        <img width="60px" src="{{ asset('uploads/product') }}/{{ $data['item_image'] }}" alt="">
+                                                    </td>
+                                                    <td>
+                                                        <div class="product_info">
+                                                            <p><a style="font-weight: 500;" href="{{ route('product.details', $data['item_slug']) }}">{{ urldecode($data['item_name']) }}</a></p>
+                                                            @if (isset($data['item_weight']) && $data['item_weight'] !== null)
+                                                                <span>Weight: {{ $data['item_weight'] }}</span>
+                                                            @endif
+                                                            @if (isset($data['item_color']) && $data['item_color'] !== null)
+                                                                <span>Color: {{ $data['item_color'] }}</span>
+                                                            @endif
+                                                            @if (isset($data['item_size']) && $data['item_size'] !== null)
+                                                                <span>Size: {{ $data['item_size'] }}</span>
+                                                            @endif
+                                                        </div>
+
+                                                    </td>
+                                                    <td>
+                                                        Tk <span class="product-price" style="display: inline">
+                                                            {{ isset($data['item_price']) ? $data['item_price'] : $data['product_price'] }}
+                                                        </span> X
+                                                    </td>
+                                                    <td class="ps-3 text-center mt-2 pro_details_ico" style="padding-top: 15px; justify-content: center; width: 10%; margin: 0 auto">
+                                                        <input type="number" name="quantity[{{ $data['item_id'] }}]" class="qty-input form-control" value="{{ $data['item_quantity'] }}" min="1" max="100" step="1" data-decimals="0" required>
+                                                    </td>
+                                                    <td>
+                                                        <div class="cart-product-quantity">
+                                                            <input type="hidden" class="product-id" value="{{ $data['item_id'] }}">
+                                                            <span class="subtotal">Tk {{ ($data['item_quantity'] ?? 1) * ($data['item_price'] ?? $data['product_price']) }}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                @php
+                                                    if ($data['item_price'] != null) {
+                                                        $total = $total + ($data["item_quantity"] * $data["item_price"]);
+                                                    } else {
+                                                        $total = $total + ($data["item_quantity"] * $data["product_price"]);
+                                                    }
+                                                @endphp
+                                            @endforeach
+                                            <tr class="summary-total checkout_bottom_border">
+                                                <td>সাব-টোটাল (+)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="grand_total_price">Tk {{ $total }}</td>
+                                            </tr>
+                                            <tr class="summary-total delivery-charge-row checkout_bottom_border" style="display: none;">
+                                                <td>ডেলিভারি চার্জ (+)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <span id="delivery-charge"></span>
+                                                    <input type="hidden" name="delivery_charge" id="delivery-charge-input">
+                                                </td>
+                                            </tr>
+                                            <tr class="summary-total delivery-charge-row checkout_bottom_border">
+                                                <td>টোটাল</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="grand_total"><span class="grand_span">Tk {{ $total }}</span></td>
+                                            </tr>
+                                            <input type="hidden" name="sub_total" value="{{ $total }}">
+                                            <input type="hidden" name="total" value="{{ $total }}">
+                                        </tbody>
+                                    </table>
+                                    <div class="cart-bottom">
+                                        <button type="button" class="btn btn-danger clear_cart"><span>CLEAR CART</span><i class="icon-refresh"></i></button>
+                                    </div>
+                                </div>
+                            </aside>
                             <div class="col-lg-5 checkout_form">
                                 <h2 class="checkout-title checkout_weight">বিলিং ডিটেইল</h2>
                                 <div class="row">
@@ -133,93 +221,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <aside class="col-lg-7">
-                                <div class="summary">
-                                    <h3 class="summary-title checkout_weight">অর্ডার ইনফরমেশন</h3>
-                                    <table class="table table-summary table-responsive">
-                                        <thead>
-                                            <tr class="product_info_header">
-                                                <th>Image</th>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Qty</th>
-                                                <th class="text-center">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="mt-5">
-                                            @foreach ($cart_data as $data)
-                                                <tr class="table-shadow">
-                                                    <td style="padding-right: 10px">
-                                                        <img width="60px" src="{{ asset('uploads/product') }}/{{ $data['item_image'] }}" alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="product_info">
-                                                            <p><a style="font-weight: 500;" href="{{ route('product.details', $data['item_slug']) }}">{{ urldecode($data['item_name']) }}</a></p>
-                                                            @if (isset($data['item_weight']) && $data['item_weight'] !== null)
-                                                                <span>Weight: {{ $data['item_weight'] }}</span>
-                                                            @endif
-                                                            @if (isset($data['item_color']) && $data['item_color'] !== null)
-                                                                <span>Color: {{ $data['item_color'] }}</span>
-                                                            @endif
-                                                            @if (isset($data['item_size']) && $data['item_size'] !== null)
-                                                                <span>Size: {{ $data['item_size'] }}</span>
-                                                            @endif
-                                                        </div>
-
-                                                    </td>
-                                                    <td>
-                                                        Tk <span class="product-price" style="display: inline">
-                                                            {{ isset($data['item_price']) ? $data['item_price'] : $data['product_price'] }}
-                                                        </span> X
-                                                    </td>
-                                                    <td class="ps-3 text-center mt-2 pro_details_ico" style="padding-top: 15px; justify-content: center; width: 10%; margin: 0 auto">
-                                                        <input type="number" name="quantity[{{ $data['item_id'] }}]" class="qty-input form-control" value="{{ $data['item_quantity'] }}" min="1" max="100" step="1" data-decimals="0" required>
-                                                    </td>
-                                                    <td>
-                                                        <div class="cart-product-quantity">
-                                                            <input type="hidden" class="product-id" value="{{ $data['item_id'] }}">
-                                                            <span class="subtotal">Tk {{ ($data['item_quantity'] ?? 1) * ($data['item_price'] ?? $data['product_price']) }}</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                @php
-                                                    if ($data['item_price'] != null) {
-                                                        $total = $total + ($data["item_quantity"] * $data["item_price"]);
-                                                    } else {
-                                                        $total = $total + ($data["item_quantity"] * $data["product_price"]);
-                                                    }
-                                                @endphp
-                                            @endforeach
-                                            <tr class="summary-total checkout_bottom_border">
-                                                <td>সাব-টোটাল (+)</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td class="grand_total_price">Tk {{ $total }}</td>
-                                            </tr>
-                                            <tr class="summary-total delivery-charge-row checkout_bottom_border" style="display: none;">
-                                                <td>ডেলিভারি চার্জ (+)</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <span id="delivery-charge"></span>
-                                                    <input type="hidden" name="delivery_charge" id="delivery-charge-input">
-                                                </td>
-                                            </tr>
-                                            <tr class="summary-total delivery-charge-row checkout_bottom_border">
-                                                <td>টোটাল</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td class="grand_total"><span class="grand_span">Tk {{ $total }}</span></td>
-                                            </tr>
-                                            <input type="hidden" name="sub_total" value="{{ $total }}">
-                                            <input type="hidden" name="total" value="{{ $total }}">
-                                        </tbody>
-                                    </table>
-                                    <div class="cart-bottom mt-3">
-                                        <button type="button" class="btn btn-danger clear_cart"><span>CLEAR CART</span><i class="icon-refresh"></i></button>
-                                    </div>
-                                </div>
-                            </aside>
                         </div>
                     </form>
                 @endif

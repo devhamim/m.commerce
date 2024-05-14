@@ -13490,7 +13490,7 @@ button:focus {
   outline: none !important;
 }
 .summary {
-  padding: 2.5rem 3rem 3rem;
+  padding: 10px 0 0 5px;
   border: 0.1rem dashed #d7d7d7;
   background-color: #f9f9f9;
   border-radius: 0.3rem;
