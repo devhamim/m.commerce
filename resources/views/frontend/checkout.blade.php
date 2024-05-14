@@ -168,7 +168,7 @@
 
                                                     </td>
                                                     <td>
-                                                        ৳ <span class="product-price" style="display: inline">
+                                                        Tk <span class="product-price" style="display: inline">
                                                             {{ isset($data['item_price']) ? $data['item_price'] : $data['product_price'] }}
                                                         </span> X
                                                     </td>
@@ -178,7 +178,7 @@
                                                     <td>
                                                         <div class="cart-product-quantity">
                                                             <input type="hidden" class="product-id" value="{{ $data['item_id'] }}">
-                                                            <span class="subtotal">৳ {{ ($data['item_quantity'] ?? 1) * ($data['item_price'] ?? $data['product_price']) }}</span>
+                                                            <span class="subtotal">Tk {{ ($data['item_quantity'] ?? 1) * ($data['item_price'] ?? $data['product_price']) }}</span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -194,7 +194,7 @@
                                                 <td>সাব-টোটাল (+)</td>
                                                 <td></td>
                                                 <td></td>
-                                                <td class="grand_total_price">৳ {{ $total }}</td>
+                                                <td class="grand_total_price">Tk {{ $total }}</td>
                                             </tr>
                                             <tr class="summary-total delivery-charge-row checkout_bottom_border" style="display: none;">
                                                 <td>ডেলিভারি চার্জ (+)</td>
@@ -209,7 +209,7 @@
                                                 <td>টোটাল</td>
                                                 <td></td>
                                                 <td></td>
-                                                <td class="grand_total"><span class="grand_span">৳ {{ $total }}</span></td>
+                                                <td class="grand_total"><span class="grand_span">Tk {{ $total }}</span></td>
                                             </tr>
                                             <input type="hidden" name="sub_total" value="{{ $total }}">
                                             <input type="hidden" name="total" value="{{ $total }}">
@@ -237,48 +237,48 @@
         $(".qty-input").on("change", function () {
             var $row = $(this).closest("tr");
             var quantity = parseInt($(this).val());
-            var price = parseFloat($row.find(".product-price").text().replace('৳ ', ''));
+            var price = parseFloat($row.find(".product-price").text().replace('Tk ', ''));
             var subtotal = quantity * price;
 
-            $row.find(".subtotal").text("৳ " + subtotal);
+            $row.find(".subtotal").text("Tk " + subtotal);
             updateTotalPrice();
             updateGrandTotalPrice();
         });
 
         $('#district').change(function() {
             var district = $(this).val();
-            var subtotal = parseFloat($('.grand_total_price').text().replace('৳ ', ''));
+            var subtotal = parseFloat($('.grand_total_price').text().replace('Tk ', ''));
             var deliveryCharge = district === 'dhaka' ? 65 : 120;
             var grandTotal = subtotal + deliveryCharge;
 
-            $('#delivery-charge').text('৳ ' + deliveryCharge);
+            $('#delivery-charge').text('Tk ' + deliveryCharge);
             $('#delivery-charge-input').val(deliveryCharge);
             $('.summary-total.delivery-charge-row').show();
-            $('.grand_total').text('৳ ' + grandTotal).show();
+            $('.grand_total').text('Tk ' + grandTotal).show();
             updateGrandTotalPrice();
         });
 
         function updateTotalPrice() {
             var totalPrice = 0;
             $(".subtotal").each(function () {
-                var subtotal = parseFloat($(this).text().replace('৳ ', ''));
+                var subtotal = parseFloat($(this).text().replace('Tk ', ''));
                 totalPrice += subtotal;
             });
-            $(".grand_total_price").text("৳ " + totalPrice);
+            $(".grand_total_price").text("Tk " + totalPrice);
             $("input[name='sub_total']").val(totalPrice);
         }
 
         function updateGrandTotalPrice() {
             var grandTotal = 0;
             $(".subtotal").each(function () {
-                var subtotal = parseFloat($(this).text().replace('৳ ', ''));
+                var subtotal = parseFloat($(this).text().replace('Tk ', ''));
                 grandTotal += subtotal;
             });
 
             var district = $('#district').val();
             var deliveryCharge = district === 'dhaka' ? 65 : 120;
             grandTotal += deliveryCharge;
-            $(".grand_total").text("৳ " + grandTotal);
+            $(".grand_total").text("Tk " + grandTotal);
             $("input[name='total']").val(grandTotal);
         }
     });

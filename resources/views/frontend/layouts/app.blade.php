@@ -137,6 +137,29 @@
         </div><!-- End .mobile-menu-wrapper -->
     </div>
 
+    <section class="mobile_bar">
+        <div class="dropdown cart-dropdown">
+            <div class="mobile_bar_item" >
+                <a href="{{ url('/')}}" class="dropdown-toggle">
+                    <i class="icon-home"></i>
+                </a>
+            </div>
+            <div class="mobile_bar_item">
+                <a href="" class="dropdown-toggle">
+                    <i class="icon-gift"></i>
+                </a>
+            </div>
+            <div class="mobile_bar_item" >
+                <a href="" class="dropdown-toggle">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="mobile_bar_item" >
+                <a href="" class="dropdown-toggle"><i class="icon-user"></i></a>
+            </div>
+
+        </div>
+    </section>
     <!-- Plugins JS File -->
     <script src="{{asset('frontend/assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}"></script>
@@ -408,21 +431,42 @@
     }
 </script>
 
+{{-- <script>
+    $(document).ready(function() {
+        $('#search_input').keypress(function(e) {
+            if (e.which === 13) {
+                $('#search_btn').click();
+            }
+        });
+
+        $('#search_btn').click(function() {
+            var search_input = $('#search_input').val();
+
+            var link = "{{ route('shop') }}" + "?q=" + search_input;
+            window.location.href = link;
+        });
+    });
+</script> --}}
+
+
 <script>
-    $('#search_input').keypress(function (e) {
-          if (e.which === 13) {
-              $('#search_btn').click();
-          }
-      });
-     $('#search_btn').click(function(){
-          var search_input = $('#search_input').val();
-          var category_id = $('input[class="category_id"]:checked').val();
+    // Wrap your code in $(document).ready() to ensure it runs after the DOM is fully loaded
+    $(document).ready(function() {
+        $('#search_input').keypress(function(e) {
+            if (e.which === 13) {
+                $('#search_btn').click();
+            }
+        });
 
-          var link = "{{ route('shop') }}"+"?q="+search_input+"&category_id="+category_id;
-          window.location.href = link;
-      });
+        $('#search_btn').click(function() {
+            var search_input = $('#search_input').val();
 
-  </script>
-
+            // Simulating your route for demo purpose
+            var link = "{{ route('shop') }}" + "?q=" + search_input;
+            console.log(link); // Check the link in console to see if it's correct
+            // window.location.href = link; // Uncomment this line once you're sure the link is correct
+        });
+    });
+</script>
 </body>
 </html>

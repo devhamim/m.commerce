@@ -37,7 +37,7 @@
                         </figure>
 
                         <div class="product-body">
-                            <h3 class="product-title pb-1"><a href="{{route('product.details', $product->slug)}}">{{Str::limit($product->name, '19', '')}}</a></h3>
+                            <h3 class="product-title pb-1"><a href="{{route('product.details', $product->slug)}}">{{Str::limit($product->name, '15', '')}}</a></h3>
                             @if ($product->inventorie_id != null)
                                 @if ($product->rel_to_inventorie)
                                     @php
@@ -45,19 +45,19 @@
                                     @endphp
                                     @foreach ($inventorie->rel_to_attribute->take(1) as $attribute)
                                         @if ($attribute->sell_price != null)
-                                            <span class="new-price">৳ {{$attribute->sell_price}}</span>
-                                            <del style="color: #cccccc">Was ৳ {{$attribute->price}}</del>
+                                            <span class="new-price">Tk {{$attribute->sell_price}}</span>
+                                            <del style="color: #cccccc">Tk {{$attribute->price}}</del>
                                         @else
-                                            <span class="product-price">৳ {{$attribute->price}}</span>
+                                            <span class="product-price">Tk {{$attribute->price}}</span>
                                         @endif
                                     @endforeach
                                 @endif
                             @else
                                 @if ($product->sell_price != null)
-                                    <span class="new-price">৳ {{$product->sell_price}}</span>
-                                    <del style="color: #cccccc">Was ৳ {{$product->price}}</del>
+                                    <span class="new-price">Tk {{$product->sell_price}}</span>
+                                    <del style="color: #cccccc">Tk {{$product->price}}</del>
                                 @else
-                                    <span class="product-price">৳ {{$product->price}}</span>
+                                    <span class="product-price">Tk {{$product->price}}</span>
                                 @endif
                             @endif
                         </div>

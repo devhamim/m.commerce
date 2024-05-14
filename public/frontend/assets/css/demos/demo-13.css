@@ -23,7 +23,7 @@
 }
 .header.header-10.header-intro-clearance .header-bottom .menu > li > a:hover,
 .header.header-10.header-intro-clearance .header-bottom .menu > li > a:focus {
-  color: #CD6727;
+  color: #07657E;
 }
 .header.header-10.header-intro-clearance
   .header-bottom
@@ -35,7 +35,7 @@
   .menu
   > li
   > a:focus::before {
-  background-color: #CD6727;
+  background-color: #07657E;
 }
 
 .header.header-10.header-intro-clearance .header-bottom .menu > li:hover > a,
@@ -73,7 +73,7 @@
 }
 .header.header-10.header-intro-clearance .wishlist-link:hover .wishlist-txt,
 .header.header-10.header-intro-clearance .wishlist-link:focus .wishlist-txt {
-  color: #CD6727;
+  color: #07657E;
 }
 .header.header-10.header-intro-clearance .compare-dropdown {
   padding-left: 2.4rem;
@@ -83,7 +83,7 @@
 }
 .header.header-10.header-intro-clearance .compare-dropdown:hover .compare-txt,
 .header.header-10.header-intro-clearance .compare-dropdown:focus .compare-txt {
-  color: #CD6727;
+  color: #07657E;
 }
 .header.header-10.header-intro-clearance .cart-dropdown {
   font-size: 3.2rem;
@@ -95,7 +95,7 @@
 }
 .header.header-10.header-intro-clearance .cart-dropdown:hover .cart-txt,
 .header.header-10.header-intro-clearance .cart-dropdown:focus .cart-txt {
-  color: #CD6727;
+  color: #07657E;
 }
 .header.header-10.header-intro-clearance .compare-dropdown [class*="count"],
 .header.header-10.header-intro-clearance .cart-dropdown [class*="count"],
@@ -150,7 +150,7 @@
 .intro-slider-container,
 .intro-slide {
   height: 170px;
-  background-color: #fafafa;
+  background-color: #fff;
 }
 .intro-slider-container .owl-simple .owl-nav [class*="owl-"],
 .intro-slide .owl-simple .owl-nav [class*="owl-"] {
@@ -267,7 +267,7 @@
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.08);
 }
 .cat-block:hover .cat-block-title {
-  color: #CD6727;
+  color: #07657E;
 }
 .banner {
   overflow: hidden;
@@ -366,7 +366,7 @@
 .btn-product-icon {
   border-radius: 50%;
   background-color: #fff;
-  border: 0.1rem solid #CD6727;
+  border: 0.1rem solid #07657E;
 }
 .btn-product-icon span {
   top: -1px;
@@ -374,11 +374,11 @@
 }
 .btn-product-icon:hover,
 .btn-product-icon:focus {
-  background-color: #CD6727;
+  background-color: #07657E;
 }
 .btn-product-icon:hover span,
 .btn-product-icon:focus span {
-  background-color: #CD6727;
+  background-color: #07657E;
 }
 .product-action {
   left: 2rem;
@@ -389,9 +389,9 @@
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
   color: #fff;
-  background-color: #CD6727;
+  background-color: #07657E;
   border-radius: 0.2rem;
-  border: 0.1rem solid #CD6727;
+  border: 0.1rem solid #07657E;
 }
 .btn-product:before {
   margin-right: 0.6rem;
@@ -407,7 +407,7 @@
 .btn-product:focus {
   color: #fff;
   background-color: #666666;
-  border-color: #CD6727;
+  border-color: #07657E;
 }
 .btn-product:hover span,
 .btn-product:focus span {
@@ -417,8 +417,8 @@
 .product-details-action .btn-buy {
     padding: 1rem 1.5rem;
     max-width: 198px;
-    background-color: #CD6727;
-    border: 0.1rem solid #CD6727;
+    background-color: #07657E;
+    border: 0.1rem solid #07657E;
     /* display: inline-block;
     text-align: center; */
 }
@@ -447,7 +447,7 @@
 }
 .product-countdown {
   border-radius: 0.2rem;
-  background-color: #CD6727;
+  background-color: #07657E;
   left: 2rem;
   right: 2rem;
   bottom: 0;
@@ -605,7 +605,7 @@
   max-width: 100%;
 }
 .footer .widget-about-info a {
-  color: #CD6727;
+  color: #07657E;
 }
 .footer .footer-middle {
   padding-top: 5rem;
@@ -709,7 +709,7 @@
   position: relative;
   display: block;
   padding: 0;
-  color: #CD6727;
+  color: #07657E;
 }
 .widget-categories h5 a:before {
   color: #333;
@@ -728,7 +728,7 @@
 }
 .widget-categories h5 a.collapsed:hover,
 .widget-categories h5 a.collapsed:focus {
-  color: #CD6727;
+  color: #07657E;
 }
 .widget-categories h5 a.collapsed:before {
   content: "\f110";
@@ -754,7 +754,7 @@
 }
 .widget-categories ul a:hover,
 .widget-categories ul a:focus {
-  color: #CD6727;
+  color: #07657E;
 }
 .banner-poster .banner-content {
   left: 3rem;
@@ -912,7 +912,7 @@
 @media screen and (max-width: 580px) {
     .btn-product{
       margin: 0;
-      margin-bottom: 20px!important;
+      /* margin-bottom: 20px!important; */
     }
   }
 @media screen and (min-width: 800px) {

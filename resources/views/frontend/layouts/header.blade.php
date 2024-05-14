@@ -1,5 +1,5 @@
 
-<header class="header header-10 header-intro-clearance">
+<header class="header header-10 header-intro-clearance" >
 
     <div class="header-middle">
         <div class="container">
@@ -9,7 +9,7 @@
                     <i class="icon-bars"></i>
                 </button>
 
-                <a href="{{ url('/') }}" class="my-3">
+                <a href="{{ url('/') }}" class="mb-1">
                     @if($setting->first()->black_logo != null)
                         <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" width="200px" alt="Logo">
                     @else
@@ -24,7 +24,7 @@
                     <div class="header-search-wrapper search-wrapper-wide">
                         <label for="search_input" class="sr-only">সার্চ করুন</label>
                         <input type="search" class="form-control" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
-                        <button id="search_btn" class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+                        <button id="search_btn" class="btn btn-primary" style="background: #000" type="button"><i class="icon-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">{{ $totalItemsInCart }}</span>
                             </div>
-                            <p>Cart</p>
+                            <p class="text-white">Cart</p>
                         </a>
                     </div>
                 </div>

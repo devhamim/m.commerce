@@ -76,10 +76,10 @@
                                             @endphp
                                             @foreach ($inventorie->rel_to_attribute->take(1) as $attribute)
                                                 @if ($attribute->sell_price != null)
-                                                    Price: <span class="line-through pl-3 text-dark" style="font-size: 14px">৳{{ $attribute->price }}</span>
-                                                    <span class="pl-3">৳ {{ $attribute->sell_price }}</span>
+                                                    Price: <span class="line-through pl-3 text-dark" style="font-size: 14px">Tk {{ $attribute->price }}</span>
+                                                    <span class="pl-3">Tk {{ $attribute->sell_price }}</span>
                                                 @else
-                                                    Price: <span class="pl-3">৳ {{ $attribute->sell_price }}</span>
+                                                    Price: <span class="pl-3">Tk {{ $attribute->sell_price }}</span>
                                                 @endif
                                             @endforeach
                                         @endif
@@ -179,10 +179,10 @@
                                     <div class="product-price">
                                         @if ($products->first()->sell_price != null)
                                             Price: <span class="line-through pl-3 text-dark"
-                                                style="font-size: 14px">৳{{ $products->first()->price }}</span>
-                                            <span class="pl-3">৳ {{ $products->first()->sell_price }}</span>
+                                                style="font-size: 14px">Tk{{ $products->first()->price }}</span>
+                                            <span class="pl-3">Tk {{ $products->first()->sell_price }}</span>
                                         @else
-                                            Price: <span class="pl-3">৳ {{ $products->first()->sell_price }}</span>
+                                            Price: <span class="pl-3">Tk {{ $products->first()->sell_price }}</span>
                                         @endif
                                     </div>
                                     <div class="details-filter-row details-row-size">
@@ -241,15 +241,14 @@
                                 @endif
 
                                     <div class="mt-3" style="border-top: 2px solid #E5E7EB; padding-top: 10px; display: flex; width: 100%">
-                                        <button type="submit" style="width: 50%; padding: 10px 0; background: #CD6727; color: #fff; font-weight: 700; border: 0;" class="btn-cart mr-3" name="btn" value="1" id="load"><span>Add to cart</span></button>
-                                        <button type="submit" style="width: 50%; background: #000; color: #fff; font-weight: 700; border: 0;" class=" btn-cart btn-buy " name="btn" value="2"><span>Buy now</span></button>
+                                        <button type="submit" class="btn-cart mr-3 product_details_card" name="btn" value="1" id="load"><span>Add to cart</span></button>
+                                        <button type="submit" class=" btn-cart btn-buy product_details_buy" name="btn" value="2"><span>Buy now</span></button>
                                     </div><!-- End .product-details-action -->
-                                    <div class="my-3 call-btn">
-                                        <a href="" style="width: 100%; background: #22C55E; ">কল করুন : 01604702965</a>
+                                    <div class="my-3 call-btn product_details_chat">
+                                        <a href="tel: 01604702965">কল করুন : 01604702965</a>
                                     </div>
-                                    <div class="my-3 call-btn">
-                                        <a href="" ></a>
-                                        <a href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." style="width: 100%; background: #22C55E;" target="_blank">হোয়াটসঅ্যাপ অর্ডার</a>
+                                    <div class="my-3 call-btn product_details_chat">
+                                        <a href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." target="_blank">হোয়াটসঅ্যাপ অর্ডার</a>
                                     </div>
                                 </div><!-- End .product-details -->
                             </form>
@@ -320,8 +319,8 @@
             $('.productDetailsImageemptey').empty();
             $('#productDetails').html(`
                 <figure>
-                    <del style="font-size:22px; font-weight:600; color:#9d9d9d; margin-right:10px">${response.price}৳ </del>
-                    <span style="font-size:22px; font-weight:600; color:#000"> ${response.sell_price}৳ </span>
+                    <del style="font-size:22px; font-weight:600; color:#9d9d9d; margin-right:10px">${response.price} Tk </del>
+                    <span style="font-size:22px; font-weight:600; color:#000"> ${response.sell_price} Tk </span>
                     <input type="hidden" name="price" value="${response.sell_price}" >
                 </figure>
             `);
