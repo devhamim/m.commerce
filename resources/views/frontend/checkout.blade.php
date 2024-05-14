@@ -99,9 +99,9 @@
                                             <input type="hidden" name="total" value="{{ $total }}">
                                         </tbody>
                                     </table>
-                                    <div class="cart-bottom">
+                                    {{-- <div class="cart-bottom">
                                         <button type="button" class="btn btn-danger clear_cart"><span>CLEAR CART</span><i class="icon-refresh"></i></button>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </aside>
                             <div class="col-lg-5 checkout_form">
