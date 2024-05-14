@@ -10,9 +10,9 @@
                                 <div class="col-lg-10 mt-2 m-auto">
                                     <div class="product-gallery product-gallery-vertical">
                                         <div class="row">
-                                            <div id="productDetailsImage">
+                                            <figure id="productDetailsImage" class="product-main-image">
 
-                                            </div>
+                                            </figure>
                                             @if ($products->first()->inventorie_id != null)
                                                 @if ($products->first()->rel_to_inventorie)
                                                     @php
@@ -319,11 +319,11 @@
         function updateProductDetails(response) {
             $('.productDetailsImageemptey').empty();
             $('#productDetails').html(`
-                <div>
+                <figure>
                     <del style="font-size:22px; font-weight:600; color:#9d9d9d; margin-right:10px">${response.price}৳ </del>
                     <span style="font-size:22px; font-weight:600; color:#000"> ${response.sell_price}৳ </span>
                     <input type="hidden" name="price" value="${response.sell_price}" >
-                </div>
+                </figure>
             `);
             $('#productDetailsImage').html(`
                 <div>

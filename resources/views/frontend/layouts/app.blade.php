@@ -104,13 +104,13 @@
 
     <div class="mobile-menu-container mobile-menu-light">
         <div class="mobile-menu-wrapper">
-            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+            {{-- <span class="mobile-menu-close"><i class="icon-close"></i></span> --}}
 
-            <form action="#" method="get" class="mobile-search">
-                <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search product ..." required="">
-                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-            </form>
+            {{-- <div class="mobile-search">
+                <label for="search_input" class="sr-only">সার্চ করুন</label>
+                <input type="search" class="form-control" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
+                <button id="search_btn" class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+            </div> --}}
 
             <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
                 <li class="nav-item">

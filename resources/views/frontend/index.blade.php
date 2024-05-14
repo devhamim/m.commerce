@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('content')
-<div class="intro-slider-container">
+<div class="container">
     <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
             "nav": false,
             "responsive": {
@@ -11,7 +11,7 @@
         }'>
         @foreach ($banners as $banner)
         <a href="{{ $banner->banner_link }}" target="_blank">
-        <div class="intro-slide" style="background-image: url({{asset('uploads/banner')}}/{{ $banner->image }});">
+        <div class="intro-slide" style="border-radius: 15px; background-image: url({{asset('uploads/banner')}}/{{ $banner->image }});">
                 <div class="container intro-content">
 
                 </div>
@@ -23,8 +23,24 @@
 </div>
 <!-- End .intro-slider-container -->
 
+<section class="mobile-sersh ">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header-center">
+                    <div class=" header-search-extended  header-search-no-radius ">
+                        <div class="header-search-wrapper search-wrapper-wide d-flex">
+                            <label for="search_input" class="sr-only">সার্চ করুন</label>
+                            <input type="search" class="form-control" style="border-radius: 8px 0 0 8px" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
+                            <button id="search_btn" class="btn btn-primary" style="min-width: 0; border-radius: 0 8px 8px 0" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="mb-4"></div>
 @foreach ($categorys as $category)
     @php
         $categoryproduct = $products->where('category_id', $category->id);
@@ -67,15 +83,6 @@
                                                 <div class="product-action-vertical">
                                                     <p style="background-image: url( '{{asset('frontend/assets/images/discount.png')}}' )"></p>
                                                 </div>
-
-                                                <div class="text-center">
-                                                    <form action="#" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="quantity" value="1">
-                                                        <a href="{{route('product.details', $product->slug)}}" class="btn-product btn-cart btn-buy mr-5 w-100" name="btn" value="2"><span>অর্ডার করুন</span></a>
-                                                    </form>
-                                                </div>
                                             </figure>
 
                                             <div class="product-body">
@@ -102,6 +109,14 @@
                                                         <span class="product-price">৳ {{$product->price}}</span>
                                                     @endif
                                                 @endif
+                                            </div>
+                                            <div class="text-center">
+                                                <form action="#" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <a href="{{route('product.details', $product->slug)}}" class="btn-product btn-cart btn-buy mr-5 w-100" name="btn" value="2"><span>Order Now</span></a>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
