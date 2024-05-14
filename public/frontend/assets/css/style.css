@@ -126,6 +126,10 @@ img {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -150px, rgba(0, 0, 0, 0.3) 0px 0px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
     border-radius: 15px !important;
 }
+.home_review{
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -150px, rgba(0, 0, 0, 0.3) 0px 0px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 .product_details_weight input[type="radio"] {
     position: absolute;
     opacity: 0;

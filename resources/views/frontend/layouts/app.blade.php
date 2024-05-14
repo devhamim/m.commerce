@@ -141,7 +141,7 @@
                 </a>
             </div>
             <div class="mobile_bar_item">
-                <a class="dropdown-toggle" href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20{{ $products->first()->name }}%20service." target="_blank"><i class="icon-whatsapp"></i></a>
+                <a class="dropdown-toggle" href="https://api.whatsapp.com/send?phone=88{{$setting->first()->number_two}}&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20product." target="_blank"><i class="icon-whatsapp"></i></a>
             </div>
             {{-- <div class="mobile_bar_item" >
                 <a href="" class="dropdown-toggle">

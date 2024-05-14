@@ -76,7 +76,7 @@
                             }
                         }'>
                         @foreach ($reviews as $review)
-                        <div class="product cartpage">
+                        <div class="product cartpage home_review">
                             <figure class="product-media">
                                 <img src="{{asset('uploads/review')}}/{{$review->image}}" alt="Product image" class="product-image">
 
