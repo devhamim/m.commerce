@@ -215,7 +215,7 @@
                                 </div>
                                 <div class="row mt-3 mb-5">
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                        <button type="submit" class="btn btn-outline-primary-2 checkout_btn btn-order btn-block">
                                             <span class="btn-text w-100">অর্ডার কনফার্ম করুন</span>
                                         </button>
                                     </div>
