@@ -23,12 +23,12 @@
 </div>
 <!-- End .intro-slider-container -->
 
-<section class="mobile-sersh ">
+<section class="mobile_search">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="header-center">
-                    <div class=" header-search-extended  header-search-no-radius ">
+            <div class="col-12 m-auto">
+                <div class="text-center">
+                    <div class=" header-search-extended header-search-no-radius" style="max-width: 100%">
                         <div class="header-search-wrapper search-wrapper-wide d-flex">
                             <label for="search_input" class="sr-only">সার্চ করুন</label>
                             <input type="search" class="form-control" style="border-radius: 8px 0 0 8px" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">

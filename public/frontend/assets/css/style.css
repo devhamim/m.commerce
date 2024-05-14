@@ -2064,6 +2064,10 @@ blockquote.text-white cite span {
     visibility: hidden;
     display: none;
   }
+  .mobile_search{
+    visibility: hidden;
+    display: none;
+  }
   .main-nav {
     display: block;
   }
