@@ -35,7 +35,7 @@ body {
 
 header {
   padding: 10px 0;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-bottom: 1px solid #AAAAAA;
 }
 
@@ -55,7 +55,7 @@ header {
 
 
 #details {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 #client {
@@ -84,7 +84,7 @@ h2.name {
   font-size: 2.4em;
   line-height: 1em;
   font-weight: normal;
-  margin: 0  0 10px 0;
+  /* margin: 0  0 10px 0; */
 }
 
 #invoice .date {
@@ -96,12 +96,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 table th,
 table td {
-  padding: 20px;
+  padding: 5px 20px;
   background: #EEEEEE;
   text-align: center;
   border-bottom: 1px solid #FFFFFF;
@@ -117,7 +117,7 @@ table td {
 }
 
 table td h3{
-  color: #57B223;
+  color: #07657E;
   font-size: 1.2em;
   font-weight: normal;
   margin: 0 0 0.2em 0;
@@ -126,7 +126,7 @@ table td h3{
 table .no {
   color: #FFFFFF;
   font-size: 1.6em;
-  background: #57B223;
+  background: #07657E;
 }
 
 table .desc {
@@ -141,7 +141,7 @@ table .qty {
 }
 
 table .total {
-  background: #57B223;
+  background: #07657E;
   color: #FFFFFF;
 }
 
@@ -169,9 +169,9 @@ table tfoot tr:first-child td {
 }
 
 table tfoot tr:last-child td {
-  color: #57B223;
+  color: #07657E;
   font-size: 1.4em;
-  border-top: 1px solid #57B223;
+  border-top: 1px solid #07657E;
 
 }
 
@@ -228,7 +228,7 @@ footer {
           <div class="email"><a >{{ $billingdetails->mobile }}</a></div>
         </div>
         <div id="invoice">
-          <h1>#{{ $orders->order_id }}</h1>
+          <h2>#{{ $orders->order_id }}</h2>
           <div class="date">Date of Invoice: {{ $billingdetails->first()->created_at->format('d-M-Y') }}</div>
         </div>
       </div>

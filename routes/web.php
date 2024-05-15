@@ -10,6 +10,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
@@ -45,6 +46,10 @@ Route::post('/order/store', [CheckoutController::class, 'order_store'])->name('o
 Route::get('/order/success', [CheckoutController::class, 'order_success'])->name('order.success');
 
 Route::get('/getProductSizes', [FrontendController::class, 'getProductSizes'] )->name('getProductSizes');
+
+// multipal print
+
+Route::post('/multi/view/invoice', [PrintController::class, 'multi_view_invoice'])->name('multi.view.invoice');
 
 // login
 Route::group(['prefix' => 'admin'], function(){

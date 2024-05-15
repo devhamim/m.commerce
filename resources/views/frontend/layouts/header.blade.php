@@ -21,14 +21,13 @@
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                    <div class="header-search-wrapper search-wrapper-wide">
+                    <form id="search_form" action="{{ route('shop') }}" method="GET" class="header-search-wrapper search-wrapper-wide d-flex">
                         <label for="search_input" class="sr-only">সার্চ করুন</label>
                         <input type="search" class="form-control" name="q"  id="search_input" placeholder="সার্চ করুন ..." required value="{{@$_GET['q']}}">
                         <button id="search_btn" class="btn btn-primary" style="background: #000" type="button"><i class="icon-search"></i></button>
-                    </div>
+                    </form>
                 </div>
             </div>
-
             <div class="header-right">
                 <div class="header-dropdown-link">
                     <div class="dropdown cart-dropdown"></div>

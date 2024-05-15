@@ -8,9 +8,15 @@
                 <span><i class="mdi mdi-chevron-right"></i></span>Orders
             </p>
         </div>
-        {{-- <div>
-            <a href="{{ route('orders.create') }}" class="btn btn-primary">Add Orders</a>
-        </div> --}}
+        <div class="col-md-2 col-2 text-end">
+            <form action="{{ route('multi.view.invoice') }}" method="post" id="all_print_form">
+                @csrf
+                <input type="hidden" name="print_data" id="checked_value">
+                <div class="form-group">
+                    <button type="submit" id="bulk_print_btn" class="btn btn-info btn-sm">Print Invoice</button>
+                </div>
+            </form>
+        </div>
         <div class="filter row">
             <div class="col-lg-9 pt-3">
                 <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
@@ -52,7 +58,10 @@
 
                             <tbody>
                                 @foreach ($orders as $sl=>$order)
-                                    <tr>
+                                    <tr id="tr_{{ $order->id }}">
+                                        <td>
+                                            <input type="checkbox" name="checkbox" class="sub_chk" data-id="{{ $order->id }}">
+                                        </td>
                                         <td>{{ $sl+1 }}</td>
                                         <td>
                                             @foreach ($order->rel_to_orderpro->take(1) as $OrderProduct)
@@ -190,3 +199,101 @@
     });
 </script>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkboxes = document.querySelectorAll('.sub_chk');
+        let checked_value = document.getElementById('checked_value');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var checkedIDs = [];
+                var checkedCheckboxes = document.querySelectorAll('.sub_chk:checked');
+
+                checkedCheckboxes.forEach(function(checkedCheckbox) {
+                    checkedIDs.push(checkedCheckbox.getAttribute('data-id'));
+                });
+
+                checked_value.value = checkedIDs.join(', ');
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        //check value
+        var checkboxes = document.querySelectorAll('.sub_chk');
+        //passing data to input
+        let checked_value = document.getElementById('all_ord_id');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var checkedIDs = [];
+                var checkedCheckboxes = document.querySelectorAll('.sub_chk:checked');
+
+                checkedCheckboxes.forEach(function(checkedCheckbox) {
+                    checkedIDs.push(checkedCheckbox.getAttribute('data-id'));
+                });
+
+                checked_value.value = checkedIDs.join(', ');
+                // console.log(checkedIDs); // Display the array of checked IDs in the console
+                // You can perform further actions with the checkedIDs array here
+            });
+        });
+    });
+</script>
+<script>
+    $('.print').on('click', function () {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': CSRF_TOKEN
+            }
+        });
+
+        $.ajax({
+            url: '/getprints',
+            type: 'POST',
+            data: {_token: CSRF_TOKEN, id: $(this).data('id')},
+            success: function (data) {
+                newWin = window.open("");
+                newWin.document.write(data);
+                newWin.document.close();
+            }
+        });
+    });
+</script>
+
+<script>
+    //courier export
+    $('#steadfast_csv').on('click', function (e) {
+        var allVals = [];
+        $(".sub_chk:checked").each(function () {
+            allVals.push($(this).attr('data-id'));
+        });
+
+        if (allVals.length <= 0) {
+            alert("Please select row.");
+        } else {
+            $('#all_ord_id').val(allVals);
+            $('#courier_status').val(1);
+            $('#all_courier_csv').submit();
+        }
+    });
+
+    $('#redex_csv').on('click', function (e) {
+        var allVals = [];
+        $(".sub_chk:checked").each(function () {
+            allVals.push($(this).attr('data-id'));
+        });
+
+        if (allVals.length <= 0) {
+            alert("Please select row.");
+        } else {
+            $('#all_ord_id').val(allVals);
+            $('#courier_status').val(2);
+            $('#all_courier_csv').submit();
+        }
+    });
+</script>

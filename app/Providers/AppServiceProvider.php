@@ -79,6 +79,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('setting', Setting::all());
         });
         // backend app
+        View::composer('backend.order.multi_view_invoice_print', function ($view){
+            $view->with('setting', Setting::all());
+        });
+        // backend multi print
         View::composer('backend.layouts.app', function ($view){
             $view->with('setting', Setting::all());
         });

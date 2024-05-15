@@ -36,14 +36,14 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/demos/demo-13.css')}}">
 
     <!-- Meta Pixel Code -->
-@if($setting->first()->fbpixel != null)
-    {!! $setting->first()->fbpixel !!}
+@if($setting->first()->fb_pixel != null)
+    {!! $setting->first()->fb_pixel !!}
 @endif
 {{-- <!-- End Meta Pixel Code --> --}}
 
 <!-- googletag Code -->
-@if($setting->first()->googletag != null)
-    {!! $setting->first()->googletag !!}
+@if($setting->first()->google_tag != null)
+    {!! $setting->first()->google_tag !!}
 @endif
 <!-- End googletag Code -->
 <style>
