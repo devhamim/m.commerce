@@ -108,16 +108,75 @@ class InventoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $inventory = Inventory::findOrFail($id);
+        $colors = Color::all();
+        $sizes = Size::all();
+        return view('backend.product.attributeEdit',[
+            'inventory'=>$inventory,
+            'colors'=>$colors,
+            'sizes'=>$sizes,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request, $id)
+{
+    // return $request->all();
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'sku' => 'required|string|max:255',
+        'quantity' => 'required|array',
+        'price' => 'required|array',
+        'weight' => 'array',
+        'color_id' => 'array',
+        'size_id' => 'array',
+        'status' => 'required',
+    ]);
+
+    $inventory = Inventory::findOrFail($id);
+    $inventory->title = $request->title;
+    $inventory->sku = $request->sku;
+    $inventory->brand = $request->brand;
+    $inventory->status = $request->status;
+    $inventory->save();
+
+    // Delete the details that were removed
+    if ($request->has('delete_detail_id')) {
+        Attribute::whereIn('id', $request->delete_detail_id)->delete();
     }
+
+    // Update or create the details
+    foreach ($request->quantity as $key => $value) {
+        $inventoryDetail = Attribute::updateOrCreate(
+            ['id' => $request->detail_id[$key] ?? null],
+            [
+                'inventorie_id' => $inventory->id,
+                'quantity' => $value,
+                'price' => $request->price[$key],
+                'sell_price' => $request->sell_price[$key],
+                'weight' => $request->weight[$key],
+                'color_id' => $request->color_id[$key],
+                'size_id' => $request->size_id[$key],
+            ]
+        );
+
+        if (isset($request->image[$key])) {
+            $image = $request->image[$key];
+            $extension = $image->getClientOriginalExtension();
+            $fileName = Str::random(5) . rand(100000, 999999) . '.' . $extension;
+            Image::make($image)->resize(600, 600)->save(public_path('uploads/product/' . $fileName));
+            $inventoryDetail->image = $fileName;
+            $inventoryDetail->save();
+        }
+    }
+
+    return redirect()->route('inventory.index')->with('success', 'Inventory updated successfully.');
+}
+
+
+
 
     /**
      * Remove the specified resource from storage.

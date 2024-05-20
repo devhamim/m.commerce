@@ -47,9 +47,10 @@ Route::get('/order/success', [CheckoutController::class, 'order_success'])->name
 
 Route::get('/getProductSizes', [FrontendController::class, 'getProductSizes'] )->name('getProductSizes');
 
-// multipal print
-
+// multipal
 Route::post('/multi/view/invoice', [PrintController::class, 'multi_view_invoice'])->name('multi.view.invoice');
+
+Route::post('/multi/order/status', [PrintController::class, 'multi_order_status'])->name('multi.order.status');
 
 // login
 Route::group(['prefix' => 'admin'], function(){
@@ -82,6 +83,8 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/getinventorydata', [ProductController::class, 'getinventorydata']);
     Route::post('/order/status/update', [OrderController::class, 'order_status_update'])->name('order.status.update');
     Route::get('/invoice/download/{id}', [OrderController::class, 'invoice_download'])->name('invoice.download');
+
+    Route::get('/print/invoice/{id}', [PrintController::class, 'print_invoice'])->name('print.invoice');
 
 });
 

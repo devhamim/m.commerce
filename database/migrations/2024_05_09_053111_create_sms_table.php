@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('smstotal');
             $table->string('smsnumber');
             $table->string('smsname');
-            $table->string('smsmassage');
+            $table->longText('smsmassage');
             $table->string('smsorder');
             $table->timestamps();
         });

@@ -117,8 +117,11 @@ class CheckoutController extends Controller
 
     $smsqApiKey = "RUJ5s4yijCz2HAQKzpMk";
     $smsqSenderId = "8809617618342";
-    $smsqMessage = 'Thank you for your order! Your order #'.$order_id.' has been successfully placed.
-www.marhabashopbd.com';
+    $smsqMessage = 'প্রিয় গ্রাহক
+আপনার অর্ডার টি কর্নফার্ম করা হয়েছে আগামী ৪৮-৭২ ঘন্টার মধ্যে হোম ডেলিভারিতে পাবেন ইনশাআল্লাহ.
+
+Marhaba shop
+www.marhabashopbd.com ';
 
     $smsqMessage = urlencode($smsqMessage);
     $smsqMobileNumbers = '+88' .$request->mobile;

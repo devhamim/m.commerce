@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Billingdetails;
 use App\Models\Order;
+use App\Models\OrderProduct;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class PrintController extends Controller
@@ -48,5 +50,28 @@ class PrintController extends Controller
         }
 
         $this->exportExcel($orderDetails);
+    }
+
+    // print_invoice
+    function print_invoice($id){
+        $orders = Order::find($id);
+        $billingdetails = Billingdetails::where('order_id', $orders->order_id)->first();
+        $order_product = OrderProduct::where('order_id', $orders->order_id)->get();
+        $setting = Setting::all();
+        return view('invoice.print_invoice', [
+            'orders'=>$orders,
+            'billingdetails'=>$billingdetails,
+            'order_product'=>$order_product,
+            'setting'=>$setting,
+        ]);
+    }
+
+    // multi_order_status
+    function multi_order_status(Request $request){
+        $order_ids = explode(',', $request->print_data);
+            Order::where('order_id', $order_ids[0])->update([
+                'status'=>$order_ids[1],
+            ]);
+            return back()->with('success', 'Order Status Update successfully.');
     }
 }

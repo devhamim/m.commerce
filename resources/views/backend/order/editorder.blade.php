@@ -41,27 +41,29 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                   <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
-                                </li>
-                                <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '1' }}" class="dropdown-item status">Confirmed Order</button>
-                                </li>
-                                  <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '2' }}" class="dropdown-item status">Processing Order</button>
-                                </li>
-                                  <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '3' }}" class="dropdown-item status">On Delivery</button>
-                                </li>
-                                  <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '4' }}" class="dropdown-item status">Product Delivered</button>
-                                </li>
-                                  <li>
-                                    <button name="status" value="{{ $orders->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
-                                </li>
+                                        <button name="status" value="{{ $orders->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
+                                    </li>
+                                    {{-- <li>
+                                        <button name="status" value="{{ $orders->order_id .','. '1' }}" class="dropdown-item status">Confirmed Order</button>
+                                    </li>
+                                    <li>
+                                        <button name="status" value="{{ $orders->order_id .','. '2' }}" class="dropdown-item status">Processing Order</button>
+                                    </li>
+                                    <li>
+                                        <button name="status" value="{{ $orders->order_id .','. '3' }}" class="dropdown-item status">On Delivery</button>
+                                    </li> --}}
+                                    <li>
+                                        {{-- <button name="status" value="{{ $orders->order_id .','. '4' }}" class="dropdown-item status">Product Delivered</button> --}}
+                                        <button name="status" value="{{ $orders->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
+                                    </li>
+                                    <li>
+                                        <button name="status" value="{{ $orders->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
+                                    </li>
                                 </ul>
                             </div>
                         </form>
-                        <a href="{{ route('invoice.download',$orders->id ) }}" class="btn btn-success">Download Invoice</a>
+                        {{-- <a href="{{ route('invoice.download',$orders->id ) }}" class="btn btn-success">Download Invoice</a> --}}
+                        <a href="{{ route('print.invoice',$orders->id ) }}" class="btn btn-success">Download Invoice</a>
                         <span class="small">Order ID: #{{ $orders->order_id }}</span>
                     </h2>
                 </div>

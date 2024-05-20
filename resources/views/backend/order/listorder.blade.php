@@ -9,6 +9,39 @@
             </p>
         </div>
         <div class="col-md-2 col-2 text-end">
+            <form action="{{ route('multi.order.status') }}" method="post" id="all_print_form">
+                @csrf
+                <input type="hidden" name="print_data" id="checked_value">
+                <div class="dropdown">
+                    <button class="border-0 bg-body" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                        @php
+                        if($orders->first()->status == 0){
+                            echo '<span class="btn btn-secondary">Pending</span>';
+                        }
+                        elseif ($orders->first()->status == 4) {
+                            echo '<span class="btn btn-success">Confirmed Order</span>';
+                        }
+                        else {
+                            echo '<span class="btn btn-danger">Cancel Order</span>';
+                        }
+                    @endphp
+                    </button>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li>
+                            <button name="status" value="{{ $orders->first()->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
+                        </li>
+                        <li>
+                            <button name="status" value="{{ $orders->first()->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
+                        </li>
+                        <li>
+                            <button name="status" value="{{ $orders->first()->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2 col-2 text-end">
             <form action="{{ route('multi.view.invoice') }}" method="post" id="all_print_form">
                 @csrf
                 <input type="hidden" name="print_data" id="checked_value">
@@ -221,9 +254,7 @@
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        //check value
         var checkboxes = document.querySelectorAll('.sub_chk');
-        //passing data to input
         let checked_value = document.getElementById('all_ord_id');
 
         checkboxes.forEach(function(checkbox) {
@@ -236,8 +267,6 @@
                 });
 
                 checked_value.value = checkedIDs.join(', ');
-                // console.log(checkedIDs); // Display the array of checked IDs in the console
-                // You can perform further actions with the checkedIDs array here
             });
         });
     });

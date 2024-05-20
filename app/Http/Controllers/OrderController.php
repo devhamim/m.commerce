@@ -149,17 +149,24 @@ class OrderController extends Controller
         }
 
         // invoice_download
-        function invoice_download($id){
-            $orders = order::find($id);
+        public function invoice_download($id){
+            $orders = Order::find($id);
             $billingdetails = Billingdetails::where('order_id', $orders->order_id)->first();
             $order_product = OrderProduct::where('order_id', $orders->order_id)->get();
             $setting = Setting::all();
-            $invoice = PDF::loadView('invoice.invoice', [
+
+            $pdf = PDF::loadView('invoice.invoice', [
                 'orders'=>$orders,
                 'billingdetails'=>$billingdetails,
                 'order_product'=>$order_product,
                 'setting'=>$setting,
             ]);
-            return $invoice->download('invoice.pdf');
+
+            $pdf->getDomPDF()->getOptions()->set('fontDir', public_path('invoice/font/SutonnyMJ Regular/'));
+            $pdf->getDomPDF()->getOptions()->set('fontCache', public_path('invoice/font/cache/'));
+            $pdf->getDomPDF()->getOptions()->set('defaultFont', 'SutonnyMJ Regular');
+            
+
+            return $pdf->download('invoice.pdf');
         }
 }

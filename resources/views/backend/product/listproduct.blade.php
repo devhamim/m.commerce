@@ -164,18 +164,18 @@
                                             </td>
                                             <td>
                                                 @if ($product->tag != null)
-                                                    {{ $product->tag }}
+                                                    {{ Str::limit($product->tag, 10, '...') }}
                                                 @else
                                                     N/A
                                                 @endif
                                             </td>
-                                            {{-- <td>
+                                            <td>
                                                 @if ($product->status == 1)
                                                     <div class="badge badge-success">Active</div>
                                                 @else
                                                     <div class="badge badge-danger">Deactive</div>
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             <td>{{ $product->created_at->format('d-m-Y') }}</td>
                                             <td>
                                                 <div class="btn-group mb-1">
@@ -189,7 +189,7 @@
                                                     </button>
 
                                                     <div class="dropdown-menu">
-                                                        {{-- <a href="{{ route('product.edit',  $product->id) }}" class="dropdown-item">Edit</a> --}}
+                                                        <a href="{{ route('product.edit',  $product->id) }}" class="dropdown-item">Edit</a>
                                                         <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -290,13 +290,13 @@
                                                     N/A
                                                 @endif
                                             </td>
-                                            {{-- <td>
+                                            <td>
                                                 @if ($product->status == 1)
                                                     <div class="badge badge-success">Active</div>
                                                 @else
                                                     <div class="badge badge-danger">Deactive</div>
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             <td>{{ $product->created_at->format('d-m-Y') }}</td>
                                             <td>
                                                 <div class="btn-group mb-1">
@@ -310,9 +310,7 @@
                                                     </button>
 
                                                     <div class="dropdown-menu">
-                                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editBanner{{ $product->id }}">
-                                                            Edit
-                                                        </button>
+                                                        <a href="{{ route('product.edit', $product->id) }}" class="dropdown-item">Edit</a>
                                                         <form action="{{ route('product.destroy',  $product->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')

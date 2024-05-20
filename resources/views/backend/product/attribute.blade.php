@@ -74,7 +74,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="text-end">
-                                                    <a href="javascript:void(0);" class="remove-row text-danger">remove</a>
+                                                    <a href="javascript:void(0);" class="remove-row btn btn-danger">remove</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,5 +162,6 @@
     });
 </script>
 @endsection
+
 
 

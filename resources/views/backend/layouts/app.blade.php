@@ -43,6 +43,13 @@
         <link rel="shortcut icon" href="{{ asset('uploads/setting') }}/{{ $setting->first()->favicon }}">
     @endif
 
+    <style>
+        .multiprint tr td{
+    font-size: 12px !important;
+    padding: 0 !important;
+    margin: 0;
+}
+    </style>
 </head>
 
 <body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-light ec-header-light" id="body">

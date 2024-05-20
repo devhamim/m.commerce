@@ -156,9 +156,69 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $product = Product::find($id);
+        if($request->inventorie_id != null){
 
+            $rules = [
+                'inventorie_id'=>'required',
+                'name'=>'required|max:225',
+                'category_id'=>'required',
+                'subcategory_id'=>'required',
+                'brand'=>'nullable|max:225',
+                'description'=>'required',
+                'tag'=>'required',
+            ];
+
+            $validatedData = $request->validate($rules);
+
+            $product->update($validatedData);
+
+            if($product){
+                return back()->with('success', 'Product update successfully.');
+            }
+            else{
+                return back()->with('error', 'Failed to update Product.');
+            }
+        }
+        else{
+            $rules = [
+                'inventorie_id'=>'nullable',
+                'name'=>'required|max:225',
+                'category_id'=>'required',
+                'subcategory_id'=>'required',
+                'image'=>'required|max:2048',
+                'color_id'=>'nullable',
+                'size_id'=>'nullable',
+                'weight'=>'nullable',
+                'brand'=>'nullable|max:225',
+                'quantity'=>'required|max:11',
+                'price'=>'required|max:11',
+                'sell_price'=>'nullable|max:11',
+                'sku'=>'required|max:225',
+                'description'=>'required',
+                'tag'=>'required',
+            ];
+
+            $validatedData = $request->validate($rules);
+
+            if($request->image){
+                $images = $request->image;
+                $extention = $images->getClientOriginalExtension();
+                $fileName = Str::random(5).rand(100000, 999999).'.'.$extention;
+                Image::make($images)->resize(600, 600)->save(public_path('uploads/product/'.$fileName));
+                $validatedData['image'] = $fileName;
+            }
+
+            $product->update($validatedData);
+
+            if($product){
+                return back()->with('success', 'Product update successfully.');
+            }
+            else{
+                return back()->with('error', 'Failed to update Product.');
+            }
+        }
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -192,6 +252,9 @@ class ProductController extends Controller
 
         $attributes = $inventory->rel_to_attribute;
 
+        $colors = Color::all()->keyBy('id');
+        $sizes = Size::all()->keyBy('id');
+
         $attributeData = [];
 
         foreach ($attributes as $attribute) {
@@ -208,10 +271,10 @@ class ProductController extends Controller
                 $attributeData[] = [
                     'price' => $attribute->price,
                     'color_id' => $attribute->color_id,
-                    'color_name' => $attribute->rel_to_color->name,
-                    'color_code' => $attribute->rel_to_color->code,
-                    'size_name' => $attribute->rel_to_size->name,
+                    'color_name' => $colors[$attribute->color_id]->name ?? 'N/A',
+                    'color_code' => $colors[$attribute->color_id]->code ?? '#FFFFFF',
                     'size_id' => $attribute->size_id,
+                    'size_name' => $sizes[$attribute->size_id]->name ?? 'N/A',
                     'sell_price' => $attribute->sell_price,
                     'quantity' => $attribute->quantity,
                     'image' => $attribute->image,

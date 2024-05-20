@@ -56,8 +56,8 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="form-label">Attribute <span class="text-secondary">(Optional)</span></label>
-                                            <select name="inventorie_id" id="inventorie_id" class="form-select" value="{{ old('inventorie_id') }}">
+                                            <label class="form-label">Attribute <span class="text-danger">*</span></label>
+                                            <select name="inventorie_id" id="inventorie_id" class="form-select" value="{{ old('inventorie_id') }}" required>
                                                 <option value="">-- Selected Attribute --</option>
                                                 @foreach ($inventorys as $inventory)
                                                     <option value="{{ $inventory->id }}">{{ $inventory->title }}</option>
@@ -116,7 +116,7 @@
                                             @enderror
                                         </div>
                                         <div class="attribute-fields">
-                                            <p class="my-3">Variation</p>
+                                            {{-- <p class="my-3">Variation</p>
                                             <hr>
                                             <div class="row">
 
@@ -170,7 +170,7 @@
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="col-md-12 mt-3">
                                             <button type="submit" class="btn btn-primary">Submit</button>
