@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attribute;
 use App\Models\Billingdetails;
+use App\Models\DelevaryCharge;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
@@ -21,8 +22,10 @@ class CheckoutController extends Controller
     function checkout(){
         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
         $cart_data = json_decode($cookie_data, true);
+        $delevarychareg = DelevaryCharge::all();
         return view('frontend.checkout',[
             'cart_data'=> $cart_data,
+            'delevarychareg'=> $delevarychareg,
         ]);
     }
 
@@ -136,8 +139,8 @@ www.marhabashopbd.com ';
 
         $smscounts = new sms();
         $smscounts->smscount = $sentMessageCount;
-        $smscounts->smscost = 0.65;
-        $smscounts->smstotal = $sentMessageCount*0.65;
+        $smscounts->smscost = 1;
+        $smscounts->smstotal = $sentMessageCount*1;
         $smscounts->smsnumber = $request->mobile;
         $smscounts->smsname = $request->name;
         $smscounts->smsmassage = $smsqMessage;

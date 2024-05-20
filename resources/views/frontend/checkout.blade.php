@@ -249,7 +249,12 @@
         $('#district').change(function() {
             var district = $(this).val();
             var subtotal = parseFloat($('.grand_total_price').text().replace('Tk ', ''));
-            var deliveryCharge = district === 'dhaka' ? 65 : 120;
+            var deliveryCharge = 0;
+            if (district === 'dhaka') {
+                deliveryCharge = {{ $delevarychareg->where('id', 1)->first()->charge }};
+            } else {
+                deliveryCharge = {{ $delevarychareg->where('id', 2)->first()->charge }};
+            }
             var grandTotal = subtotal + deliveryCharge;
 
             $('#delivery-charge').text('Tk ' + deliveryCharge);
@@ -277,7 +282,12 @@
             });
 
             var district = $('#district').val();
-            var deliveryCharge = district === 'dhaka' ? 65 : 120;
+            var deliveryCharge = 0;
+            if (district === 'dhaka') {
+                deliveryCharge = {{ $delevarychareg->where('id', 1)->first()->charge }};
+            } else {
+                deliveryCharge = {{ $delevarychareg->where('id', 2)->first()->charge }};
+            }
             grandTotal += deliveryCharge;
             $(".grand_total").text("Tk " + grandTotal);
             $("input[name='total']").val(grandTotal);

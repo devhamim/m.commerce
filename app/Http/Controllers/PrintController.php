@@ -12,8 +12,7 @@ class PrintController extends Controller
 {
     function multi_view_invoice(Request $request){
         $order_ids = explode(',', $request->print_data);
-        $orders = Order::where('order_id', $order_ids)->get();
-
+        $orders = Order::where('id', $order_ids)->get();
         return view('backend.order.multi_view_invoice_print', [
             'orders'=>$orders,
             'order_ids'=>$order_ids,
@@ -68,10 +67,15 @@ class PrintController extends Controller
 
     // multi_order_status
     function multi_order_status(Request $request){
-        $order_ids = explode(',', $request->print_data);
-            Order::where('order_id', $order_ids[0])->update([
-                'status'=>$order_ids[1],
+        $order_ids = explode(',', $request->order_data);
+
+
+        foreach($order_ids as $order_id){
+            $after_explode = explode(',', $request->status);
+            Order::where('id', $order_id)->update([
+                'status'=>$after_explode[1],
             ]);
+        }
             return back()->with('success', 'Order Status Update successfully.');
     }
 }

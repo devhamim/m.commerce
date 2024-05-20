@@ -165,7 +165,7 @@ class OrderController extends Controller
             $pdf->getDomPDF()->getOptions()->set('fontDir', public_path('invoice/font/SutonnyMJ Regular/'));
             $pdf->getDomPDF()->getOptions()->set('fontCache', public_path('invoice/font/cache/'));
             $pdf->getDomPDF()->getOptions()->set('defaultFont', 'SutonnyMJ Regular');
-            
+
 
             return $pdf->download('invoice.pdf');
         }

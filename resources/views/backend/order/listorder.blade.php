@@ -9,22 +9,12 @@
             </p>
         </div>
         <div class="col-md-2 col-2 text-end">
-            <form action="{{ route('multi.order.status') }}" method="post" id="all_print_form">
+            <form action="{{ route('multi.order.status') }}" method="post" id="all_order_form">
                 @csrf
-                <input type="hidden" name="print_data" id="checked_value">
+                <input type="hidden" name="order_data" id="checked_order_value">
                 <div class="dropdown">
                     <button class="border-0 bg-body" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                        @php
-                        if($orders->first()->status == 0){
-                            echo '<span class="btn btn-secondary">Pending</span>';
-                        }
-                        elseif ($orders->first()->status == 4) {
-                            echo '<span class="btn btn-success">Confirmed Order</span>';
-                        }
-                        else {
-                            echo '<span class="btn btn-danger">Cancel Order</span>';
-                        }
-                    @endphp
+                        <span class="btn btn-success">Status</span>
                     </button>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -149,13 +139,13 @@
                                             @if ($order->status == 0)
                                                 <div class="badge badge-secondary">Pending</div>
                                             @elseif ($order->status == 1)
-                                                <div class="badge badge-info">Confirmed Order</div>
+                                                <div class="badge badge-info">Product Delivered</div>
                                             @elseif ($order->status == 2)
                                                 <div class="badge badge-primary">Processing Order</div>
                                             @elseif ($order->status == 3)
                                                 <div class="badge badge-warning">On Delivery</div>
                                             @elseif ($order->status == 4)
-                                                <div class="badge badge-success">Product Delivered</div>
+                                                <div class="badge badge-success">Confirmed Order</div>
                                             @else
                                                 <div class="badge badge-danger">Cancel</div>
                                             @endif
@@ -252,7 +242,7 @@
         });
     });
 </script>
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var checkboxes = document.querySelectorAll('.sub_chk');
         let checked_value = document.getElementById('all_ord_id');
@@ -267,6 +257,25 @@
                 });
 
                 checked_value.value = checkedIDs.join(', ');
+            });
+        });
+    });
+</script> --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkboxes = document.querySelectorAll('.sub_chk');
+        let checked_order_value = document.getElementById('checked_order_value');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var checkedIDs = [];
+                var checkedCheckboxes = document.querySelectorAll('.sub_chk:checked');
+
+                checkedCheckboxes.forEach(function(checkedCheckbox) {
+                    checkedIDs.push(checkedCheckbox.getAttribute('data-id'));
+                });
+
+                checked_order_value.value = checkedIDs.join(',');
             });
         });
     });

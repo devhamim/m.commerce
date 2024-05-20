@@ -106,6 +106,13 @@
                         </ul>
                     </div>
                 </li>
+                <!-- delevary charge list -->
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('delevarycharge.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Delevary Charge</span>
+                    </a>
+                </li>
                 <!-- sms list -->
                 <li>
                     <a class="sidenav-item-link" href="{{ route('sms.index') }}">
