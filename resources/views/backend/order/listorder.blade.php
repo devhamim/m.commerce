@@ -1,58 +1,70 @@
 @extends('backend.layouts.app')
 @section('content')
 <div class="content">
-    <div class="breadcrumb-wrapper breadcrumb-contacts">
-        <div>
-            <h1>Orders List</h1>
-            <p class="breadcrumbs"><span><a href="{{ route('dashboard') }}">Dashboard</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Orders
-            </p>
-        </div>
-        <div class="col-md-2 col-2 text-end">
-            <form action="{{ route('multi.order.status') }}" method="post" id="all_order_form">
-                @csrf
-                <input type="hidden" name="order_data" id="checked_order_value">
-                <div class="dropdown">
-                    <button class="border-0 bg-body" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="btn btn-success">Status</span>
-                    </button>
+    <div class="">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-6">
+                        <div>
+                            <h1>Orders List</h1>
+                            <p class="breadcrumbs"><span><a href="{{ route('dashboard') }}">Dashboard</a></span>
+                                <span><i class="mdi mdi-chevron-right"></i></span>Orders
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-6 d-flex">
+                        <div class="mx-3">
+                            <form action="{{ route('multi.order.status') }}" method="post" id="all_order_form">
+                                @csrf
+                                <input type="hidden" name="order_data" id="checked_order_value">
+                                <div class="dropdown">
+                                    <button class="border-0 bg-body" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="btn btn-success">Status</span>
+                                    </button>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <li>
-                            <button name="status" value="{{ $orders->first()->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
-                        </li>
-                        <li>
-                            <button name="status" value="{{ $orders->first()->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
-                        </li>
-                        <li>
-                            <button name="status" value="{{ $orders->first()->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
-                        </li>
-                    </ul>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <li>
+                                            <button name="status" value="{{ $orders->first()->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
+                                        </li>
+                                        <li>
+                                            <button name="status" value="{{ $orders->first()->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
+                                        </li>
+                                        <li>
+                                            <button name="status" value="{{ $orders->first()->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <div >
+                            <form action="{{ route('multi.view.invoice') }}" method="post" id="all_print_form">
+                                @csrf
+                                <input type="hidden" name="print_data" id="checked_value">
+                                <div class="form-group">
+                                    <button type="submit" id="bulk_print_btn" class="btn btn-info">Print Invoice</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <div class="col-md-2 col-2 text-end">
-            <form action="{{ route('multi.view.invoice') }}" method="post" id="all_print_form">
-                @csrf
-                <input type="hidden" name="print_data" id="checked_value">
-                <div class="form-group">
-                    <button type="submit" id="bulk_print_btn" class="btn btn-info btn-sm">Print Invoice</button>
-                </div>
-            </form>
-        </div>
-        <div class="filter row">
-            <div class="col-lg-9 pt-3">
-                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
-                    <i class="fa fa-calendar"></i>&nbsp;
-                    <span></span> <i class="fa fa-caret-down"></i>
-                 </div>
             </div>
-            <div class="col-lg-3">
-                <form action="{{ route('orders.index') }}" method="GET">
-                    <input type="hidden" name="start_date" id="start_date" value="{{ $defaultStartDate }}">
-                    <input type="hidden" name="end_date" id="end_date" value="{{ $defaultEndDate }}">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </form>
+            <div class="col-lg-4">
+                <div class="filter row">
+                    <div class="col-lg-9 pt-3">
+                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
+                            <i class="fa fa-calendar"></i>&nbsp;
+                            <span></span> <i class="fa fa-caret-down"></i>
+                         </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <form action="{{ route('orders.index') }}" method="GET">
+                            <input type="hidden" name="start_date" id="start_date" value="{{ $defaultStartDate }}">
+                            <input type="hidden" name="end_date" id="end_date" value="{{ $defaultEndDate }}">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -65,6 +77,7 @@
                         <table id="responsive-data-table" class="table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>sl</th>
                                     <th>Image</th>
                                     <th>Invoice No.</th>
