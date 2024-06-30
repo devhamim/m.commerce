@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\landingpageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SMSController;
@@ -53,6 +54,12 @@ Route::get('/getProductSizes', [FrontendController::class, 'getProductSizes'] )-
 Route::post('/multi/view/invoice', [PrintController::class, 'multi_view_invoice'])->name('multi.view.invoice');
 
 Route::post('/multi/order/status', [PrintController::class, 'multi_order_status'])->name('multi.order.status');
+
+// landing page
+Route::get('/anayatourstravels', [landingpageController::class, 'anayatourstravels'])->name('anayatourstravels');
+Route::post('/landing/order/store', [landingpageController::class, 'landing_order_store'])->name('landing.order.store');
+Route::get('/mabroom/moriom', [landingpageController::class, 'mabroom_moriom'])->name('mabroom.moriom');
+
 
 // login
 Route::group(['prefix' => 'admin'], function(){

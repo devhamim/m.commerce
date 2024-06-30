@@ -23,17 +23,19 @@
                                         <span class="btn btn-success">Status</span>
                                     </button>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                      <li>
-                                            <button name="status" value="{{ $orders->first()->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
-                                        </li>
-                                        <li>
-                                            <button name="status" value="{{ $orders->first()->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
-                                        </li>
-                                        <li>
-                                            <button name="status" value="{{ $orders->first()->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
-                                        </li>
-                                    </ul>
+                                    @if ($orders->first() != null)
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li>
+                                                <button name="status" value="{{ $orders->first()->order_id .','. '0' }}" class="dropdown-item status">Pending</button>
+                                            </li>
+                                            <li>
+                                                <button name="status" value="{{ $orders->first()->order_id .','. '4' }}" class="dropdown-item status">Confirmed Order</button>
+                                            </li>
+                                            <li>
+                                                <button name="status" value="{{ $orders->first()->order_id .','. '5' }}" class="dropdown-item status">Cancel Order</button>
+                                            </li>
+                                        </ul>
+                                    @endif
                                 </div>
                             </form>
                         </div>
@@ -121,29 +123,37 @@
                                             <span>{{ $order->rel_to_billing ? $order->rel_to_billing->district : 'No Busines Name' }}</span>
                                         </td>
                                         <td>
-                                            @foreach ($order->rel_to_orderpro as $OrderProduct)
-                                                @if ($OrderProduct != null)
-                                                    @if ($OrderProduct->rel_to_attribute != null)
-                                                        <span>{{ $OrderProduct->rel_to_pro->name??'' }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
-                                                            @if ($OrderProduct->rel_to_attribute->weight != null)
-                                                                Weight: {{ $OrderProduct->rel_to_attribute->weight }}
-                                                            @else
-                                                                Color: {{ $OrderProduct->rel_to_attribute->rel_to_color->name }}
-                                                                Size: {{ $OrderProduct->rel_to_attribute->rel_to_size->name }}
-                                                            @endif
-                                                        </span><hr>
-                                                    @elseif ($OrderProduct->rel_to_pro != null)
-                                                        <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_pro ? $OrderProduct->rel_to_pro->sell_price : $OrderProduct->rel_to_pro->price }},
-                                                            @if ($OrderProduct->rel_to_pro->weight != null)
-                                                                Weight: {{ $OrderProduct->rel_to_pro->weight }}
-                                                            @else
-                                                                Color: {{ $OrderProduct->rel_to_pro->color_id }}
-                                                                Size: {{ $OrderProduct->rel_to_pro->size_id }}
-                                                            @endif
-                                                        </span><hr>
+                                            @if($order->landing == 1)
+                                                @foreach ($order->rel_to_orderpro as $OrderProduct)
+                                                    <span>{{ $OrderProduct->product_id }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->price }}
+                                                </span>
+                                                @endforeach
+                                            @else
+                                                @foreach ($order->rel_to_orderpro as $OrderProduct)
+                                                    @if ($OrderProduct != null)
+                                                        @if ($OrderProduct->rel_to_attribute != null)
+                                                            <span>{{ $OrderProduct->rel_to_pro->name??'' }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_attribute ? $OrderProduct->rel_to_attribute->sell_price : $OrderProduct->rel_to_attribute->price }},
+                                                                @if ($OrderProduct->rel_to_attribute->weight != null)
+                                                                    Weight: {{ $OrderProduct->rel_to_attribute->weight }}
+                                                                @else
+                                                                    Color: {{ $OrderProduct->rel_to_attribute->rel_to_color->name }}
+                                                                    Size: {{ $OrderProduct->rel_to_attribute->rel_to_size->name }}
+                                                                @endif
+                                                            </span><hr>
+                                                        @elseif ($OrderProduct->rel_to_pro != null)
+                                                            <span>{{ $OrderProduct->rel_to_pro->name }} <br> {{ $OrderProduct->quantity }} x {{ $OrderProduct->rel_to_pro ? $OrderProduct->rel_to_pro->sell_price : $OrderProduct->rel_to_pro->price }},
+                                                                @if ($OrderProduct->rel_to_pro->weight != null)
+                                                                    Weight: {{ $OrderProduct->rel_to_pro->weight }}
+                                                                @else
+                                                                    Color: {{ $OrderProduct->rel_to_pro->color_id }}
+                                                                    Size: {{ $OrderProduct->rel_to_pro->size_id }}
+                                                                @endif
+                                                            </span><hr>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endforeach
+                                                @endforeach
+                                            @endif
+                                            
                                         </td>
                                         <td>{{ $order->sub_total }}Tk</td>
                                         <td>{{ $order->delivery_charge }}Tk</td>

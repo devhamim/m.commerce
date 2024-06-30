@@ -21,10 +21,10 @@
             <!-- invoice Top -->
             <div class="card-headers d-flex flex-wrap align-items-center justify-content-sm-between">
                 <div class="left-invoice">
-                    <a href="index.html"><img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}"></a>
+                    <a><img width="100px" src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}"></a>
                 </div>
                 <div class="right-invoice">
-                    <h5 class="text-25 mb-0 mt-0 text-white">Marhaba Shop</h5>
+                    <h5 class="text-25 mb-0 mt-0 text-white">{{ $setting->first()->name }}</h5>
                     <span class="status d-block text-capitalize text-white"><strong>#{{ $orders->order_id }}</strong></span>
                     <span class="status d-block text-capitalize text-white"><strong>Marchent id: </strong> 284635</span>
                     <div class="shape"></div>
@@ -65,8 +65,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Item</th>
-                                <th>Description</th>
                                 <th class="black-bg">Unit Cost</th>
+                                <th class="black-bg">Price</th>
                                 <th class="black-bg">Total</th>
                             </tr>
                         </thead>
@@ -77,20 +77,11 @@
                             @foreach ($order_product as $sl=>$order)
                                 <tr>
                                     <td>{{ $sl+1 }}</td>
-                                    <td>{{ $order->rel_to_pro->name }}</td>
-                                    <td>
-                                        @if ($order->rel_to_attribute->weight)
-                                            <span style="">Weight:{{ $order->rel_to_attribute->weight }}, </span>
-                                        @else
-                                            <span style="">Color:{{ $order->rel_to_attribute->color_id }} <span>, Size:{{ $order->rel_to_attribute->size_id }}, </span></span>
-                                        @endif
-                                    </td>
-                                    <td>{{ number_format($order->rel_to_attribute->sell_price ?? $order->rel_to_attribute->price) }} X {{ $order->quantity }}</td>
-                                    <td>{{ number_format(($order->rel_to_attribute->sell_price ?? $order->rel_to_attribute->price) * $order->quantity) }}</td>
+                                    <td>{{ $order->product_id }}</td>
+                                    <td>{{ number_format($orders->total) }}Tk</td>
+                                    <td> X {{ $order->quantity }}</td>
+                                    <td>{{ number_format(($orders->total) * $order->quantity) }}Tk</td>
                                 </tr>
-                            @php
-                                $subtotal += ($order->rel_to_attribute->sell_price ?? $order->rel_to_attribute->price) * $order->quantity;
-                            @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -104,20 +95,14 @@
                                     <td>
                                         <strong class="status">Subtotal</strong>
                                     </td>
-                                    <td>{{ number_format($subtotal) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong class="status">Delivery Charge</strong>
-                                    </td>
-                                    <td>{{ $orders->delivery_charge }}</td>
+                                    <td>{{ number_format($orders->total) }}Tk</td>
                                 </tr>
                                 <tr class="total-pay">
                                     <td class="border-bottom-0">
                                         <strong>Total</strong>
                                     </td>
                                     <td class="border-bottom-0">
-                                        <strong>{{ number_format($orders->total) }}</strong>
+                                        <strong>{{ number_format($orders->total) }}Tk</strong>
                                     </td>
                                 </tr>
                             </tbody>

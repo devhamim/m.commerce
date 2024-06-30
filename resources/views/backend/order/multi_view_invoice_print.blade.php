@@ -19,104 +19,102 @@
     <div class="tm_container">
         <div class="tm_invoice_wrap">
             @foreach ($order_ids as $order_id)
-                @php
-                    $order = App\Models\Order::find($order_id);
-                    $billingdetails = App\Models\Billingdetails::where('order_id', $order->order_id)->first();
-                    $orderproducts = App\Models\OrderProduct::where('order_id', $order->order_id)->get();
-                @endphp
-                <div class="tm_invoice tm_style1 tm_type1 tm_invoice_in" style="height: 920px; page-break-after: always;">
-                    <div class="tm_invoice_head tm_top_head tm_mb15 tm_align_center" style="margin-top: 30px">
-                        <div class="tm_invoice_left">
-                            <div class="tm_logo">
-                                <strong>MARHABA SHOP BD</strong><br>
-                                <span>MARCHENT ID: 284635</span>
-                                {{-- @if($setting->first()->black_logo != null)
-                                    <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" width="180px" alt="Logo">
-                                @else
-                                    <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" width="180px" alt="Logo">
-                                @endif --}}
+                @if ($order_id)
+                    @php
+                        $order = App\Models\Order::find($order_id);
+                        $billingdetails = App\Models\Billingdetails::where('order_id', $order->order_id)->first();
+                        $orderproducts = App\Models\OrderProduct::where('order_id', $order->order_id)->get();
+                    @endphp
+                    <div class="tm_invoice tm_style1 tm_type1 tm_invoice_in" style="height: 920px; page-break-after: always;">
+                        <div class="tm_invoice_head tm_top_head tm_mb15 tm_align_center" style="margin-top: 30px">
+                            <div class="tm_invoice_left">
+                                <div class="tm_logo">
+                                    <strong>{{ $setting->first()->name }}</strong><br>
+                                    <span>MARCHENT ID: 284635</span>
+                                    @if($setting->first()->black_logo != null)
+                                        <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->black_logo }}" width="350px" alt="Logo">
+                                    @else
+                                        <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" width="350px" alt="Logo">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="tm_invoice_right tm_text_right tm_mobile_hide">
+                                <div class="tm_f50 tm_text_uppercase tm_white_color">
+                                    <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" width="350px" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="tm_shape_bg tm_accent_bg tm_mobile_hide"></div>
+                        </div>
+                        {{-- <div class="tm_invoice_info tm_mb25">
+                            <div class="tm_card_note tm_mobile_hide"><b class="tm_primary_color">Sta: </b>Paypal, Western Union</div>
+                            <div class="tm_invoice_info_list tm_white_color">
+                                <p class="tm_invoice_number tm_m0">Invoice No: <b>#{{ $order->first()->order_id }}</b></p>
+                                <p class="tm_invoice_date tm_m0">Date: <b>{{ $order->created_at->format('d.m.Y') }}</b></p>
+                            </div>
+                            <div class="tm_invoice_seperator tm_accent_bg"></div>
+                        </div> --}}
+                        <div class="tm_invoice_head tm_mb10">
+                            <div class="tm_invoice_left">
+                                <p class="tm_mb2"><b class="tm_primary_color">From:</b></p>
+                                <p>
+                                    {{ $setting->first()->name }} <br>
+                                    {{ $setting->first()->number_one }} <br>
+                                    #{{ $order->order_id }}
+                                </p>
+                            </div>
+                            <div class="tm_invoice_right tm_text_right">
+                                <p class="tm_mb2"><b class="tm_primary_color">To:</b></p>
+                                <p>
+                                    {{ $billingdetails->name }} <br>
+                                    {{ $billingdetails->mobile }}<br>
+                                    {{ $billingdetails->address }}
+                                </p>
                             </div>
                         </div>
-                        <div class="tm_invoice_right tm_text_right tm_mobile_hide">
-                            <div class="tm_f50 tm_text_uppercase tm_white_color">
-                                <img src="{{ asset('uploads/setting') }}/{{ $setting->first()->white_logo }}" width="350px" alt="Logo">
+                        <div class="tm_table tm_style1">
+                            <div class="">
+                                <div class="tm_table_responsive">
+                                    <table>
+                                        <thead>
+                                            <tr class="tm_accent_bg">
+                                                <th class="tm_width_3 tm_semi_bold tm_white_color">SL#</th>
+                                                <th class="tm_width_4 tm_semi_bold tm_white_color">Product(s)</th>
+                                                <th class="tm_width_2 tm_semi_bold tm_white_color">Qty</th>
+                                                <th class="tm_width_1 tm_semi_bold tm_white_color">Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($orderproducts as $sl=>$orderpro)
+                                            <tr>
+                                                <td class="tm_width_3">{{ $sl+1 }}</td>
+                                                <td class="tm_width_4">{{ $orderpro->product_id }}</td>
+                                                <td class="tm_width_2">{{ $orderpro->quantity }}</td>
+                                                <td class="tm_width_1">{{ $orders->first()->total }}Tk</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div class="tm_shape_bg tm_accent_bg tm_mobile_hide"></div>
-                    </div>
-                    {{-- <div class="tm_invoice_info tm_mb25">
-                        <div class="tm_card_note tm_mobile_hide"><b class="tm_primary_color">Sta: </b>Paypal, Western Union</div>
-                        <div class="tm_invoice_info_list tm_white_color">
-                            <p class="tm_invoice_number tm_m0">Invoice No: <b>#{{ $order->first()->order_id }}</b></p>
-                            <p class="tm_invoice_date tm_m0">Date: <b>{{ $order->created_at->format('d.m.Y') }}</b></p>
-                        </div>
-                        <div class="tm_invoice_seperator tm_accent_bg"></div>
-                    </div> --}}
-                    <div class="tm_invoice_head tm_mb10">
-                        <div class="tm_invoice_left">
-                            <p class="tm_mb2"><b class="tm_primary_color">From:</b></p>
-                            <p>
-                                {{ $setting->first()->name }} <br>
-                                {{ $setting->first()->number_one }} <br>
-                                #{{ $order->order_id }}
-                            </p>
-                        </div>
-                        <div class="tm_invoice_right tm_text_right">
-                            <p class="tm_mb2"><b class="tm_primary_color">To:</b></p>
-                            <p>
-                                {{ $billingdetails->name }} <br>
-                                {{ $billingdetails->mobile }}<br>
-                                {{ $billingdetails->address }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="tm_table tm_style1">
-                        <div class="">
-                            <div class="tm_table_responsive">
-                                <table>
-                                    <thead>
-                                        <tr class="tm_accent_bg">
-                                            <th class="tm_width_3 tm_semi_bold tm_white_color">SL#</th>
-                                            <th class="tm_width_4 tm_semi_bold tm_white_color">Product(s)</th>
-                                            <th class="tm_width_2 tm_semi_bold tm_white_color">Qty</th>
-                                            <th class="tm_width_1 tm_semi_bold tm_white_color">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($orderproducts as $sl=>$orderpro)
-                                        <tr>
-                                            <td class="tm_width_3">{{ $sl+1 }}</td>
-                                            <td class="tm_width_4">{{ $orderpro->rel_to_pro->name }}</td>
-                                            <td class="tm_width_2">{{ $orderpro->quantity }}</td>
-                                            <td class="tm_width_1">{{ $orderpro->rel_to_attribute->sell_price ?? $orderpro->rel_to_attribute->price }}Tk</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tm_invoice_footer tm_border_top tm_mb15 tm_m0_md">
-                            <div class="tm_right_footer">
-                                <table class="tm_mb15">
-                                    <tbody>
-                                        <tr class="tm_gray_bg ">
-                                            <td class="tm_width_3 tm_primary_color tm_bold">Subtotal</td>
-                                            <td class="tm_width_3 tm_primary_color tm_bold tm_text_right">{{ $order->sub_total }}Tk</td>
-                                        </tr>
-                                        <tr class="tm_gray_bg">
-                                            <td class="tm_width_3 tm_primary_color">Delivery Charge </td>
-                                            <td class="tm_width_3 tm_primary_color tm_text_right">{{ $order->delivery_charge }}Tk</td>
-                                        </tr>
-                                        <tr class="tm_accent_bg">
-                                            <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color">Grand Total </td>
-                                            <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color tm_text_right">{{ $order->total }}Tk</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="tm_invoice_footer tm_border_top tm_mb15 tm_m0_md">
+                                <div class="tm_right_footer">
+                                    <table class="tm_mb15">
+                                        <tbody>
+                                            <tr class="tm_gray_bg ">
+                                                <td class="tm_width_3 tm_primary_color tm_bold">Subtotal</td>
+                                                <td class="tm_width_3 tm_primary_color tm_bold tm_text_right">{{ $order->sub_total }}Tk</td>
+                                            </tr>
+                                            <tr class="tm_accent_bg">
+                                                <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color">Grand Total </td>
+                                                <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color tm_text_right">{{ $order->total }}Tk</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
         <div class="tm_invoice_btns tm_hide_print">

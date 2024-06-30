@@ -69,26 +69,25 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4">
+                        <div class="col-xl-6 col-lg-6">
                             <address class="info-grid">
                                 <div class="info-title"><strong>Shipped To:</strong></div><br>
                                 <div class="info-content">
                                     {{ $bllingdetails->name }}<br>
-                                    {{ $bllingdetails->district }}<br>
                                     {{ $bllingdetails->address }}<br>
                                     <abbr title="Phone">P:</abbr> {{ $bllingdetails->mobile }}
                                 </div>
                             </address>
                         </div>
-                        <div class="col-xl-4 col-lg-4">
+                        {{-- <div class="col-xl-4 col-lg-4">
                             <address class="info-grid">
                                 <div class="info-title"><strong>Note:</strong></div><br>
                                 <div class="info-content">
                                     {{ $bllingdetails->note }}
                                 </div>
                             </address>
-                        </div>
-                        <div class="col-xl-4 col-lg-4">
+                        </div> --}}
+                        <div class="col-xl-6 col-lg-6">
                             <address class="info-grid">
                                 <div class="info-title"><strong>Order Date:</strong></div><br>
                                 <div class="info-content">
@@ -106,39 +105,32 @@
                                     <thead>
                                         <tr class="line">
                                             <td><strong>#</strong></td>
-                                            <td class="text-center"><strong>IMAGE</strong></td>
+                                            {{-- <td class="text-center"><strong>IMAGE</strong></td> --}}
                                             <td class="text-center"><strong>PRODUCT</strong></td>
                                             <td class="text-center"><strong>QUANTITY</strong></td>
+                                            <td class="text-center"><strong>CHARGE</strong></td>
                                             <td class="text-center"><strong>PRICE/UNIT</strong></td>
                                             <td class="text-right"><strong>SUBTOTAL</strong></td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($orderproduct as $key=>$product)
+                                        @foreach ($orders->rel_to_orderpro as $key => $OrderProduct)
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td><img class="product-img"
-                                                        src="{{ asset('uploads/product') }}/{{ $product->rel_to_attribute->image }}" alt="" /></td>
+                                                {{-- <td>
+                                                    <img class="product-img"
+                                                        src="{{ asset('uploads/product') }}/{{ $product->rel_to_attribute->image }}" alt="" />
+                                                </td> --}}
                                                 <td>
-                                                    <strong>{{ $product->rel_to_pro->name }}</strong><br>
-                                                    @if ($product->rel_to_attribute->color_id)
-                                                       Color: {{ $product->rel_to_attribute->rel_to_color->name }},
-                                                       Size:  {{ $product->rel_to_attribute->rel_to_size->name }}
-                                                    @elseif ($product->rel_to_attribute->weight)
-                                                       Weight: {{ $product->rel_to_attribute->weight }}
-                                                    @endif
+                                                    <strong>{{ $OrderProduct->product_id }}</strong><br>
                                                 </td>
-                                                <td class="text-center">{{ $product->quantity }}</td>
-                                                <td class="text-center">{{ number_format($product->rel_to_attribute->sell_price ?? $product->rel_to_attribute->price, 2) }} Tk</td>
-                                                <td class="text-right">{{ number_format(($product->rel_to_attribute->sell_price ?? $product->rel_to_attribute->price) * $product->quantity, 2) }} Tk</td>
+                                                <td class="text-center">{{ $OrderProduct->quantity }}</td>
+                                                <td class="text-center">{{ number_format($orders->delivery_charge) }} Tk</td>
+                                                <td class="text-center">{{ number_format($orders->total) }} Tk</td>
+                                                <td class="text-right">{{ number_format($orders->total) }} Tk</td>
 
                                             </tr>
                                         @endforeach
-                                        <tr>
-                                            <td colspan="4"></td>
-                                            <td class="text-right"><strong>Charge</strong></td>
-                                            <td class="text-right"><strong>{{ $orders->delivery_charge }} Tk</strong></td>
-                                        </tr>
                                         <tr>
                                             <td colspan="4">
                                             </td>

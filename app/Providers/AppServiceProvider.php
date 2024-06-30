@@ -94,5 +94,13 @@ class AppServiceProvider extends ServiceProvider
         View::composer('auth.login', function ($view){
             $view->with('setting', Setting::all());
         });
+        // landing page
+        View::composer('landingpage.secondpage', function ($view){
+            $view->with('setting', Setting::all());
+        });
+        // landing page three
+        View::composer('landingpage.three', function ($view){
+            $view->with('setting', Setting::all());
+        });
     }
 }
