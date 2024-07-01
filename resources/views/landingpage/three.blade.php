@@ -548,9 +548,7 @@
                                                 font-size: 59px
                                             }
                                         </style>
-                                        <h2 class="elementor-heading-title elementor-size-default">মাব্রুমের সাথে <span
-                                                style="color: #f8ff00;">গাছ পাকা</span> সুক্কারি খেজুর- এ যেন এক অনন্য
-                                            স্বাদ।</h2>
+                                        <h2 class="elementor-heading-title elementor-size-default">গাছ পাকা মাব্রুমের এ যেন এক অনন্য স্বাদ।</h2>
                                     </div>
                                 </div>
                                 <div class="elementor-element elementor-element-d3aa61c elementor-align-center elementor-mobile-align-center elementor-widget elementor-widget-button"
@@ -574,10 +572,7 @@
                                     data-settings="{&quot;_animation_mobile&quot;:&quot;bounceInRight&quot;}"
                                     data-widget_type="heading.default">
                                     <div class="elementor-widget-container">
-                                        <h3 class="elementor-heading-title elementor-size-default"><b>(<span
-                                                    style="color: #009629;">মাব্রুম</span> গাছ পাকা <span
-                                                    style="color: #009629;">রসালো সুক্কারি খেজুর</span> স্বাদ দ্বিগুন
-                                                করে)</b></h3>
+                                        <h3 class="elementor-heading-title elementor-size-default">গাছ পাকা রসালো মাব্রুম  এর স্বাদ  আপনাকে দিবে দ্বিগুন  তৃপ্তি</h3>
                                     </div>
                                 </div>
                             </div>
