@@ -1375,6 +1375,32 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (session('success'))
+        {
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success...",
+                text: "Your order have been success",
+            });
+        </script>
+        }
+        @endif
+        @if (session('error'))
+        {
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+        </script>
+        }
+    @endif
+
     <script>
         $(document).ready(function() {
             $('input[name="radio_btn"]').on('change', function() {
