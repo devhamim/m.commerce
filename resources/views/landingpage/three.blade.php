@@ -371,32 +371,39 @@
             line-height: 1.6;
         }
     </style>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel='stylesheet' id='custom-google-fonts-css'
         href='http://fonts.googleapis.com/css?family=Hind+Siliguri&amp;ver=3.2.5' media='all' />
     <link rel='stylesheet' id='chaty-front-css-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/chaty/css/chaty-front.min6462.css?ver=3.2.51701069151' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/chaty/css/chaty-front.min6462.css?ver=3.2.51701069151'
+        media='all' />
     <link rel='stylesheet' id='rwitpf-frontend-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/rwit-phone-formatter/assets/css/frontendadc6.css?ver=6.5.5' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/rwit-phone-formatter/assets/css/frontendadc6.css?ver=6.5.5'
+        media='all' />
     <link rel='stylesheet' id='select2-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/select28257.css?ver=9.0.1' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/select28257.css?ver=9.0.1'
+        media='all' />
     <link rel='stylesheet' id='woocommerce-layout-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/woocommerce-layout8257.css?ver=9.0.1' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/woocommerce-layout8257.css?ver=9.0.1'
+        media='all' />
     <link rel='stylesheet' id='woocommerce-smallscreen-css'
         href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen8257.css?ver=9.0.1'
         media='only screen and (max-width: 768px)' />
     <link rel='stylesheet' id='woocommerce-general-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/woocommerce8257.css?ver=9.0.1' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/woocommerce/assets/css/woocommerce8257.css?ver=9.0.1'
+        media='all' />
     <style id='woocommerce-inline-inline-css'>
         .woocommerce form .form-row .required {
             visibility: visible;
         }
     </style>
     <link rel='stylesheet' id='elementor-frontend-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/css/frontend-lite.min4d52.css?ver=3.22.1' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/css/frontend-lite.min4d52.css?ver=3.22.1'
+        media='all' />
     <link rel='stylesheet' id='elementor-post-6-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/post-629d7.css?ver=1719398918' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/post-629d7.css?ver=1719398918'
+        media='all' />
     <link rel='stylesheet' id='elementor-icons-css'
         href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.mine94d.css?ver=5.30.0'
         media='all' />
@@ -404,60 +411,43 @@
         href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min94a4.css?ver=8.4.5'
         media='all' />
     <link rel='stylesheet' id='elementor-pro-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min225e.css?ver=3.19.0' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min225e.css?ver=3.19.0'
+        media='all' />
     <link rel='stylesheet' id='elementor-global-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/globalee36.css?ver=1719399009' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/globalee36.css?ver=1719399009'
+        media='all' />
     <link rel='stylesheet' id='elementor-post-15926-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/post-159263baf.css?ver=1719399537' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/elementor/css/post-159263baf.css?ver=1719399537'
+        media='all' />
     <link rel='stylesheet' id='wcf-normalize-frontend-global-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/cartflows-normalizea7f4.css?ver=2.0.8' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/cartflows-normalizea7f4.css?ver=2.0.8'
+        media='all' />
     <link rel='stylesheet' id='wcf-frontend-global-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/frontenda7f4.css?ver=2.0.8' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/frontenda7f4.css?ver=2.0.8'
+        media='all' />
     <link rel='stylesheet' id='wcf-pro-frontend-global-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows-pro/assets/css/frontend1717.css?ver=2.0.6' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows-pro/assets/css/frontend1717.css?ver=2.0.6'
+        media='all' />
     <link rel='stylesheet' id='wcf-checkout-template-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/checkout-templatea7f4.css?ver=2.0.8' media='all' />
-    <style id='wcf-checkout-template-inline-css'>
-        .wcf-embed-checkout-form .woocommerce #payment #place_order:before {
-            content: "\e902";
-            font-family: "cartflows-icon" !important;
-            margin-right: 10px;
-            font-size: 16px;
-            font-weight: 500;
-            top: 0px;
-            position: relative;
-            opacity: 1;
-            display: block;
-        }
-    </style>
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows/assets/css/checkout-templatea7f4.css?ver=2.0.8'
+        media='all' />
     <link rel='stylesheet' id='wcf-pro-checkout-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows-pro/assets/css/checkout-styles1717.css?ver=2.0.6' media='all' />
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows-pro/assets/css/checkout-styles1717.css?ver=2.0.6'
+        media='all' />
     <link rel='stylesheet' id='wcf-pro-multistep-checkout-css'
         href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/cartflows-pro/assets/css/multistep-checkout1717.css?ver=2.0.6'
         media='all' />
-    <link rel='stylesheet' id='dashicons-css' href='{{ asset('landingpage/mabrummoreom') }}/wp-includes/css/dashicons.minadc6.css?ver=6.5.5'
+    <link rel='stylesheet' id='dashicons-css'
+        href='{{ asset('landingpage/mabrummoreom') }}/wp-includes/css/dashicons.minadc6.css?ver=6.5.5'
         media='all' />
     <link rel='stylesheet' id='google-fonts-1-css'
         href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CHind+Siliguri%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap&amp;ver=6.5.5'
         media='all' />
-    <link rel='stylesheet' id='elementor-icons-shared-0-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3'
-        media='all' />
-    <link rel='stylesheet' id='elementor-icons-fa-solid-css'
-        href='{{ asset('landingpage/mabrummoreom') }}/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min52d5.css?ver=5.15.3'
-        media='all' />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <script src="{{ asset('landingpage/mabrummoreom') }}/wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js"></script>
-    <script src="{{ asset('landingpage/mabrummoreom') }}/wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1" id="jquery-migrate-js"></script>
-
-    <link rel="https://api.w.org/" href="https://haramainstore.net/wp-json/" />
-    <link rel="alternate" type="application/json"
-        href="https://haramainstore.net/wp-json/wp/v2/cartflows_step/15926" />
-    <link rel='shortlink' href='https://haramainstore.net/?p=15926' />
-    <link rel="alternate" type="application/json+oembed"
-        href="https://haramainstore.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fharamainstore.net%2Fstep%2Fsukkari-rotab-tahina%2F" />
-    <link rel="alternate" type="text/xml+oembed"
-        href="https://haramainstore.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fharamainstore.net%2Fstep%2Fsukkari-rotab-tahina%2F&amp;format=xml" />
+    <script src="{{ asset('landingpage/mabrummoreom') }}/wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1"
+        id="jquery-core-js"></script>
+    <script src="{{ asset('landingpage/mabrummoreom') }}/wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1"
+        id="jquery-migrate-js"></script>
     <meta name="facebook-domain-verification" content="y3fpqtq0wiyuma6lkw4kvq79sk0h0j" /> <noscript>
         <style>
             .woocommerce-product-gallery {
@@ -465,11 +455,15 @@
             }
         </style>
     </noscript>
-    <link rel="icon" href="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2023/03/haramain-favicon-100x100.jpg" sizes="32x32" />
-    <link rel="icon" href="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2023/03/haramain-favicon-300x300.jpg" sizes="192x192" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Favicon -->
+    @if($setting->first()->favicon != null)
+        <link rel="shortcut icon" href="{{ asset('uploads/setting') }}/{{ $setting->first()->favicon }}">
+    @endif
 </head>
 
-<body class="cartflows_step-template cartflows_step-template-cartflows-default single single-cartflows_step postid-15926 theme-hello-elementor woocommerce-checkout woocommerce-page woocommerce-no-js cartflows-2.0.8  cartflows-pro-2.0.6 elementor-default elementor-kit-6 elementor-page elementor-page-15926 cartflows-default">
+<body
+    class="cartflows_step-template cartflows_step-template-cartflows-default single single-cartflows_step postid-15926 theme-hello-elementor woocommerce-checkout woocommerce-page woocommerce-no-js cartflows-2.0.8  cartflows-pro-2.0.6 elementor-default elementor-kit-6 elementor-page elementor-page-15926 cartflows-default">
 
 
     <div class="cartflows-container">
@@ -511,7 +505,7 @@
                                             src="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM.jpg"
                                             class="elementor-animation-bounce-in attachment-1536x1536 size-1536x1536 wp-image-15931"
                                             alt=""
-                                            srcset="https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM.jpeg 1500w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-300x300.jpeg 300w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-1024x1024.jpeg 1024w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-150x150.jpeg 150w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-768x768.jpeg 768w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-600x600.jpeg 600w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM-100x100.jpeg 100w"
+                                            srcset="{{ asset('landingpage/images/product/2.jpeg') }} 1500w, {{ asset('landingpage/images/product/2.jpeg') }} 300w, {{ asset('landingpage/images/product/2.jpeg') }} 1024w, {{ asset('landingpage/images/product/2.jpeg') }} 150w, {{ asset('landingpage/images/product/2.jpeg') }} 768w, {{ asset('landingpage/images/product/2.jpeg') }} 600w, {{ asset('landingpage/images/product/2.jpeg') }} 100w"
                                             sizes="(max-width: 1500px) 100vw, 1500px" />
                                     </div>
                                 </div>
@@ -554,7 +548,7 @@
                                                 font-size: 59px
                                             }
                                         </style>
-                                        <h2 class="elementor-heading-title elementor-size-default">তাহিনার সাথে <span
+                                        <h2 class="elementor-heading-title elementor-size-default">মাব্রুমের সাথে <span
                                                 style="color: #f8ff00;">গাছ পাকা</span> সুক্কারি খেজুর- এ যেন এক অনন্য
                                             স্বাদ।</h2>
                                     </div>
@@ -581,7 +575,7 @@
                                     data-widget_type="heading.default">
                                     <div class="elementor-widget-container">
                                         <h3 class="elementor-heading-title elementor-size-default"><b>(<span
-                                                    style="color: #009629;">তাহিনা</span> গাছ পাকা <span
+                                                    style="color: #009629;">মাব্রুম</span> গাছ পাকা <span
                                                     style="color: #009629;">রসালো সুক্কারি খেজুর</span> স্বাদ দ্বিগুন
                                                 করে)</b></h3>
                                     </div>
@@ -608,21 +602,21 @@
                                                 <span class="elementor-icon-list-icon">
                                                     <i aria-hidden="true" class="fas fa-chevron-circle-right"></i>
                                                 </span>
-                                                <span class="elementor-icon-list-text">তাহিনা মধ্যপ্রাচ্য ও পূর্ব
+                                                <span class="elementor-icon-list-text">মাব্রুম মধ্যপ্রাচ্য ও পূর্ব
                                                     ভূমধ্যসাগরীয় অঞ্চলের একটি জনপ্রিয় খাবার।</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
                                                     <i aria-hidden="true" class="fas fa-chevron-circle-right"></i>
                                                 </span>
-                                                <span class="elementor-icon-list-text">ইফতারে তাহিনার সাথে কয়েকটা গাছ
+                                                <span class="elementor-icon-list-text">ইফতারে মাব্রুমের সাথে কয়েকটা গাছ
                                                     পাকা সুক্কারি খেজুর খেলে তাৎক্ষনিক এনার্জি ফিরে আসে।</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
                                                     <i aria-hidden="true" class="fas fa-chevron-circle-right"></i>
                                                 </span>
-                                                <span class="elementor-icon-list-text">পুষ্টিগুণে ভরপুর তাহিনা এবং
+                                                <span class="elementor-icon-list-text">পুষ্টিগুণে ভরপুর মাব্রুম এবং
                                                     খেজুরে রয়েছে ভিটামিন, ক্যালসিয়াম, আয়রণ, ফসফরাস, পটাশিয়াম,
                                                     ম্যাগনেশিয়াম ও জিঙ্ক যা দেহের জন্য খুবই দরকারি</span>
                                             </li>
@@ -674,9 +668,9 @@
                                     data-id="5270f42" data-element_type="widget" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
                                         <img decoding="async" width="800" height="534"
-                                            src="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2024/03/IMG_2026-1024x684.jpg"
+                                            src="{{ asset('landingpage/images/product/1.jpeg') }}"
                                             class="attachment-large size-large wp-image-15940" alt=""
-                                            srcset="https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-1024x684.jpg 1024w, https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-300x200.jpg 300w, https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-768x513.jpg 768w, https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-1536x1026.jpg 1536w, https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-2048x1368.jpg 2048w, https://haramainstore.net/wp-content/uploads/2024/03/IMG_2026-600x401.jpg 600w"
+                                            srcset="{{ asset('landingpage/images/product/1.jpeg') }} 1024w, {{ asset('landingpage/images/product/1.jpeg') }} 300w, {{ asset('landingpage/images/product/1.jpeg') }} 768w, {{ asset('landingpage/images/product/1.jpeg') }} 1536w, {{ asset('landingpage/images/product/1.jpeg') }} 2048w, {{ asset('landingpage/images/product/1.jpeg') }} 600w"
                                             sizes="(max-width: 800px) 100vw, 800px" />
                                     </div>
                                 </div>
@@ -722,10 +716,10 @@
                                     data-id="d117637" data-element_type="widget" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
                                         <img decoding="async" width="768" height="768"
-                                            src="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-768x768.jpg"
+                                            src="{{ asset('landingpage/images/product/3.jpeg') }}"
                                             class="attachment-medium_large size-medium_large wp-image-15956"
                                             alt=""
-                                            srcset="https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-768x768.jpeg 768w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-300x300.jpeg 300w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-1024x1024.jpeg 1024w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-150x150.jpeg 150w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-600x600.jpeg 600w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM-100x100.jpeg 100w, https://haramainstore.net/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-25-at-3.43.07-PM.jpeg 1500w"
+                                            srcset="{{ asset('landingpage/images/product/3.jpeg') }} 768w, {{ asset('landingpage/images/product/3.jpeg') }} 300w, {{ asset('landingpage/images/product/3.jpeg') }} 1024w, {{ asset('landingpage/images/product/3.jpeg') }} 150w, {{ asset('landingpage/images/product/3.jpeg') }} 600w, {{ asset('landingpage/images/product/3.jpeg') }} 100w, {{ asset('landingpage/images/product/3.jpeg') }} 1500w"
                                             sizes="(max-width: 768px) 100vw, 768px" />
                                     </div>
                                 </div>
@@ -748,45 +742,38 @@
                                         <ul class="elementor-icon-list-items">
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
+                                                    <i class="fa-solid fa-check"></i>
                                                 </span>
                                                 <span class="elementor-icon-list-text">নতুন সিজনের গাছ পাকা, ফ্রেশ,
                                                     রসালো খেজুর।</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
+                                                    <i class="fa-solid fa-check"></i>
                                                 </span>
-                                                <span class="elementor-icon-list-text">দেখতে গাঢ় বাদামী বর্ণের ও সাইজে
+                                                <span class="elementor-icon-list-text">দেখতে গাঢ় লাল বর্ণের ও সাইজে
                                                     বেশ বড়।</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
+                                                    <i class="fa-solid fa-check"></i>
                                                 </span>
                                                 <span class="elementor-icon-list-text">শতভাগ কেমিক্যালমুক্ত, বাছাইকৃত ও
                                                     স্বাস্থ্যসম্মত উপায়ে প্যাকেটজাত করা</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
+                                                    <i class="fa-solid fa-check"></i>
                                                 </span>
                                                 <span class="elementor-icon-list-text">এ খেজুর রসালো এবং নরম প্রকৃতির
                                                     হয়ে থাকে</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
+                                                    <i class="fa-solid fa-check"></i>
                                                 </span>
                                                 <span class="elementor-icon-list-text">সম্পূর্ণ প্রাকৃতিক উপায়ে
                                                     সংরক্ষিত</span>
-                                            </li>
-                                            <li class="elementor-icon-list-item">
-                                                <span class="elementor-icon-list-icon">
-                                                    <i aria-hidden="true" class="fas fa-arrow-circle-right"></i>
-                                                </span>
-                                                <span class="elementor-icon-list-text">৩ লিটারের তাহিনার বোতল থেকে 100
-                                                    ml করে প্যাক করে দেয়া হয়।</span>
                                             </li>
                                             <li class="elementor-icon-list-item">
                                                 <span class="elementor-icon-list-icon">
@@ -838,7 +825,8 @@
                                         <h3 style="text-align: center;"><span class="S1PPyQ">প্রয়োজনে☎️-<span
                                                     style="color: #000000;">
                                                     @if ($setting->first()->number_two != null)
-                                                        <a href="tel:{{ $setting->first()->number_two }}">{{ $setting->first()->number_two }}</a>
+                                                        <a
+                                                            href="tel:{{ $setting->first()->number_two }}">{{ $setting->first()->number_two }}</a>
                                                     @endif
                                                 </span> এই নাম্বারে</span></h3>
                                     </div>
@@ -884,28 +872,49 @@
                                                 <div class="woocommerce">
                                                     <div class="woocommerce-notices-wrapper"></div>
                                                     <div class="woocommerce-notices-wrapper"></div>
-                                                    <form method="post" class="checkout woocommerce-checkout" action="{{ route('landing.order.store') }}"  enctype="multipart/form-data">
+                                                    <form method="post" class="checkout woocommerce-checkout"
+                                                        action="{{ route('landing.order.store') }}"
+                                                        enctype="multipart/form-data">
                                                         @csrf
-                                                        <div class="wcf-product-option-wrap wcf-yp-skin-cards wcf-product-option-before-customer">
+                                                        <div
+                                                            class="wcf-product-option-wrap wcf-yp-skin-cards wcf-product-option-before-customer">
                                                             <h3 id="your_products_heading"> Your Products </h3>
                                                             <div class="wcf-qty-options">
                                                                 <div class="wcf-qty-row wcf-qty-row-15972 ">
                                                                     <div class="wcf-item">
-                                                                        <div class="wcf-item-selector wcf-item-single-sel">
-                                                                            <input type="radio" id="product_1" name="radio_btn" data-image="{{ asset('landingpage/images/product/1.jpeg') }}" value="1" data-name="Premium Mabroom Moriom" data-price="1280" checked="checked">
-                                                                            <label class="wcf-item-product-label" for="product_1"></label>
+                                                                        <div
+                                                                            class="wcf-item-selector wcf-item-single-sel">
+                                                                            <input type="radio" id="product_1"
+                                                                                name="radio_btn"
+                                                                                data-image="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                                                                data-name="Premium Mabroom Moriom"
+                                                                                data-price="1280" data-quantity="1"
+                                                                                checked="checked" value="1">
+                                                                            <label class="wcf-item-product-label"
+                                                                                for="product_1"></label>
                                                                         </div>
                                                                         <div class="wcf-item-image">
-                                                                            <img loading="lazy" decoding="async" width="300" height="300" src="https://marhabashopbd.com/uploads/product/EogTH852906.jpg" alt="" />
+                                                                            <img loading="lazy" decoding="async"
+                                                                                width="300" height="300"
+                                                                                src="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                                                                alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
-                                                                            <label class="wcf-item-wrap" for="product_1">
-                                                                                <span class="wcf-display-title">Premium Mabroom Moriom</span>
-                                                                                <span class="wcf-display-title-quantity"><span class="dashicons dashicons-no-alt"></span><span class="wcf-display-quantity">1</span></span>
+                                                                            <label class="wcf-item-wrap"
+                                                                                for="product_1">
+                                                                                <span class="wcf-display-title">Premium
+                                                                                    Mabroom Moriom</span>
+                                                                                <span
+                                                                                    class="wcf-display-title-quantity"><span
+                                                                                        class="dashicons dashicons-no-alt"></span><span
+                                                                                        class="wcf-display-quantity">1</span></span>
                                                                             </label>
                                                                             <div class="wcf-price">
-                                                                                <div class="wcf-display-price wcf-field-label">
-                                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>1,280</span>
+                                                                                <div
+                                                                                    class="wcf-display-price wcf-field-label">
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><span
+                                                                                            class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>1,280</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -913,21 +922,116 @@
                                                                 </div>
                                                                 <div class="wcf-qty-row wcf-qty-row-15972 ">
                                                                     <div class="wcf-item">
-                                                                        <div class="wcf-item-selector wcf-item-single-sel">
-                                                                            <input type="radio" id="product_2"  name="radio_btn" data-image="{{ asset('landingpage/images/product/1.jpeg') }}" value="2" data-name="Premium Mabroom Moriom" data-price="2450">
-                                                                            <label class="wcf-item-product-label" for="product_2"></label>
+                                                                        <div
+                                                                            class="wcf-item-selector wcf-item-single-sel">
+                                                                            <input type="radio" id="product_2"
+                                                                                name="radio_btn"
+                                                                                data-image="{{ asset('landingpage/images/product/2.jpeg') }}"
+                                                                                data-name="Premium Mabroom Moriom"
+                                                                                data-price="2450" data-quantity="2" value="2">
+                                                                            <label class="wcf-item-product-label"
+                                                                                for="product_2"></label>
                                                                         </div>
                                                                         <div class="wcf-item-image">
-                                                                            <img loading="lazy" decoding="async" width="300" height="300" src="https://marhabashopbd.com/uploads/product/EogTH852906.jpg" alt="" />
+                                                                            <img loading="lazy" decoding="async"
+                                                                                width="300" height="300"
+                                                                                src="{{ asset('landingpage/images/product/2.jpeg') }}"
+                                                                                alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
-                                                                            <label class="wcf-item-wrap" for="product_2">
-                                                                                <span class="wcf-display-title">Premium Mabroom Moriom </span>
-                                                                                <span class="wcf-display-title-quantity"><span class="dashicons dashicons-no-alt"></span><span class="wcf-display-quantity">2</span></span>
+                                                                            <label class="wcf-item-wrap"
+                                                                                for="product_2">
+                                                                                <span class="wcf-display-title">Premium
+                                                                                    Mabroom Moriom</span>
+                                                                                <span
+                                                                                    class="wcf-display-title-quantity"><span
+                                                                                        class="dashicons dashicons-no-alt"></span><span
+                                                                                        class="wcf-display-quantity">2</span></span>
                                                                             </label>
                                                                             <div class="wcf-price">
-                                                                                <div class="wcf-display-price wcf-field-label">
-                                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>2,450</span>
+                                                                                <div
+                                                                                    class="wcf-display-price wcf-field-label">
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><span
+                                                                                            class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>2,450</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="wcf-qty-row wcf-qty-row-15972 ">
+                                                                    <div class="wcf-item">
+                                                                        <div
+                                                                            class="wcf-item-selector wcf-item-single-sel">
+                                                                            <input type="radio" id="product_3"
+                                                                                name="radio_btn"
+                                                                                data-image="{{ asset('landingpage/images/product/4.jpeg') }}"
+                                                                                data-name="Premium Mabroom Moriom"
+                                                                                data-price="3450" data-quantity="3" value="3">
+                                                                            <label class="wcf-item-product-label"
+                                                                                for="product_3"></label>
+                                                                        </div>
+                                                                        <div class="wcf-item-image">
+                                                                            <img loading="lazy" decoding="async"
+                                                                                width="300" height="300"
+                                                                                src="{{ asset('landingpage/images/product/4.jpeg') }}"
+                                                                                alt="" />
+                                                                        </div>
+                                                                        <div class="wcf-item-content-options">
+                                                                            <label class="wcf-item-wrap"
+                                                                                for="product_3">
+                                                                                <span class="wcf-display-title">Premium
+                                                                                    Mabroom Moriom</span>
+                                                                                <span
+                                                                                    class="wcf-display-title-quantity"><span
+                                                                                        class="dashicons dashicons-no-alt"></span><span
+                                                                                        class="wcf-display-quantity">3</span></span>
+                                                                            </label>
+                                                                            <div class="wcf-price">
+                                                                                <div
+                                                                                    class="wcf-display-price wcf-field-label">
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><span
+                                                                                            class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>3,450</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="wcf-qty-row wcf-qty-row-15972 ">
+                                                                    <div class="wcf-item">
+                                                                        <div
+                                                                            class="wcf-item-selector wcf-item-single-sel">
+                                                                            <input type="radio" id="product_5"
+                                                                                name="radio_btn"
+                                                                                data-image="{{ asset('landingpage/images/product/3.jpeg') }}"
+                                                                                data-name="Premium Mabroom Moriom"
+                                                                                data-price="5250" data-quantity="5" value="4">
+                                                                            <label class="wcf-item-product-label"
+                                                                                for="product_5"></label>
+                                                                        </div>
+                                                                        <div class="wcf-item-image">
+                                                                            <img loading="lazy" decoding="async"
+                                                                                width="300" height="300"
+                                                                                src="{{ asset('landingpage/images/product/3.jpeg') }}"
+                                                                                alt="" />
+                                                                        </div>
+                                                                        <div class="wcf-item-content-options">
+                                                                            <label class="wcf-item-wrap"
+                                                                                for="product_5">
+                                                                                <span class="wcf-display-title">Premium
+                                                                                    Mabroom Moriom</span>
+                                                                                <span
+                                                                                    class="wcf-display-title-quantity"><span
+                                                                                        class="dashicons dashicons-no-alt"></span><span
+                                                                                        class="wcf-display-quantity">5</span></span>
+                                                                            </label>
+                                                                            <div class="wcf-price">
+                                                                                <div
+                                                                                    class="wcf-display-price wcf-field-label">
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><span
+                                                                                            class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span>5,250</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -960,11 +1064,12 @@
                                                                                     type="text" class="input-text "
                                                                                     name="name"
                                                                                     id="billing_first_name"
-                                                                                    placeholder="" value=""
+                                                                                    placeholder="Full Name" required value="{{ old('name') }}"
                                                                                     autocomplete="given-name" /></span>
                                                                         </p>
                                                                         @error('name')
-                                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                                            <strong
+                                                                                class="text-danger">{{ $message }}</strong>
                                                                         @enderror
                                                                         <p class="form-row form-row-wide wcf-column-100 validate-required validate-phone"
                                                                             id="billing_phone_field"
@@ -975,12 +1080,12 @@
                                                                                     title="required">*</abbr></label><span
                                                                                 class="woocommerce-input-wrapper"><input
                                                                                     type="tel" class="input-text "
-                                                                                    name="mobile"
-                                                                                    id="billing_phone" placeholder=""
-                                                                                    value=""
+                                                                                    name="mobile" id="billing_phone"
+                                                                                    placeholder="Number" value="{{ old('mobile') }}" required
                                                                                     autocomplete="tel" /></span></p>
                                                                         @error('mobile')
-                                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                                            <strong
+                                                                                class="text-danger">{{ $message }}</strong>
                                                                         @enderror
                                                                         @error('mobile')
                                                                             <script>
@@ -999,14 +1104,78 @@
                                                                                     class="required"
                                                                                     title="required">*</abbr></label><span
                                                                                 class="woocommerce-input-wrapper">
-                                                                                <select name="district" class="form-control" id="district" required>
-                                                                                    <option value="Dhaka">Dhaka (50৳)</option>
-                                                                                    <option value="Outside Dhaka">Outside Dhaka (100৳)</option>
+                                                                                <select name="district" id="district" class="form-control" required>
+                                                                                    <option value="">-- Select --</option>
+                                                                                    <option value="dhaka">Dhaka</option>
+                                                                                    <option value="faridpur">Faridpur</option>
+                                                                                    <option value="gazipur">Gazipur</option>
+                                                                                    <option value="gopalganj">Gopalganj</option>
+                                                                                    <option value="jamalpur">Jamalpur</option>
+                                                                                    <option value="kishoreganj ">Kishoreganj </option>
+                                                                                    <option value="madaripur">Madaripur</option>
+                                                                                    <option value="manikganj">Manikganj</option>
+                                                                                    <option value="munshiganj">Munshiganj</option>
+                                                                                    <option value="mymensingh">Mymensingh</option>
+                                                                                    <option value="narayanganj">Narayanganj</option>
+                                                                                    <option value="Norshingdi">Norshingdi</option>
+                                                                                    <option value="Netrokona">Netrokona</option>
+                                                                                    <option value="Rajbari">Rajbari</option>
+                                                                                    <option value="Shariatpur">Shariatpur</option>
+                                                                                    <option value="Sherpur">Sherpur</option>
+                                                                                    <option value="Tangail">Tangail</option>
+                                                                                    <option value="Bagerhat">Bagerhat</option>
+                                                                                    <option value="Chuadanga">Chuadanga</option>
+                                                                                    <option value="Jessore">Jessore</option>
+                                                                                    <option value="Jhenaidah">Jhenaidah</option>
+                                                                                    <option value="Khulna">Khulna</option>
+                                                                                    <option value="Kushtia">Kushtia</option>
+                                                                                    <option value="Magura">Magura</option>
+                                                                                    <option value="Meherpur">Meherpur</option>
+                                                                                    <option value="Narail">Narail</option>
+                                                                                    <option value="Satkhira">Satkhira</option>
+                                                                                    <option value="Bogra">Bogra</option>
+                                                                                    <option value="Chapai-Nawabganj">Chapai Nawabganj</option>
+                                                                                    <option value="Joypurhat">Joypurhat</option>
+                                                                                    <option value="Naogaon">Naogaon</option>
+                                                                                    <option value="Natore">Natore</option>
+                                                                                    <option value="Pabna">Pabna</option>
+                                                                                    <option value="Rajshahi">Rajshahi</option>
+                                                                                    <option value="Sirajganj">Sirajganj </option>
+                                                                                    <option value="Habiganj">Habiganj</option>
+                                                                                    <option value="Moulvibazar">Moulvibazar</option>
+                                                                                    <option value="Sunamganj">Sunamganj </option>
+                                                                                    <option value="Sylhet">Sylhet </option>
+                                                                                    <option value="Barguna">Barguna </option>
+                                                                                    <option value="Barisal">Barisal</option>
+                                                                                    <option value="Bhola">Bhola</option>
+                                                                                    <option value="Jhalokathi">Jhalokathi</option>
+                                                                                    <option value="Patuakhali">Patuakhali</option>
+                                                                                    <option value="Perojpur">Perojpur</option>
+                                                                                    <option value="Bandarban">Bandarban</option>
+                                                                                    <option value="Brahmanbaria">Brahmanbaria</option>
+                                                                                    <option value="Chandpur">Chandpur</option>
+                                                                                    <option value="Chittagong">Chittagong</option>
+                                                                                    <option value="comilla">Comilla</option>
+                                                                                    <option value="coxs-bazar">Cox's Bazar</option>
+                                                                                    <option value="Feni">Feni</option>
+                                                                                    <option value="Khagrachari">Khagrachari</option>
+                                                                                    <option value="Laksmipur">Laksmipur</option>
+                                                                                    <option value="Noakhali">Noakhali</option>
+                                                                                    <option value="Rangamati">Rangamati</option>
+                                                                                    <option value="Dinajpur">Dinajpur</option>
+                                                                                    <option value="Gaibandha">Gaibandha</option>
+                                                                                    <option value="Kurigram">Kurigram</option>
+                                                                                    <option value="Lalmonirhat">Lalmonirhat</option>
+                                                                                    <option value="Nilphamari">Nilphamari</option>
+                                                                                    <option value="Panchagarh">Panchagarh</option>
+                                                                                    <option value="Rangpur">Rangpur</option>
+                                                                                    <option value="Thakurgaon">Thakurgaon</option>
                                                                                 </select>
-                                                                                </span>
+                                                                            </span>
                                                                         </p>
                                                                         @error('district')
-                                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                                            <strong
+                                                                                class="text-danger">{{ $message }}</strong>
                                                                         @enderror
                                                                         <p class="form-row form-row-wide address-field wcf-column-100 validate-required"
                                                                             id="billing_address_1_field"
@@ -1020,11 +1189,12 @@
                                                                                     name="address"
                                                                                     id="billing_address_1"
                                                                                     placeholder="House number and street name"
-                                                                                    value=""
+                                                                                    value="{{ old('address') }}" required
                                                                                     autocomplete="address-line1" /></span>
                                                                         </p>
                                                                         @error('address')
-                                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                                            <strong
+                                                                                class="text-danger">{{ $message }}</strong>
                                                                         @enderror
                                                                         <p class="form-row form-row-wide address-field update_totals_on_change wcf-column-100 validate-required"
                                                                             id="billing_country_field"
@@ -1050,10 +1220,12 @@
 
                                                         <div class="row pt-3">
                                                             <div class="col-md-12">
-                                                                <h3 id="billing_fields_heading" style="font-size: 20px">Your order</h3>
+                                                                <h3 id="billing_fields_heading"
+                                                                    style="font-size: 20px">Your order</h3>
                                                                 <!-- Order Review Table -->
                                                                 <div class="table-responsive pt-5">
-                                                                    <table class="table table-bordered woocommerce-checkout-review-order-table">
+                                                                    <table
+                                                                        class="table table-bordered woocommerce-checkout-review-order-table">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th class="product-name">Product</th>
@@ -1065,21 +1237,27 @@
                                                                             <tr class="cart_item">
                                                                                 <td class="product-name">
                                                                                     <div class="wcf-product-image">
-                                                                                        <div class="wcf-product-thumbnail">
-                                                                                            <img width="80" height="80"
-                                                                                                src="https://marhabashopbd.com/uploads/product/EogTH852906.jpg"
+                                                                                        <div
+                                                                                            class="wcf-product-thumbnail">
+                                                                                            <img width="80"
+                                                                                                height="80"
+                                                                                                src="{{ asset('landingpage/images/product/1.jpeg') }}"
                                                                                                 alt="">
-                                                                                            <a href="#" rel="nofollow"
+                                                                                            <a href="#"
+                                                                                                rel="nofollow"
                                                                                                 class="wcf-remove-product cartflows-icon cartflows-circle-cross"
                                                                                                 data-id="138"
                                                                                                 data-item-key="013d407166ec4fa56eb1e1f8cbe183b9"></a>
                                                                                         </div>
-                                                                                        <div class="wcf-product-name">Premium Mabroom Moriom</div>
+                                                                                        <div class="wcf-product-name">
+                                                                                            Premium Mabroom Moriom</div>
                                                                                     </div>
-                                                                                    <strong class="product-quantity"></strong>
+                                                                                    <strong
+                                                                                        class="product-quantity"></strong>
                                                                                 </td>
                                                                                 <td class="product-total">
-                                                                                    <span class="woocommerce-Price-amount amount"><bdi>1280.00<span
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><bdi>1280.00<span
                                                                                                 class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span>
                                                                                 </td>
                                                                             </tr>
@@ -1089,18 +1267,22 @@
                                                                             <tr class="cart-subtotal">
                                                                                 <th>Subtotal</th>
                                                                                 <td>
-                                                                                    <input type="hidden" name="sub_total"
-                                                                                        value="65,500.00" id="">
-                                                                                    <span class="woocommerce-Price-amount amount"><bdi>1280.00<span
+                                                                                    <input type="hidden"
+                                                                                        name="sub_total"
+                                                                                        value="65,500.00"
+                                                                                        id="">
+                                                                                    <span
+                                                                                        class="woocommerce-Price-amount amount"><bdi>1280.00<span
                                                                                                 class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span>
                                                                                 </td>
                                                                             </tr>
-                    
+
                                                                             <!-- Order Total -->
                                                                             <tr class="order-total">
                                                                                 <th>Total</th>
                                                                                 <td>
-                                                                                    <input type="hidden" name="total"
+                                                                                    <input type="hidden"
+                                                                                        name="total"
                                                                                         value="1280.00">
                                                                                     <strong><span
                                                                                             class="woocommerce-Price-amount amount"><bdi>1280.00<span
@@ -1111,8 +1293,42 @@
                                                                         </tfoot>
                                                                     </table>
                                                                 </div>
-                                                                <div class="my-3">
-                                                                    <button type="submit" class="btn btn-info">Submit</button>
+                                                                <div id="payment"
+                                                                    class="woocommerce-checkout-payment">
+                                                                    <ul
+                                                                        class="wc_payment_methods payment_methods methods">
+                                                                        <li
+                                                                            class="woocommerce-notice woocommerce-notice--info">
+                                                                            <span
+                                                                                class="woocommerce-no-available-payment-methods-message e-description">Please
+                                                                                fill in your details above to see
+                                                                                available payment methods.</span></li>
+                                                                    </ul>
+                                                                    <div class="form-row place-order">
+                                                                        <noscript>
+                                                                            Since your browser does not support
+                                                                            JavaScript, or it is disabled, please ensure
+                                                                            you click the <em>Update Totals</em> button
+                                                                            before placing your order. You may be
+                                                                            charged more than the amount stated above if
+                                                                            you fail to do so. <br /><button
+                                                                                type="submit" class="button alt"
+                                                                                name="woocommerce_checkout_update_totals"
+                                                                                value="Update totals">Update
+                                                                                totals</button>
+                                                                        </noscript>
+
+                                                                        <div
+                                                                            class="woocommerce-terms-and-conditions-wrapper">
+                                                                            <div
+                                                                                class="woocommerce-privacy-policy-text">
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <button type="submit" class="button alt"id="place_order"data-value="Place Order">Place
+                                                                            Order</button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1154,59 +1370,58 @@
         </div>
     </div>
 
-    {{-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <script>
         $(document).ready(function() {
             $('input[name="radio_btn"]').on('change', function() {
-                var productName = $(this).closest('tr').find('input[name="name"]').val();
-                var quantity = $(this).closest('tr').find('input[name="quantity"]').val();
-                var price = $(this).closest('tr').find('input[name="price"]').val();
-                var imageUrl = $(this).closest('tr').find('input[name="image"]').val();
-                updateOrderSection(productName, quantity, price, imageUrl);
-            });
-
-            function updateOrderSection(productName, quantity, price, imageUrl) {
-            $('.woocommerce-checkout-review-order-table tbody').html(`
-                <tr class="cart_item">
-                    <td class="product-name">
-                        <div class="wcf-product-image">
-                            <div class="wcf-product-thumbnail">
-                                <img width="80" height="80" src="${imageUrl}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
-                            </div>
-                            <div class="wcf-product-name">${productName} x <strong class="product-quantity">${quantity}</strong></div>
-                        </div>
-                    </td>
-                    <td class="product-total">
-                        <span class="woocommerce-Price-amount amount"><bdi>${price}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span>
-                    </td>
-                </tr>
-            `);
-
-            $('input[name="sub_total"]').val(price);
-            updateTotal();
-        }
-
-        function updateTotal() {
-                var subTotal = parseInt($('input[name="sub_total"]').val());
-                var total = subTotal;
-
-                $('input[name="total"]').val(total);
-                $('.cart-subtotal .woocommerce-Price-amount').html(`<bdi>${subTotal}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi>`);
-                $('.order-total .woocommerce-Price-amount').html(`<bdi>${total}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi>`);
-            }
-
-            // Event handler for radio button change
-            $('input[name="radio_btn"]').on('change', function() {
-                var productName = $(this).data('product-name');
+                var productName = $(this).data('name');
                 var quantity = $(this).data('quantity');
                 var price = $(this).data('price');
                 var imageUrl = $(this).data('image');
                 updateOrderSection(productName, quantity, price, imageUrl);
             });
+
+            function updateOrderSection(productName, quantity, price, imageUrl) {
+                $('.woocommerce-checkout-review-order-table tbody').html(`
+                    <tr class="cart_item">
+                        <td class="product-name">
+                            <div class="wcf-product-image">
+                                <div class="wcf-product-thumbnail">
+                                    <img width="80" height="80" src="${imageUrl}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                </div>
+                                <div class="wcf-product-name">${productName} x <strong class="product-quantity">${quantity}</strong></div>
+                            </div>
+                        </td>
+                        <td class="product-total">
+                            <span class="woocommerce-Price-amount amount"><bdi>${price}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span>
+                        </td>
+                    </tr>
+                `);
+
+                $('input[name="sub_total"]').val(price);
+                updateTotal();
+            }
+
+            function updateTotal() {
+                var subTotal = parseInt($('input[name="sub_total"]').val());
+                var total = subTotal;
+
+                $('input[name="total"]').val(total);
+                $('.cart-subtotal .woocommerce-Price-amount').html(
+                    `<bdi>${subTotal}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi>`);
+                $('.order-total .woocommerce-Price-amount').html(
+                    `<bdi>${total}<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi>`);
+            }
+
+            // Trigger change event on page load to update initial selection
+            $('input[name="radio_btn"]:checked').trigger('change');
         });
     </script>
-    
+
 </body>
+
 </html>

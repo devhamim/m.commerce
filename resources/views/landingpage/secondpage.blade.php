@@ -519,8 +519,7 @@
                                                         <tr class="order-total">
                                                             <th>Total</th>
                                                             <td>
-                                                                <input type="hidden" name="total"
-                                                                    value="1280.00">
+                                                                <input type="hidden" name="total" value="1280.00">
                                                                 <strong><span
                                                                         class="woocommerce-Price-amount amount"><bdi>1280.00<span
                                                                                 class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span></strong>
@@ -541,8 +540,6 @@
                                                 <ul class="wc_payment_methods payment_methods methods">
                                                     <!-- Cash on Delivery (COD) Method -->
                                                     <li class="wc_payment_method payment_method_bacs">
-                                                        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked" data-order_button_text="" style="display: none;">
-
                                                         <label for="payment_method_bacs">
                                                             Cash on delivery </label>
                                                                 <div class="payment_box payment_method_bacs">

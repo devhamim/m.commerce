@@ -108,6 +108,8 @@
                                                         <img width="100" src="{{ asset('uploads/product') }}/{{ $OrderProduct->rel_to_attribute->image }}" alt="Image" />
                                                     @elseif ($OrderProduct->rel_to_pro)
                                                         <img width="100" src="{{ asset('uploads/product') }}/{{ $OrderProduct->rel_to_pro->image }}" alt="Image" />
+                                                    @else
+                                                        <img width="100" src="{{ asset('landingpage/images/product/3.jpeg') }}" alt="">
                                                     @endif
                                                 @endif
                                             @endforeach

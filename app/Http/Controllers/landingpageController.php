@@ -30,11 +30,12 @@ class landingpageController extends Controller
                 'name' => 'required',
                 'mobile' => 'required|min:11|max:11',
                 'address' => 'required',
+                'district' => 'required',
             ]);
             if($request->district == 'Dhaka'){
                 $delivery_charge = 50;
             }
-            if($request->district == 'Outside Dhaka'){
+            else{
                 $delivery_charge = 100;
             }
 
