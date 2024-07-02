@@ -513,10 +513,10 @@
                                             }
                                         </style> <img fetchpriority="high" decoding="async" width="1500"
                                             height="1500"
-                                            src="{{ asset('landingpage/mabrummoreom') }}/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-22-at-12.37.36-PM.jpg"
+                                            src="{{ asset('landingpage/mabrummoreom/image/1.jpeg') }}"
                                             class="elementor-animation-bounce-in attachment-1536x1536 size-1536x1536 wp-image-15931"
                                             alt=""
-                                            srcset="{{ asset('landingpage/images/product/2.jpeg') }} 1500w, {{ asset('landingpage/images/product/2.jpeg') }} 300w, {{ asset('landingpage/images/product/2.jpeg') }} 1024w, {{ asset('landingpage/images/product/2.jpeg') }} 150w, {{ asset('landingpage/images/product/2.jpeg') }} 768w, {{ asset('landingpage/images/product/2.jpeg') }} 600w, {{ asset('landingpage/images/product/2.jpeg') }} 100w"
+                                            srcset="{{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 1500w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 300w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 1024w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 150w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 768w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 600w, {{ asset('landingpage/mabrummoreom/image/1.jpeg') }} 100w"
                                             sizes="(max-width: 1500px) 100vw, 1500px" />
                                     </div>
                                 </div>
@@ -674,9 +674,9 @@
                                     data-id="5270f42" data-element_type="widget" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
                                         <img decoding="async" width="800" height="534"
-                                            src="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                            src="{{ asset('landingpage/mabrummoreom/image/2.jpeg') }}"
                                             class="attachment-large size-large wp-image-15940" alt=""
-                                            srcset="{{ asset('landingpage/images/product/1.jpeg') }} 1024w, {{ asset('landingpage/images/product/1.jpeg') }} 300w, {{ asset('landingpage/images/product/1.jpeg') }} 768w, {{ asset('landingpage/images/product/1.jpeg') }} 1536w, {{ asset('landingpage/images/product/1.jpeg') }} 2048w, {{ asset('landingpage/images/product/1.jpeg') }} 600w"
+                                            srcset="{{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 1024w, {{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 300w, {{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 768w, {{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 1536w, {{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 2048w, {{ asset('landingpage/mabrummoreom/image/2.jpeg') }} 600w"
                                             sizes="(max-width: 800px) 100vw, 800px" />
                                     </div>
                                 </div>
@@ -722,10 +722,10 @@
                                     data-id="d117637" data-element_type="widget" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
                                         <img decoding="async" width="768" height="768"
-                                            src="{{ asset('landingpage/images/product/3.jpeg') }}"
+                                            src="{{ asset('landingpage/mabrummoreom/image/3.jpeg') }}"
                                             class="attachment-medium_large size-medium_large wp-image-15956"
                                             alt=""
-                                            srcset="{{ asset('landingpage/images/product/3.jpeg') }} 768w, {{ asset('landingpage/images/product/3.jpeg') }} 300w, {{ asset('landingpage/images/product/3.jpeg') }} 1024w, {{ asset('landingpage/images/product/3.jpeg') }} 150w, {{ asset('landingpage/images/product/3.jpeg') }} 600w, {{ asset('landingpage/images/product/3.jpeg') }} 100w, {{ asset('landingpage/images/product/3.jpeg') }} 1500w"
+                                            srcset="{{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 768w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 300w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 1024w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 150w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 600w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 100w, {{ asset('landingpage/mabrummoreom/image/3.jpeg') }} 1500w"
                                             sizes="(max-width: 768px) 100vw, 768px" />
                                     </div>
                                 </div>
@@ -892,7 +892,7 @@
                                                                             class="wcf-item-selector wcf-item-single-sel">
                                                                             <input type="radio" id="product_1"
                                                                                 name="radio_btn"
-                                                                                data-image="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                                                                data-image="{{ asset('landingpage/mabrummoreom/image/1.jpeg') }}"
                                                                                 data-name="Premium Mabroom Moriom"
                                                                                 data-price="1280" data-quantity="1"
                                                                                 checked="checked" value="1">
@@ -902,7 +902,7 @@
                                                                         <div class="wcf-item-image">
                                                                             <img loading="lazy" decoding="async"
                                                                                 width="300" height="300"
-                                                                                src="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                                                                src="{{ asset('landingpage/mabrummoreom/image/1.jpeg') }}"
                                                                                 alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
@@ -932,7 +932,7 @@
                                                                             class="wcf-item-selector wcf-item-single-sel">
                                                                             <input type="radio" id="product_2"
                                                                                 name="radio_btn"
-                                                                                data-image="{{ asset('landingpage/images/product/2.jpeg') }}"
+                                                                                data-image="{{ asset('landingpage/mabrummoreom/image/2.jpeg') }}"
                                                                                 data-name="Premium Mabroom Moriom"
                                                                                 data-price="2450" data-quantity="2" value="2">
                                                                             <label class="wcf-item-product-label"
@@ -941,7 +941,7 @@
                                                                         <div class="wcf-item-image">
                                                                             <img loading="lazy" decoding="async"
                                                                                 width="300" height="300"
-                                                                                src="{{ asset('landingpage/images/product/2.jpeg') }}"
+                                                                                src="{{ asset('landingpage/mabrummoreom/image/2.jpeg') }}"
                                                                                 alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
@@ -971,7 +971,7 @@
                                                                             class="wcf-item-selector wcf-item-single-sel">
                                                                             <input type="radio" id="product_3"
                                                                                 name="radio_btn"
-                                                                                data-image="{{ asset('landingpage/images/product/4.jpeg') }}"
+                                                                                data-image="{{ asset('landingpage/mabrummoreom/image/3.jpeg') }}"
                                                                                 data-name="Premium Mabroom Moriom"
                                                                                 data-price="3450" data-quantity="3" value="3">
                                                                             <label class="wcf-item-product-label"
@@ -980,7 +980,7 @@
                                                                         <div class="wcf-item-image">
                                                                             <img loading="lazy" decoding="async"
                                                                                 width="300" height="300"
-                                                                                src="{{ asset('landingpage/images/product/4.jpeg') }}"
+                                                                                src="{{ asset('landingpage/mabrummoreom/image/3.jpeg') }}"
                                                                                 alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
@@ -1010,7 +1010,7 @@
                                                                             class="wcf-item-selector wcf-item-single-sel">
                                                                             <input type="radio" id="product_5"
                                                                                 name="radio_btn"
-                                                                                data-image="{{ asset('landingpage/images/product/3.jpeg') }}"
+                                                                                data-image="{{ asset('landingpage/mabrummoreom/image/4.jpeg') }}"
                                                                                 data-name="Premium Mabroom Moriom"
                                                                                 data-price="5250" data-quantity="5" value="4">
                                                                             <label class="wcf-item-product-label"
@@ -1019,7 +1019,7 @@
                                                                         <div class="wcf-item-image">
                                                                             <img loading="lazy" decoding="async"
                                                                                 width="300" height="300"
-                                                                                src="{{ asset('landingpage/images/product/3.jpeg') }}"
+                                                                                src="{{ asset('landingpage/mabrummoreom/image/4.jpeg') }}"
                                                                                 alt="" />
                                                                         </div>
                                                                         <div class="wcf-item-content-options">
@@ -1247,7 +1247,7 @@
                                                                                             class="wcf-product-thumbnail">
                                                                                             <img width="80"
                                                                                                 height="80"
-                                                                                                src="{{ asset('landingpage/images/product/1.jpeg') }}"
+                                                                                                src="{{ asset('landingpage/mabrummoreom/image/1.jpeg') }}"
                                                                                                 alt="">
                                                                                             <a href="#"
                                                                                                 rel="nofollow"
