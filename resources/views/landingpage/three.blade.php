@@ -460,6 +460,17 @@
     @if($setting->first()->favicon != null)
         <link rel="shortcut icon" href="{{ asset('uploads/setting') }}/{{ $setting->first()->favicon }}">
     @endif
+    <!-- Meta Pixel Code -->
+    @if ($setting->first()->fb_pixel != null)
+        {!! $setting->first()->fb_pixel !!}
+    @endif
+    {{-- <!-- End Meta Pixel Code --> --}}
+
+    <!-- googletag Code -->
+    @if ($setting->first()->google_tag != null)
+        {!! $setting->first()->google_tag !!}
+    @endif
+    <!-- End googletag Code -->
 </head>
 
 <body
